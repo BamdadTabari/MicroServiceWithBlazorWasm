@@ -1,38 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Operations;
 
-namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
+public class OperationResult
 {
-    public class OperationResult
+    public readonly bool IsPersistable;
+    public readonly Dictionary<string, string> OperationValues;
+    public readonly OperationResultStatus Status;
+    public readonly object Value;
+
+    public OperationResult(OperationResultStatus status, object value,
+        bool isPersistable = false, Dictionary<string, string> operationValues = null)
     {
-        public readonly OperationResultStatus Status;
-        public readonly bool IsPersistable;
-        public readonly object Value;
-        public readonly Dictionary<string, string> OperationValues;
+        Status = status;
+        Value = value;
+        IsPersistable = isPersistable;
+        OperationValues = operationValues;
+    }
 
-        public OperationResult(OperationResultStatus status, object value,
-            bool isPersistable = false, Dictionary<string, string> operationValues = null)
-        {
-            Status = status;
-            Value = value;
-            IsPersistable = isPersistable;
-            OperationValues = operationValues;
-        }
+    public OperationResult(OperationResult operation, bool succeeded)
+    {
+        Status = succeeded ? OperationResultStatus.Ok : OperationResultStatus.Unprocessable;
+        IsPersistable = operation.IsPersistable;
+        Value = operation.Value;
+        OperationValues = operation.OperationValues;
+    }
 
-        public OperationResult(OperationResult operation, bool succeeded)
-        {
-            Status = succeeded ? OperationResultStatus.Ok : OperationResultStatus.Unprocessable;
-            IsPersistable = operation.IsPersistable;
-            Value = operation.Value;
-            OperationValues = operation.OperationValues;
-        }
+    public bool Succeeded => IsSucceeded(Status);
 
-        public bool Succeeded => IsSucceeded(Status);
-
-        private bool IsSucceeded(OperationResultStatus status) => status switch
+    private bool IsSucceeded(OperationResultStatus status)
+    {
+        return status switch
         {
             _ when
                 status == OperationResultStatus.Ok => true,

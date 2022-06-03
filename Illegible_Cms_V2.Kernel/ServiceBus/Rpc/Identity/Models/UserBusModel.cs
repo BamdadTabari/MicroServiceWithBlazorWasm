@@ -1,11 +1,10 @@
-﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity.Models
+﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity.Models;
+
+public class UserBusModel
 {
-    public class UserBusModel
-    {
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-    }
+    public int Id { get; set; }
+    public string Username { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public string Email { get; set; }
 }

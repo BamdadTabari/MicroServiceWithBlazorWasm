@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Shared.BasicShared.Constants
+﻿namespace Illegible_Cms_V2.Shared.BasicShared.Constants;
+
+public enum Language
 {
-    public enum Language
-    {
-        English = 1,
-        Dutch = 2
-    }
+    English = 1,
+    Dutch = 2
 }

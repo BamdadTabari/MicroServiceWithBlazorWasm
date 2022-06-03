@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models
+﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models;
+
+public enum PartialUpdateOperand : byte
 {
-    public enum PartialUpdateOperand : byte
-    {
-        Remove = 1,
-        Replace
-    }
+    Remove = 1,
+    Replace
 }

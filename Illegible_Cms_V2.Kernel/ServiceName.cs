@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Kernel
+﻿namespace Illegible_Cms_V2.Kernel;
+
+public enum ServiceName
 {
-    public enum ServiceName
-    {
-        None = 0,
-        Identity
-    }
+    None = 0,
+    Identity
 }

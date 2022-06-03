@@ -1,6 +1,5 @@
-﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc
+﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc;
+
+public class BusRequest
 {
-    public class BusRequest
-    {
-    }
 }

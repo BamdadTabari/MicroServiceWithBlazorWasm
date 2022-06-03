@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models
+﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models;
+
+public class RequestInfo
 {
-    public class RequestInfo
-    {
-        public int UserId { get; set; }
-        public string IpAddress { get; set; }
-    }
+    public int UserId { get; set; }
+    public string IpAddress { get; set; }
 }

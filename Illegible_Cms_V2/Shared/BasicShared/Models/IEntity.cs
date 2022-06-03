@@ -1,6 +1,5 @@
-﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models
+﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models;
+
+public interface IEntity
 {
-    public interface IEntity
-    {
-    }
 }

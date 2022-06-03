@@ -1,7 +1,6 @@
-﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models
+﻿namespace Illegible_Cms_V2.Shared.BasicShared.Models;
+
+public interface IRequestInfo
 {
-    public interface IRequestInfo
-    {
-        RequestInfo RequestInfo { get; }
-    }
+    RequestInfo RequestInfo { get; }
 }
