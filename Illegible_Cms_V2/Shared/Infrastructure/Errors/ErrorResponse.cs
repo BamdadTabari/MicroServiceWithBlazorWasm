@@ -6,6 +6,7 @@ public class ErrorResponse
 {
     private const string EnglishLanguage = "en";
     private const string DutchLanguage = "nl";
+    private const string PersianLanguage = "fa";
 
     public ErrorResponse(ErrorModel error, string language = null)
     {
@@ -15,6 +16,7 @@ public class ErrorResponse
         {
             EnglishLanguage => error.Messages[Language.English],
             DutchLanguage => error.Messages[Language.Dutch],
+            PersianLanguage => error.Messages[Language.Persian],
             _ => error.Messages[Language.English]
         };
     }

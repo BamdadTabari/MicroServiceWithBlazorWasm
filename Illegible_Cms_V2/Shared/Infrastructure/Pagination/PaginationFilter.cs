@@ -5,9 +5,9 @@ public class PaginationFilter
     private const int MinPageNumber = 1;
     private const int MaxPageSize = 200;
 
-    protected PaginationFilter(int page, int pageSize)
+    protected PaginationFilter(int pageNumber, int pageSize)
     {
-        Page = page > 0 ? page : MinPageNumber;
+        PageNumber = pageNumber > 0 ? pageNumber : MinPageNumber;
         PageSize = pageSize > 0 && pageSize <= MaxPageSize ? pageSize : MaxPageSize;
     }
 
@@ -15,6 +15,6 @@ public class PaginationFilter
     {
     }
 
-    public int Page { get; }
+    public int PageNumber { get; }
     public int PageSize { get; }
 }

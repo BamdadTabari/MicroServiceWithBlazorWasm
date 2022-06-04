@@ -9,23 +9,23 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
     public class OperationResult
     {
         public readonly OperationResultStatus Status;
-        public readonly bool IsPersistable;
+        public readonly bool IsPersistAble;
         public readonly object Value;
         public readonly Dictionary<string, string> OperationValues;
 
-        public OperationResult(OperationResultStatus status, object value,
-            bool isPersistable = false, Dictionary<string, string> operationValues = null)
+        public OperationResult(OperationResultStatus status, object value, Dictionary<string, string> operationValues,
+            bool isPersistAble = false)
         {
             Status = status;
             Value = value;
-            IsPersistable = isPersistable;
+            IsPersistAble = isPersistAble;
             OperationValues = operationValues;
         }
 
         public OperationResult(OperationResult operation, bool succeeded)
         {
             Status = succeeded ? OperationResultStatus.Ok : OperationResultStatus.UnProcessable;
-            IsPersistable = operation.IsPersistable;
+            IsPersistAble = operation.IsPersistAble;
             Value = operation.Value;
             OperationValues = operation.OperationValues;
         }
@@ -34,10 +34,10 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
 
         private bool IsSucceeded(OperationResultStatus status) => status switch
         {
-            _ when
+            _ when 
                 status == OperationResultStatus.Ok => true,
             _ when
-                status == OperationResultStatus.Invalidated ||
+                status == OperationResultStatus.Invalidated || 
                 status == OperationResultStatus.NotFound ||
                 status == OperationResultStatus.Unauthorized ||
                 status == OperationResultStatus.UnProcessable => false,
