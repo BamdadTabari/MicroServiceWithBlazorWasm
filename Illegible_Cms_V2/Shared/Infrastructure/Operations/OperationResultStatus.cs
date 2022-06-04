@@ -12,6 +12,6 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
         Invalidated,
         NotFound,
         Unauthorized,
-        Unprocessable
+        UnProcessable
     }
 }

@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Infrastructure\Operations\OperationResultStatus.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.0.2" />
     <PackageReference Include="Hashids.net" Version="1.6.1" />
     <PackageReference Include="MassTransit" Version="8.0.2" />
@@ -25,9 +21,5 @@
 
   <ItemGroup>
     <SupportedPlatform Include="browser" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Infrastructure\Operations\OperationResultStatus.cs" />
   </ItemGroup>
 </Project>

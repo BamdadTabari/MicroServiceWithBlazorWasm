@@ -1,8 +1,10 @@
-﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Errors;
+﻿using Illegible_Cms_V2.Shared.BasicShared.Constants;
+
+namespace Illegible_Cms_V2.Shared.Infrastructure.Errors;
 
 public struct ErrorModel
 {
-    public ErrorModel(int code, string title, params (Language Language, string Message)[] messages)
+    public ErrorModel(int code, string title, params (BasicShared.Constants.Language Language, string Message)[] messages)
     {
         Code = code;
         Title = title;

@@ -1,4 +1,6 @@
-﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Errors;
+﻿using Illegible_Cms_V2.Shared.BasicShared.Constants;
+
+namespace Illegible_Cms_V2.Shared.Infrastructure.Errors;
 
 public class ErrorResponse
 {
