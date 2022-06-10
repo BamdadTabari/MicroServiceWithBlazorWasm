@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Api\Controllers\" />
+    <Folder Include="Api\Extensions\" />
+    <Folder Include="Api\Models\" />
+    <Folder Include="Api\ResultFilters\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
