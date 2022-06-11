@@ -1,5 +1,5 @@
-﻿using Illegible_Cms_V2.Shared.BasicShared.Models;
-using StackExchange.Redis;
+﻿using Illegible_Cms_V2.Identity.Domain.Roles;
+using Illegible_Cms_V2.Shared.BasicShared.Models;
 
 namespace Illegible_Cms_V2.Identity.Domain.Users
 {
@@ -20,7 +20,7 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
         #region Navigations
 
         public User User { get; set; }
-        //public Role Role { get; set; }
+        public Role Role { get; set; }
         public User Creator { get; set; }
 
         #endregion
