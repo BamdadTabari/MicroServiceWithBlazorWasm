@@ -1,4 +1,6 @@
-﻿namespace Illegible_Cms_V2.Identity.Persistence.Seeding
+﻿using Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds;
+
+namespace Illegible_Cms_V2.Identity.Persistence.Seeding
 {
     public static class Seeder
     {
@@ -7,11 +9,11 @@
             using var scoped = serviceProvider.CreateScope();
             var context = scoped.ServiceProvider.GetRequiredService<AppDbContext>();
 
-            //// Users manual Seed
-            //EmployeeSeed.Run(scoped);
+            // Users manual Seed
+            UserSeed.Run(scoped);
 
-            //// Role manual Seed
-            //RoleSeed.Run(scoped);
+            // Role manual Seed
+            RoleSeed.Run(scoped);
 
             context.SaveChanges();
         }

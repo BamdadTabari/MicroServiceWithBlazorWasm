@@ -1,6 +1,7 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Helpers;
 using Illegible_Cms_V2.Identity.Domain.Users;
 using Illegible_Cms_V2.Shared.BasicShared.Constants;
+using Microsoft.EntityFrameworkCore;
 
 namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
 {
@@ -28,5 +29,43 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 UpdatedAt = DateTime.UtcNow
             }
         };
+
+
+
+        public static void Run(IServiceScope scope)
+        {
+            var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            var userSeeds = All;
+            var seedUsernames = userSeeds.ConvertAll(x => x.Username.ToLower());
+
+            var toBeUpdatedUsers = context.Users
+                .Include(x => x.UserRoles)
+                .Include(x => x.Claims)
+                .Where(x => seedUsernames.Contains(x.Username.ToLower()))
+                .ToList();
+
+            var toBeAddedUsers = userSeeds
+                .Where(x => !toBeUpdatedUsers.ConvertAll(y => y.Username.ToLower()).Contains(x.Username));
+
+            foreach (var item in toBeUpdatedUsers)
+            {
+                var seed = userSeeds.Single(x => x.Username.ToLower() == item.Username.ToLower());
+
+                item.IsEmailConfirmed = seed.IsEmailConfirmed;
+                item.IsMobileConfirmed = seed.IsMobileConfirmed;
+                item.Email = seed.Email;
+                item.Mobile = seed.Mobile;
+                item.State = seed.State;
+                item.PasswordHash = seed.PasswordHash;
+                item.ConcurrencyStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength);
+                item.SecurityStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength);
+                item.UpdatedAt = DateTime.UtcNow;
+            }
+
+            foreach (var item in toBeAddedUsers)
+            {
+                context.Users.Add(item);
+            }
+        }
     }
 }

@@ -1,25 +1,80 @@
+using Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection;
+using Illegible_Cms_V2.Identity.Persistence;
+using Illegible_Cms_V2.Identity.Persistence.Seeding;
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddRazorPages();
+// Environment and System Name
+string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
+var appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
-var app = builder.Build();
+// Configuration
+builder.Configuration.AddJsonFile("appsettings.json")
+            .AddJsonFile($"appsettings.{env}.json")
+            .AddEnvironmentVariables();
 
-// Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+// Logger
+Log.Logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(builder.Configuration)
+        .CreateLogger();
+
+builder.Host.UseSerilog().
+    ConfigureLogging(loggingConfiguration => loggingConfiguration.ClearProviders());
+
+
+try
 {
-    app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-    app.UseHsts();
+    Log.Information("Configuring web host ({ApplicationContext})...", appName);
+
+    ConfigurationManager configuration = builder.Configuration;
+    IWebHostEnvironment environment = builder.Environment;
+    string address = configuration.GetValue<string>("urls");
+
+    // Add services to the container.
+    //builder.Services.AddConfigurations(configuration);
+    builder.Services.AddConfiguredDatabase(configuration);
+    //builder.Services.AddServices();
+    //builder.Services.AddConfiguredMediatR();
+
+    //builder.Services.AddConfiguredMassTransit(configuration);
+    //builder.Services.AddConfiguredHealthChecks();
+    //builder.Services.AddConfiguredSwagger();
+    builder.Services.AddControllers();
+
+    var app = builder.Build();
+
+    // Configure the HTTP request pipeline.
+
+    app.UseHttpsRedirection();
+    app.UseDeveloperExceptionPage();
+   // app.UseConfiguredExceptionHandler(environment);
+    app.UseRouting();
+
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapHealthChecks("/health");
+        endpoints.MapControllers();
+    });
+
+    //if (!environment.IsProduction())
+    //    app.UseConfiguredSwagger();
+
+    MigrationRunner.Run(app.Services);
+    Seeder.Seed(app.Services);
+
+    Log.Information($"Starting {appName}[{env}] on {address}");
+
+    app.Run();
+
+    return 0;
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
-
-app.UseRouting();
-
-app.UseAuthorization();
-
-app.MapRazorPages();
-
-app.Run();
+catch (Exception ex)
+{
+    Log.Fatal(ex, "Program terminated unexpectedly ({ApplicationContext})!", appName);
+    return 1;
+}
+finally
+{
+    Log.CloseAndFlush();
+}
