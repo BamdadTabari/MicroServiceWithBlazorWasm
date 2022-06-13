@@ -6,7 +6,7 @@ using Illegible_Cms_V2.Identity.Domain.Users;
 using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
+namespace Illegible_Cms_V2.Identity.Application.Helpers
 {
     public static class JwtHelper
     {

@@ -1,4 +1,5 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Configurations;
+using Illegible_Cms_V2.Identity.Application.Helpers;
 using Illegible_Cms_V2.Shared.BasicShared.Configurations;
 
 namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection

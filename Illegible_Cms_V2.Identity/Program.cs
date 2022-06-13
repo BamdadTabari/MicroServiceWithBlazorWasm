@@ -1,4 +1,5 @@
 using Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection;
+using Illegible_Cms_V2.Identity.Api.Extensions.Middleware;
 using Illegible_Cms_V2.Identity.Persistence;
 using Illegible_Cms_V2.Identity.Persistence.Seeding;
 using Serilog;
@@ -35,11 +36,11 @@ try
     //builder.Services.AddConfigurations(configuration);
     builder.Services.AddConfiguredDatabase(configuration);
     //builder.Services.AddServices();
-    //builder.Services.AddConfiguredMediatR();
+    builder.Services.AddConfiguredMediatR();
 
     //builder.Services.AddConfiguredMassTransit(configuration);
-    //builder.Services.AddConfiguredHealthChecks();
-    //builder.Services.AddConfiguredSwagger();
+    builder.Services.AddConfiguredHealthChecks();
+    builder.Services.AddConfiguredSwagger();
     builder.Services.AddControllers();
 
     var app = builder.Build();
@@ -57,8 +58,8 @@ try
         endpoints.MapControllers();
     });
 
-    //if (!environment.IsProduction())
-    //    app.UseConfiguredSwagger();
+    if (!environment.IsProduction())
+        app.UseConfiguredSwagger();
 
     MigrationRunner.Run(app.Services);
     Seeder.Seed(app.Services);
