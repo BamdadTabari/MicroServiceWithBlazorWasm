@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\Handlers\Auth\" />
     <Folder Include="Persistence\Migrations\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
