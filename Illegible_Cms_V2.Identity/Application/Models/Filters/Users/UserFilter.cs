@@ -7,6 +7,7 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Filters.Users
     {
         protected UserFilter(int page, int pageSize) : base(page, pageSize)
         {
+            
         }
 
         public string Keyword { get; set; }

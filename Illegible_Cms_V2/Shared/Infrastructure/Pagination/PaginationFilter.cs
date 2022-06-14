@@ -7,7 +7,7 @@ public class PaginationFilter
 
     protected PaginationFilter(int pageNumber, int pageSize)
     {
-        PageNumber = pageNumber > 0 ? pageNumber : MinPageNumber;
+        Page = pageNumber > 0 ? pageNumber : MinPageNumber;
         PageSize = pageSize > 0 && pageSize <= MaxPageSize ? pageSize : MaxPageSize;
     }
 
@@ -15,6 +15,6 @@ public class PaginationFilter
     {
     }
 
-    public int PageNumber { get; }
+    public int Page { get; }
     public int PageSize { get; }
 }

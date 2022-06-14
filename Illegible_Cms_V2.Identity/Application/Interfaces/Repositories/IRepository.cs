@@ -10,10 +10,10 @@ namespace Illegible_Cms_V2.Identity.Application.Interfaces.Repositories
 
         // Commands
         void Add(TEntity entity);
-        void Add(IEnumerable<TEntity> entities);
+        void AddRange(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);
-        void Remove(IEnumerable<TEntity> entities);
+        void RemoveRange(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
-        void Update(IEnumerable<TEntity> entities);
+        void UpdateRange(IEnumerable<TEntity> entities);
     }
 }
