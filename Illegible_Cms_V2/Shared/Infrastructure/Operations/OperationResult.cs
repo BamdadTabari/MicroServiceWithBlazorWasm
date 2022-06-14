@@ -13,8 +13,8 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
         public readonly object Value;
         public readonly Dictionary<string, string> OperationValues;
 
-        public OperationResult(OperationResultStatus status, object value, Dictionary<string, string> operationValues,
-            bool isPersistAble = false)
+        public OperationResult(OperationResultStatus status, object value, bool isPersistAble = false,
+            Dictionary<string, string> operationValues = null)
         {
             Status = status;
             Value = value;

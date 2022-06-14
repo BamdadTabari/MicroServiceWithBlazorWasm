@@ -29,7 +29,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
+                    
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
