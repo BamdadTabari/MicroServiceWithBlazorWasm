@@ -1,4 +1,5 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Configurations;
+using Illegible_Cms_V2.Identity.Application.Models.Commands.Users;
 using Illegible_Cms_V2.Identity.Domain.Users;
 
 namespace Illegible_Cms_V2.Identity.Application.Helpers
@@ -7,38 +8,20 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
     {
         public static LockoutConfig LockoutConfig;
 
-        //public static Employee CreateEmployee(CreateEmployeeCommand command) => new Employee
-        //{
-
-        //    FirstName = command.FirstName,
-        //    LastName = command.LastName,
-        //    LatinFirstName = command.LatinFirstName,
-        //    LatinLastName = command.LatinLastName,
-        //    NationalCode = command.NationalCode,
-        //    BirthCertificateNumber = command.BirthCertificateNumber,
-        //    Address = command.Address,
-        //    PostalCode = command.PostalCode,
-        //    WorkAddress = command.WorkAddress,
-        //    WorkFax = command.WorkFax,
-        //    WorkTelephone = command.WorkTelephone,
-
-        //    User = new User
-        //    {
-        //        Username = command.Username,
-        //        PasswordHash = new PasswordHasher().Hash(command.Password),
-        //        Mobile = command.Mobile,
-        //        Email = command.Email,
-        //        State = UserState.Active,
-        //        SecurityStamp = Guid.NewGuid().ToString("N"),
-        //        ConcurrencyStamp = Guid.NewGuid().ToString("N"),
-        //        CreatedAt = DateTime.UtcNow,
-        //        UpdatedAt = DateTime.UtcNow,
-        //        CreatorId = command.RequestInfo.UserId,
-        //        UpdaterId = command.RequestInfo.UserId,
-
-        //    }
-
-        //};
+        public static User CreateUser(CreateUserCommand command) => new User
+        {
+            Username = command.Username,
+            PasswordHash = new PasswordHasher().Hash(command.Password),
+            Mobile = command.Mobile,
+            Email = command.Email,
+            State = UserState.Active,
+            SecurityStamp = Guid.NewGuid().ToString("N"),
+            ConcurrencyStamp = Guid.NewGuid().ToString("N"),
+            CreatedAt = DateTime.UtcNow,
+            UpdatedAt = DateTime.UtcNow,
+            CreatorId = command.RequestInfo.UserId,
+            UpdaterId = command.RequestInfo.UserId,
+        };
 
         public static void Activate(this User user)
         {
