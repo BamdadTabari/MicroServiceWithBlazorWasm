@@ -33,12 +33,12 @@ try
     string address = configuration.GetValue<string>("urls");
 
     // Add services to the container.
-    //builder.Services.AddConfigurations(configuration);
+    builder.Services.AddConfigurations(configuration);
     builder.Services.AddConfiguredDatabase(configuration);
-    //builder.Services.AddServices();
+    builder.Services.AddServices();
     builder.Services.AddConfiguredMediatR();
 
-    //builder.Services.AddConfiguredMassTransit(configuration);
+    builder.Services.AddConfiguredMassTransit(configuration);
     builder.Services.AddConfiguredHealthChecks();
     builder.Services.AddConfiguredSwagger();
     builder.Services.AddControllers();
@@ -49,7 +49,7 @@ try
 
     app.UseHttpsRedirection();
     app.UseDeveloperExceptionPage();
-   // app.UseConfiguredExceptionHandler(environment);
+    app.UseConfiguredExceptionHandler(environment);
     app.UseRouting();
 
     app.UseEndpoints(endpoints =>
