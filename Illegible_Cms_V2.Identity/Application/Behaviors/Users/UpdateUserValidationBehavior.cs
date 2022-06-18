@@ -6,14 +6,14 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
 {
-    public class DeleteUserValidationBehavior
-        : IPipelineBehavior<DeleteUserCommand, OperationResult>
+    public class UpdateUserValidationBehavior
+        : IPipelineBehavior<UpdateUserCommand, OperationResult>
     {
-        public async Task<OperationResult> Handle(DeleteUserCommand request,
+        public async Task<OperationResult> Handle(UpdateUserCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
             // Validation
-            var validation = new DeleteUserCommandValidator().Validate(request);
+            var validation = new UpdateUserCommandValidator().Validate(request);
             if (!validation.IsValid)
                 return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 

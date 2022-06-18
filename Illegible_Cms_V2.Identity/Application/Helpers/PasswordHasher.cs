@@ -8,7 +8,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
         private const int KeySize = 256 / 8; // 128 bit
         private const int Iteration = 10000;
 
-        public string Hash(string password)
+        public static string Hash(string password)
         {
             using var algorithm =
                 new Rfc2898DeriveBytes(password, SaltSize, Iteration, HashAlgorithmName.SHA512);
@@ -18,7 +18,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
             return $"{key}.{salt}";
         }
 
-        public bool Check(string hash, string password)
+        public static bool Check(string hash, string password)
         {
             var parts = hash.Split('.', 2);
 
