@@ -1,4 +1,6 @@
-﻿using Illegible_Cms_V2.Shared.Infrastructure.Operations;
+﻿using Illegible_Cms_V2.Identity.Application.Errors;
+using Illegible_Cms_V2.Identity.Domain.Users;
+using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Common
@@ -18,14 +20,12 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Common
 
             if (response.Succeeded)
             {
-                // logging logic in success
+                return new OperationResult(OperationResultStatus.Ok, value: response);
             }
             else
             {
-                // logging logic in fail
+                return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.InvalidPasswordValidationError);
             }
-
-            return response;
         }
     }
 }

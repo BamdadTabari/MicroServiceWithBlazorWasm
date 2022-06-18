@@ -26,6 +26,7 @@ public static class Defaults
     public const int NationalCodeLength = 10;
     public const int IpAddressLength = 15;
     public const int YearLength = 4;
+    public const int MinPasswordLength = 7;
 
     public const double MinScore = 1.0;
     public const double MaxScore = 5.0;

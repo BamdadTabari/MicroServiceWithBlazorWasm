@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Auth
 {
-    public class LoginCommandValidationBehavior<TRequest, TResponse> : IPipelineBehavior<LoginCommand, OperationResult>
+    public class LoginCommandValidationBehavior : IPipelineBehavior<LoginCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(LoginCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)

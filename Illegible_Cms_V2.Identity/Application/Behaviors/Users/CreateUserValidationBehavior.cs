@@ -6,16 +6,15 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
 {
-    public class CreateUserPermissionValidationBehavior
-        : IPipelineBehavior<CreateUserPermissionCommand, OperationResult>
+    public class CreateUserValidationBehavior:IPipelineBehavior<CreateUserCommand, OperationResult>
     {
-        public async Task<OperationResult> Handle(CreateUserPermissionCommand request,
+        public async Task<OperationResult> Handle(CreateUserCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
             // Validation
-            var validation = new CreateUserPermissionCommandValidator().Validate(request);
+            var validation = new CreateUserCommandValidator().Validate(request);
             if (!validation.IsValid)
-                return new OperationResult(OperationResultStatus.Invalidated, value:validation.GetFirstErrorState());
+                return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 
             return await next();
         }

@@ -85,6 +85,12 @@ namespace Illegible_Cms_V2.Identity.Application.Errors
                 Language: Language.English,
                 Message: "Invalid last name"
             ));
-
+        public static ErrorModel InvalidPhoneNumberValidationError = new ErrorModel(
+            code: 12016,
+            title: "Identity Error",
+            (
+                Language: Language.English,
+                Message: "Invalid phone number"
+            ));
     }
 }

@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Roles
 {
-    public class DeleteRoleValidationBehavior<TRequest, TResponse>
+    public class DeleteRoleValidationBehavior
         : IPipelineBehavior<DeleteRoleCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(DeleteRoleCommand request,
