@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
 {
-    public class DeleteUserPermissionValidationBehavior
+    public class DeleteUserPermissionValidationBehavior<TRequest, TResponse>
             : IPipelineBehavior<DeleteUserPermissionCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(DeleteUserPermissionCommand request,

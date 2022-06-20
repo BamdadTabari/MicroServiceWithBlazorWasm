@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
 {
-    public class CreateUserPermissionValidationBehavior
+    public class CreateUserPermissionValidationBehavior<TRequest, TResponse>
         : IPipelineBehavior<CreateUserPermissionCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(CreateUserPermissionCommand request,

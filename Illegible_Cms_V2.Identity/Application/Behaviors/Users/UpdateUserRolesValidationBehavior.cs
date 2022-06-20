@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
 {
-    public class UpdateUserRolesValidationBehavior
+    public class UpdateUserRolesValidationBehavior<TRequest, TResponse>
         : IPipelineBehavior<UpdateUserRolesCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(UpdateUserRolesCommand request,

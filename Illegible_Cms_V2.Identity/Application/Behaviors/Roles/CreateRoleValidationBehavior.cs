@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Identity.Application.Behaviors.Roles
 {
-    public class CreateRoleValidationBehavior
+    public class CreateRoleValidationBehavior<TRequest, TResponse>
         : IPipelineBehavior<CreateRoleCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(CreateRoleCommand request,
