@@ -27,21 +27,21 @@ namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
             //services.AddTransient(typeof(IPipelineBehavior<UpdateEmployeeCommand, OperationResult>),
             //    typeof(UpdateEmployeeValidationBehavior<UpdateEmployeeCommand, OperationResult>));
 
-            services.AddTransient(typeof(IPipelineBehavior<UpdateUserRolesCommand, OperationResult>),
-                typeof(UpdateUserRolesValidationBehavior<UpdateUserRolesCommand, OperationResult>));
+            //services.AddTransient(typeof(IPipelineBehavior<UpdateUserRolesCommand, OperationResult>),
+            //    typeof(UpdateUserRolesValidationBehavior<UpdateUserRolesCommand, OperationResult>));
 
-            services.AddTransient(typeof(IPipelineBehavior<CreateUserPermissionCommand, OperationResult>),
-                typeof(CreateUserPermissionValidationBehavior<CreateUserPermissionCommand, OperationResult>));
-            services.AddTransient(typeof(IPipelineBehavior<DeleteUserPermissionCommand, OperationResult>),
-                typeof(DeleteUserPermissionValidationBehavior<DeleteUserPermissionCommand, OperationResult>));
+            //services.AddTransient(typeof(IPipelineBehavior<CreateUserPermissionCommand, OperationResult>),
+            //    typeof(CreateUserPermissionValidationBehavior<CreateUserPermissionCommand, OperationResult>));
+            //services.AddTransient(typeof(IPipelineBehavior<DeleteUserPermissionCommand, OperationResult>),
+            //    typeof(DeleteUserPermissionValidationBehavior<DeleteUserPermissionCommand, OperationResult>));
 
-            // Role 
-            services.AddTransient(typeof(IPipelineBehavior<CreateRoleCommand, OperationResult>),
-                typeof(CreateRoleValidationBehavior<CreateRoleCommand, OperationResult>));
-            services.AddTransient(typeof(IPipelineBehavior<UpdateRoleCommand, OperationResult>),
-               typeof(UpdateRoleValidationBehavior<UpdateRoleCommand, OperationResult>));
-            services.AddTransient(typeof(IPipelineBehavior<DeleteRoleCommand, OperationResult>),
-                typeof(DeleteRoleValidationBehavior<DeleteRoleCommand, OperationResult>));
+            //// Role 
+            //services.AddTransient(typeof(IPipelineBehavior<CreateRoleCommand, OperationResult>),
+            //    typeof(CreateRoleValidationBehavior<CreateRoleCommand, OperationResult>));
+            //services.AddTransient(typeof(IPipelineBehavior<UpdateRoleCommand, OperationResult>),
+            //   typeof(UpdateRoleValidationBehavior<UpdateRoleCommand, OperationResult>));
+            //services.AddTransient(typeof(IPipelineBehavior<DeleteRoleCommand, OperationResult>),
+            //    typeof(DeleteRoleValidationBehavior<DeleteRoleCommand, OperationResult>));
 
             return services;
         }

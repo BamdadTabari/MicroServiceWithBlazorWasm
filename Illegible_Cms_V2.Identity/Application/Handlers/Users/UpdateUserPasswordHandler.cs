@@ -23,7 +23,7 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
             if (user == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.UserNotFoundError);
 
-            user.PasswordHash = new PasswordHasher().Hash(request.NewPassword);
+            user.PasswordHash = PasswordHasher.Hash(request.NewPassword);
 
             user.UpdaterId = request.RequestInfo.UserId;
             user.UpdatedAt = DateTime.Now;

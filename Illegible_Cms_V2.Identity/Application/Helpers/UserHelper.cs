@@ -11,7 +11,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
         public static User CreateUser(CreateUserCommand command) => new User
         {
             Username = command.Username,
-            PasswordHash = new PasswordHasher().Hash(command.Password),
+            PasswordHash = PasswordHasher.Hash(command.Password),
             Mobile = command.Mobile,
             Email = command.Email,
             State = UserState.Active,

@@ -18,7 +18,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 Mobile = "09301724389",
                 State = UserState.Active,
                 Username = "Illegible_Owner",
-                PasswordHash = new PasswordHasher().Hash("owner"),
+                PasswordHash = PasswordHasher.Hash("owner"),
                 ConcurrencyStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
                 SecurityStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
                 IsDeleted = false,
