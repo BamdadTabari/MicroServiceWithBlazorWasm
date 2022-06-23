@@ -18,12 +18,11 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 IsEmailConfirmed = user.IsEmailConfirmed,
                 State = user.State,
                 IsLockedOut = user.IsLockedOut(),
-                LastPasswordChangeDate = user.LastPasswordChangeTime,
 
                 CreatedAt = user.CreatedAt,
                 UpdatedAt = user.UpdatedAt,
 
-                Roles = roles ?? new List<RoleModel>()
+                UserRoles = (ICollection<UserRole>)(roles ?? new List<RoleModel>())
             };
         }
 
