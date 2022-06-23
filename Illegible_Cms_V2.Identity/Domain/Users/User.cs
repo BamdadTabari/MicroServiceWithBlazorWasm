@@ -44,7 +44,7 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
         public int CreatorId { get; set; }
         public int UpdaterId { get; set; }
         public bool IsDeleted { get; set; }
-
+        public bool IsLockedOut { get; set; }
         #endregion
 
         #region Navigations

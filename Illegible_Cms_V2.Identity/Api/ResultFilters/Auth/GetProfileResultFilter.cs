@@ -16,10 +16,9 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Auth
                 {
                     value.Id,
                     value.Username,
-                    value.Fullname,
-                    Roles = value.Roles.Select(x => new
+                    Roles = value.UserRoles.Select(x => new
                     {
-                        Id = x.Id.Encode(),
+                        Id = x.RoleId.Encode(),
                         Name = x.Name
                     }),
                     value.Email,

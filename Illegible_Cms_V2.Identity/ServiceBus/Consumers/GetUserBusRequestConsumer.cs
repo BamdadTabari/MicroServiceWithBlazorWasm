@@ -33,9 +33,7 @@ namespace Illegible_Cms_V2.Identity.ServiceBus.Consumers
                 {
                     Id = value.Id,
                     Username = value.Username,
-                    Email = value.Email,
-                    FirstName = value.FirstName,
-                    LastName = value.LastName
+                    Email = value.Email
                 }
             });
         }

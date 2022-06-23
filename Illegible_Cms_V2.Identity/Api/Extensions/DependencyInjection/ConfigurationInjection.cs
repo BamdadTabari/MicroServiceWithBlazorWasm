@@ -12,7 +12,7 @@ namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
             JwtHelper.Config = configuration.GetSection(SecurityTokenConfig.Key).Get<SecurityTokenConfig>();
 
             // User helper static lockout config
-         //   UserHelper.LockoutConfig = configuration.GetSection(LockoutConfig.Key).Get<LockoutConfig>();
+            UserHelper.LockoutConfig = configuration.GetSection(LockoutConfig.Key).Get<LockoutConfig>();
 
             services.Configure<RedisCacheConfig>(configuration.GetSection(RedisCacheConfig.Key));
             services.Configure<RabbitMQConfig>(configuration.GetSection(RabbitMQConfig.Key));

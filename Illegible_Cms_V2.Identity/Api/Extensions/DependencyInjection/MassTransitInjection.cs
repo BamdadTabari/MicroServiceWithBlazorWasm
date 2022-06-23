@@ -1,7 +1,7 @@
-﻿using Illegible_Cms_V2.Identity.ServiceBus.Consumers;
+﻿
+using Illegible_Cms_V2.Identity.ServiceBus.Consumers;
 using Illegible_Cms_V2.Shared.BasicShared.Configurations;
 using MassTransit;
-
 
 namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
 {
