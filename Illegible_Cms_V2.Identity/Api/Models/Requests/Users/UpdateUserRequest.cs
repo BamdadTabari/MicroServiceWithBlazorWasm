@@ -4,8 +4,9 @@ namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Users
 {
     public class UpdateUserRequest
     {
-        public PartialUpdatePayload Username { get; set; }
-        public PartialUpdatePayload Mobile { get; set; }
-        public PartialUpdatePayload Email { get; set; }
+        public string Username { get; set; }
+        public string Mobile { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
     }
 }

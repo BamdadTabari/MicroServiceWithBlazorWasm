@@ -19,10 +19,46 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             _mediator = mediator;
         }
 
-        public UserController()
+        #region User
+
+        // Create
+        [HttpPost(Routes.Users)]
+        [CreateUserResultFilter]
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
+            // Operation
+            var operation = await _mediator.Send(new CreateUserCommand(Request.GetRequestInfo())
+            {
+                Username = request.Username,
+                Email = request.Email,
+                Password = request.Password,
+                Mobile = request.Mobile,
+                State = Domain.Users.UserState.Suspended
+            });
+
+            return this.ReturnResponse(operation);
         }
 
+        // Update
+        [HttpPut(Routes.Users + "{ueid}")]
+        [UpdateUserResultFilter]
+        public async Task<IActionResult> UpdateUser([FromRoute] string ueid, [FromBody] UpdateUserRequest request)
+        {
+            // Decode
+            var userId = ueid.Decode();
+
+            // Operation
+            var operation = await _mediator.Send(new UpdateUserCommand(Request.GetRequestInfo())
+            {
+                UserId = userId,
+                Username = request.Username,
+                Email = request.Email,
+                Password = request.Password,
+                Mobile = request.Mobile,
+            });
+
+            return this.ReturnResponse(operation);
+        }
 
         // Get user by id
         [HttpGet(Routes.Users + "{ueid}")]
@@ -59,6 +95,8 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
 
             return this.ReturnResponse(operation);
         }
+
+        #endregion
 
         #region Role
 
