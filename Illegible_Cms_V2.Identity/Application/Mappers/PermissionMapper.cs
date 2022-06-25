@@ -1,5 +1,7 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Permissions;
+using Illegible_Cms_V2.Identity.Application.Models.Base.Roles;
 using Illegible_Cms_V2.Identity.Domain.Permissions;
+using Illegible_Cms_V2.Identity.Domain.Roles;
 
 namespace Illegible_Cms_V2.Identity.Application.Mappers
 {
@@ -14,8 +16,10 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 Title = permission.Title,
                 Name = permission.Name,
                 CreatedAt = permission.CreatedAt,
-                CreatorName = permission.CreatorName,
-                CreatorId = permission.CreatorId
+                CreatorId = permission.CreatorId,
+                Creator = permission.Creator.MapToUserModel(),
+                Roles = (ICollection<RolePermissionModel>)
+                    ((IEnumerable<Role>)permission.Roles).MapToRoleModels(),
             };
         }
 
