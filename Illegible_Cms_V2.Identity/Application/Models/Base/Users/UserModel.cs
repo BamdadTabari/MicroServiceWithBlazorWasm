@@ -1,4 +1,5 @@
-﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Roles;
+﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Claims;
+using Illegible_Cms_V2.Identity.Application.Models.Base.Roles;
 using Illegible_Cms_V2.Identity.Domain.Claims;
 using Illegible_Cms_V2.Identity.Domain.Users;
 
@@ -34,10 +35,10 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Users
         public int UpdaterId { get; set; }
         public bool IsDeleted { get; set; }
         public bool IsLockedOut { get; set; }
-        public User Creator { get; set; }
-        public User Updater { get; set; }
+        public UserModel Creator { get; set; }
+        public UserModel Updater { get; set; }
 
-        public ICollection<Claim> Claims { get; set; }
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<ClaimModel> Claims { get; set; }
+        public ICollection<UserRoleModel> UserRoles { get; set; }
     }
 }
