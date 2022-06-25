@@ -9,7 +9,9 @@ namespace Illegible_Cms_V2.Identity.Domain.Permissions
         public string Name { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
-
+        public DateTime CreatedAt { get; set; }
+        public int CreatorId { get; set; }
+        public string CreatorName { get; set; }
         #region Navigations
 
         public ICollection<RolePermission> Roles { get; set; }

@@ -12,7 +12,10 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 Id = permission.Id,
                 Value = permission.Value,
                 Title = permission.Title,
-                Name = permission.Name
+                Name = permission.Name,
+                CreatedAt = permission.CreatedAt,
+                CreatorName = permission.CreatorName,
+                CreatorId = permission.CreatorId
             };
         }
 
