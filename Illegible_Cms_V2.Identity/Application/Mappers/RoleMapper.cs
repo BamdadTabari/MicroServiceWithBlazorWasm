@@ -25,7 +25,8 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 UpdatedAt = role != null ? role.UpdatedAt : DateTime.Now,
                 UpdaterId = role != null ? role.UpdaterId : 0,
                 Updater = role != null ? role.Updater.MapToUserModel() : new UserModel(),
-               // UserRoles = role !=null ? role.UserRoles.MapTo : new List<UserRoleModel>(),
+                UserRoles = (ICollection<UserRoleModel>)
+                    (role !=null ? role.UserRoles.MapToUserRoleModels() : new List<UserRoleModel>()),
             };
         }
 
