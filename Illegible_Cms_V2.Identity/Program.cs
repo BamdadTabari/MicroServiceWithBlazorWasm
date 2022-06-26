@@ -58,8 +58,8 @@ try
         endpoints.MapControllers();
     });
 
-    if (!environment.IsProduction())
-        app.UseConfiguredSwagger();
+    //if (!environment.IsProduction())
+    app.UseConfiguredSwagger();
 
     //MigrationRunner.Run(app.Services);
     //Seeder.Seed(app.Services);
