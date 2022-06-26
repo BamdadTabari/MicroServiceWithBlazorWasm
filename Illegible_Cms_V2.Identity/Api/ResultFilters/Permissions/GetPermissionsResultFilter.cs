@@ -24,7 +24,7 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Permissions
                         Title = x.Title,
                         Name = x.Name,
                         Value = x.Value,
-                        CreatorName = x.CreatorName,
+                        CreatorId = x.CreatorId,
                         CreatedAt = x.CreatedAt
                     })
                 };
