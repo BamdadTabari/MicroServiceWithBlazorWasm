@@ -5,25 +5,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 {
-    public partial class Init_Identity : Migration
+    public partial class InitIdentity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
-                name: "Permissions",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(140)", maxLength: 140, nullable: false),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Value = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Permissions", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
@@ -47,7 +32,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     UpdaterId = table.Column<int>(type: "int", nullable: false),
-                    IsDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    IsLockedOut = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,6 +86,29 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Permissions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(140)", maxLength: 140, nullable: false),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Value = table.Column<string>(type: "nvarchar(80)", maxLength: 80, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    CreatorId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Permissions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Permissions_Users_CreatorId",
+                        column: x => x.CreatorId,
+                        principalTable: "Users",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -149,14 +158,12 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         name: "FK_RolePermissions_Permissions_PermissionId",
                         column: x => x.PermissionId,
                         principalTable: "Permissions",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RolePermissions_Roles_RoleId",
                         column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_RolePermissions_Users_CreatorId",
                         column: x => x.CreatorId,
@@ -171,6 +178,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatorId = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsArchived = table.Column<bool>(type: "bit", nullable: false),
@@ -184,7 +192,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         column: x => x.RoleId,
                         principalTable: "Roles",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_UserRole_Users_CreatorId",
                         column: x => x.CreatorId,
@@ -208,6 +216,11 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                 name: "IX_Claims_UserId",
                 table: "Claims",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Permissions_CreatorId",
+                table: "Permissions",
+                column: "CreatorId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RolePermissions_CreatorId",

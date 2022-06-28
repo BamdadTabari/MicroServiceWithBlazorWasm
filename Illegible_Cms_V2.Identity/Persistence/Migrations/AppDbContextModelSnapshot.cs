@@ -17,7 +17,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.5")
+                .HasAnnotation("ProductVersion", "6.0.6")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
@@ -29,7 +29,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-                    
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -78,6 +78,12 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(140)
@@ -93,6 +99,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .HasColumnType("nvarchar(80)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CreatorId");
 
                     b.ToTable("Permissions");
                 });
@@ -204,6 +212,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<bool>("IsEmailConfirmed")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("IsLockedOut")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsMobileConfirmed")
                         .HasColumnType("bit");
 
@@ -281,6 +292,10 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("CreatorId");
@@ -307,6 +322,17 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Navigation("Creator");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Permissions.Permission", b =>
+                {
+                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
+                        .WithMany()
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Roles.Role", b =>
@@ -339,13 +365,13 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Permissions.Permission", "Permission")
                         .WithMany("Roles")
                         .HasForeignKey("PermissionId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Roles.Role", "Role")
                         .WithMany("RolePermission")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Creator");
@@ -385,7 +411,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Roles.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "User")

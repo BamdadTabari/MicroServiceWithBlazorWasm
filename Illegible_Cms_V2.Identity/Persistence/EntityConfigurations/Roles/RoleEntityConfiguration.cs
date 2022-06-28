@@ -22,11 +22,11 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
 
             #region Navigations
 
-            builder
-                .HasMany(x => x.UserRoles)
-                .WithOne(x => x.Role)
-                .HasForeignKey(x => x.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasMany(x => x.UserRoles)
+            //    .WithOne(x => x.Role)
+            //    .HasForeignKey(x => x.RoleId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.Creator)
                 .WithMany()
@@ -38,11 +38,11 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
                 .HasForeignKey(x => x.UpdaterId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasMany(x => x.RolePermission)
-                .WithOne(x => x.Role)
-                .HasForeignKey(x => x.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
+            //builder
+            //    .HasMany(x => x.RolePermission)
+            //    .WithOne(x => x.Role)
+            //    .HasForeignKey(x => x.RoleId)
+            //    .OnDelete(DeleteBehavior.Restrict);
 
             #endregion
 

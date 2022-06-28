@@ -17,12 +17,14 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
             builder
                 .HasOne(x => x.Role)
                 .WithMany(x => x.RolePermission)
-                .HasForeignKey(x => x.RoleId);
+                .HasForeignKey(x => x.RoleId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             builder
                 .HasOne(x => x.Permission)
                 .WithMany(x => x.Roles)
-                .HasForeignKey(x => x.PermissionId);
+                .HasForeignKey(x => x.PermissionId)
+                .OnDelete(DeleteBehavior.NoAction);
 
             #endregion
 
