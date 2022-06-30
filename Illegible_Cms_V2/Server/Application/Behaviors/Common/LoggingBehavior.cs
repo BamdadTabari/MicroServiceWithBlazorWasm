@@ -1,9 +1,7 @@
-﻿using Illegible_Cms_V2.Identity.Application.Errors;
-using Illegible_Cms_V2.Identity.Domain.Users;
-using Illegible_Cms_V2.Shared.Infrastructure.Operations;
+﻿using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Identity.Application.Behaviors.Common
+namespace Illegible_Cms_V2.Server.Application.Behaviors.Common
 {
     public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, OperationResult> where TRequest : MediatR.IRequest<OperationResult>
     {
