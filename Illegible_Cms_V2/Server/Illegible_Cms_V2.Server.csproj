@@ -31,7 +31,6 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
-    <Folder Include="Persistence\EntityConfigurations\Weblog\" />
   </ItemGroup>
 
 
