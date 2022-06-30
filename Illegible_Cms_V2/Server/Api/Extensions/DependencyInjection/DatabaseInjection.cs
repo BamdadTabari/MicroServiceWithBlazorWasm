@@ -9,7 +9,7 @@ namespace Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection
         {
             // Data Context
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("IdentityDbConnection")));
+                options.UseSqlServer(configuration.GetConnectionString("ServerDbConnection")));
 
             return services;
         }
