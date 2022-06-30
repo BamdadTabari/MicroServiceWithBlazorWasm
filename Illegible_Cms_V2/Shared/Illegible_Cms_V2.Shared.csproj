@@ -15,7 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="6.0.6" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="6.0.6" />
-    <PackageReference Include="StackExchange.Redis" Version="2.6.45" />
+    <PackageReference Include="StackExchange.Redis" Version="2.6.48" />
   </ItemGroup>
 
   <ItemGroup>
