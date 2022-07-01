@@ -8,7 +8,7 @@ namespace Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection
         {
             // Generic behaviors
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
-            //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommitBehavior<,>));
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(CommitBehavior<,>));
 
             return services;
         }

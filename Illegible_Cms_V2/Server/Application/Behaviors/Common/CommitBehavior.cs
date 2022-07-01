@@ -1,23 +1,27 @@
-﻿//namespace Illegible_Cms_V2.Server.Application.Behaviors.Common
-//{
-//    public class CommitBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, OperationResult> where TRequest : MediatR.IRequest<OperationResult>
-//    {
-//        private readonly IUnitOfWork _unitOfWork;
+﻿using Illegible_Cms_V2.Server.Application.Interfaces;
+using Illegible_Cms_V2.Shared.Infrastructure.Operations;
+using MediatR;
 
-//        public CommitBehavior(IUnitOfWork unitOfWork)
-//        {
-//            _unitOfWork = unitOfWork;
-//        }
+namespace Illegible_Cms_V2.Server.Application.Behaviors.Common
+{
+    public class CommitBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, OperationResult> where TRequest : MediatR.IRequest<OperationResult>
+    {
+        private readonly IUnitOfWork _unitOfWork;
 
-//        public async Task<OperationResult> Handle(TRequest request, CancellationToken cancellationToken,
-//            RequestHandlerDelegate<OperationResult> next)
-//        {
-//            var operation = await next();
+        public CommitBehavior(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
 
-//            if (operation.IsPersistAble)
-//                _ = await _unitOfWork.CommitAsync();
+        public async Task<OperationResult> Handle(TRequest request, CancellationToken cancellationToken,
+            RequestHandlerDelegate<OperationResult> next)
+        {
+            var operation = await next();
 
-//            return operation;
-//        }
-//    }
-//}
+            if (operation.IsPersistAble)
+                _ = await _unitOfWork.CommitAsync();
+
+            return operation;
+        }
+    }
+}
