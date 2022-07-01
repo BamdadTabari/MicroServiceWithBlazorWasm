@@ -1,3 +1,5 @@
+using Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection;
+using Illegible_Cms_V2.Server.Api.Extensions.Middleware;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
 using Serilog;
@@ -43,14 +45,14 @@ try
     });
 
     //// Add services to the container.
-    //builder.Services.AddConfigurations(configuration);
-    //builder.Services.AddConfiguredDatabase(configuration);
-    //builder.Services.AddServices();
-    //builder.Services.AddConfiguredMediatR();
+    builder.Services.AddConfigurations(configuration);
+    builder.Services.AddConfiguredDatabase(configuration);
+    builder.Services.AddServices();
+    builder.Services.AddConfiguredMediatR();
 
-    //builder.Services.AddConfiguredMassTransit(configuration);
-    //builder.Services.AddConfiguredHealthChecks();
-    //builder.Services.AddConfiguredSwagger();
+    builder.Services.AddConfiguredMassTransit(configuration);
+    builder.Services.AddConfiguredHealthChecks();
+    builder.Services.AddConfiguredSwagger();
     builder.Services.AddControllers();
 
     #endregion
@@ -75,13 +77,10 @@ try
     // Configure the HTTP request pipeline.
     app.UseHttpsRedirection();
     app.UseDeveloperExceptionPage();
-    //app.UseConfiguredExceptionHandler(environment);
+    app.UseConfiguredExceptionHandler(environment);
 
-    //if (!environment.IsProduction())
-    //    app.UseConfiguredSwagger();
-
-    //MigrationRunner.Run(app.Services);
-    //Seeder.Seed(app.Services);
+    if (!environment.IsProduction())
+        app.UseConfiguredSwagger();
 
     Log.Information($"Starting {appName}[{env}] on {address}");
 
@@ -97,8 +96,8 @@ try
     app.UseEndpoints(endpoints =>
     {
         endpoints.MapHealthChecks("/health");
-        endpoints.MapRazorPages(); // <- Add this
-        endpoints.MapFallbackToPage("/_Host"); // <- Change method + file
+        endpoints.MapRazorPages(); // <- Add this (for prerendering)
+        endpoints.MapFallbackToPage("/_Host"); // <- Change method + file (for prerendering)
     });
     app.Run();
 

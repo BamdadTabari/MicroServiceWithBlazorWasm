@@ -37,7 +37,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Api\Extensions\Middleware\" />
     <Folder Include="Application\Errors\" />
   </ItemGroup>
 
