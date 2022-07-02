@@ -29,5 +29,26 @@ namespace Illegible_Cms_V2.Server.Application.Errors.Weblog
                 Language: Language.English,
                 Message: "Invalid post id"
             ));
+        public static ErrorModel InvalidPostTitleValidationError = new ErrorModel(
+           code: 20004,
+           title: "Weblog Post Error",
+           (
+               Language: Language.English,
+               Message: "Invalid post title"
+           ));
+        public static ErrorModel InvalidPostSummaryValidationError = new ErrorModel(
+           code: 20005,
+           title: "Weblog Post Error",
+           (
+               Language: Language.English,
+               Message: "Post Summery length should be between 50-100 caracter"
+           ));
+        public static ErrorModel InvalidPostTextContextValidationError = new ErrorModel(
+          code: 20005,
+          title: "Weblog Post Error",
+          (
+              Language: Language.English,
+              Message: "Post Context length should be between 200-2000 caracter"
+          ));
     }
 }
