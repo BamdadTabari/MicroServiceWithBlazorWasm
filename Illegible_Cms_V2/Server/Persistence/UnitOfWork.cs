@@ -1,4 +1,6 @@
 ﻿using Illegible_Cms_V2.Server.Application.Interfaces;
+using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
+using Illegible_Cms_V2.Server.Persistence.Repositories.Weblog;
 
 namespace Illegible_Cms_V2.Server.Persistence
 {
@@ -6,19 +8,13 @@ namespace Illegible_Cms_V2.Server.Persistence
     {
         private readonly AppDbContext _context;
 
-        //public IUserRepository Users { get; }
-        //public IRoleRepository Roles { get; }
-        //public IClaimRepository Claims { get; }
-        //public IPermissionRepository Permissions { get; }
-
+        public IWeblogPostRepository WeblogPost { get; }
+       
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
 
-            //Users = new UserRepository(_context);
-            //Roles = new RoleRepository(_context);
-            //Claims = new ClaimRepository(_context);
-            //Permissions = new PermissionRepository(_context);
+            WeblogPost = new WeblogPostRepository(_context);
         }
 
         public async Task<bool> CommitAsync()

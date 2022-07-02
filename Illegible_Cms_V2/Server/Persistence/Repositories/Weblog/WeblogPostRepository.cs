@@ -12,7 +12,7 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
     {
         private readonly IQueryable<WeblogPost> _queryable;
 
-        protected WeblogPostRepository(AppDbContext dbContext) : base(dbContext)
+        public WeblogPostRepository(AppDbContext dbContext) : base(dbContext)
         {
             _queryable = DbContext.Set<WeblogPost>();
         }
