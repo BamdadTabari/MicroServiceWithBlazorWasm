@@ -16,7 +16,7 @@ namespace Illegible_Cms_V2.Server.Application.Mappers.Weblog
             };
         }
 
-        public static IEnumerable<WeblogPostModel> MapToUserModels(this IEnumerable<WeblogPost> weblogPosts)
+        public static IEnumerable<WeblogPostModel> MapToWeblogPostModels(this IEnumerable<WeblogPost> weblogPosts)
         {
             foreach (var weblogPost in weblogPosts)
                 yield return weblogPost.MapToWeblogPostModel();
