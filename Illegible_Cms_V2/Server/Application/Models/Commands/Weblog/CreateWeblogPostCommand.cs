@@ -6,8 +6,6 @@ namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog
 {
     public class CreateWeblogPostCommand : IRequestInfo, IRequest<OperationResult>
     {
-        public RequestInfo RequestInfo { get; set; }
-
         public CreateWeblogPostCommand(RequestInfo requestInfo)
         {
             RequestInfo = requestInfo;
@@ -16,5 +14,6 @@ namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog
         public string Title { get; set; }
         public string Summery { get; set; }
         public string TextContent { get; set; }
+        public RequestInfo RequestInfo { get; private set; }
     }
 }
