@@ -97,7 +97,7 @@ try
     {
         endpoints.MapHealthChecks("/health");
         endpoints.MapRazorPages(); // <- Add this (for prerendering)
-        endpoints.MapFallbackToPage("/_Host"); // <- Change method + file (for prerendering)
+        //endpoints.MapFallbackToPage("/_Host"); // <- Change method + file (for prerendering)
     });
     app.Run();
 

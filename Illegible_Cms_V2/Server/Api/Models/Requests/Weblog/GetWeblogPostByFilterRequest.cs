@@ -1,4 +1,5 @@
-﻿using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
+﻿using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
+using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 
 namespace Illegible_Cms_V2.Server.Api.Models.Requests.Weblog
 {
@@ -13,5 +14,6 @@ namespace Illegible_Cms_V2.Server.Api.Models.Requests.Weblog
         }
 
         public string? Keyword { get; set; }
+        public WeblogPostSortBy? SortBy { get; set; }
     }
 }
