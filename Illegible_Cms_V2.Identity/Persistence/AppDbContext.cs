@@ -2,6 +2,7 @@
 using Illegible_Cms_V2.Identity.Domain.Permissions;
 using Illegible_Cms_V2.Identity.Domain.Roles;
 using Illegible_Cms_V2.Identity.Domain.Users;
+using Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds;
 using Microsoft.EntityFrameworkCore;
 
 namespace Illegible_Cms_V2.Identity.Persistence
@@ -28,7 +29,9 @@ namespace Illegible_Cms_V2.Identity.Persistence
         {
             // Apply Configurations
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-
+            modelBuilder.Entity<Role>().HasData(UserSeed.All);
+            modelBuilder.Entity<User>().HasData(UserSeed.All);
+            modelBuilder.Entity<Permission>().HasData(PermissionSeed.All);
             // Creating Model
             base.OnModelCreating(modelBuilder);
         }

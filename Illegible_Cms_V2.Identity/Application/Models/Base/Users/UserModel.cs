@@ -33,7 +33,6 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Users
         public DateTime UpdatedAt { get; set; }
         public int CreatorId { get; set; }
         public int UpdaterId { get; set; }
-        public bool IsDeleted { get; set; }
         public bool IsLockedOut { get; set; }
         public UserModel Creator { get; set; }
         public UserModel Updater { get; set; }

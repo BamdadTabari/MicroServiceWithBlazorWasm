@@ -11,7 +11,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
             {
                 Id = i + 1,
                 Value = x.Value,
-                Name = x.Name
+                Name = x.Name,
+                Title = x.Title,
             });
 
         private static IEnumerable<Permission> _identityPermissions => new List<Permission>

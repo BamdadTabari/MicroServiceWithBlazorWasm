@@ -24,7 +24,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
                 return new OperationResult(OperationResultStatus.UnProcessable, value: PermissionErrors.ClaimNotFoundError);
 
             // Soft Delete
-            entity.IsDeleted = true;
             entity.UpdatedAt = DateTime.UtcNow;
             entity.UpdaterId = request.RequestInfo.UserId;
             _unitOfWork.Claims.Update(entity);

@@ -11,8 +11,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
             #region Mappings
 
             builder.Property(b => b.Name)

@@ -13,8 +13,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Users
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
             builder.HasIndex(b => b.Username).IsUnique();
 
             #region Mappings

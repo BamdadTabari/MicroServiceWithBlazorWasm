@@ -13,8 +13,6 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Roles
         public DateTime UpdatedAt { get; set; }
         public int CreatorId { get; set; }
         public int UpdaterId { get; set; }
-        public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
         public ICollection<UserRoleModel> UserRoles { get; set; }
         public ICollection<RolePermissionModel> RolePermission { get; set; }

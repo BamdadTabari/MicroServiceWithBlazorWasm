@@ -13,8 +13,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 
         public int CreatorId { get; set; }
         public DateTime CreatedAt { get; set; }
-        public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
         #endregion
 

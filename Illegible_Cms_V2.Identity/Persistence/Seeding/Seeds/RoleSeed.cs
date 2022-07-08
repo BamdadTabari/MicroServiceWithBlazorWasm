@@ -14,8 +14,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 Id = 1,
                 Name = "owner",
                 Title = "مالک",
-                IsDeleted = false,
-                IsArchived = false,
                 UserRoles=new List<UserRole>()
                 {
                     new UserRole
@@ -23,7 +21,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                         UserId = 1,
                         RoleId = 1,
                         CreatedAt = DateTime.UtcNow,
-                        CreatorId = 1
+                        CreatorId = 1,
                     }
                 },
                 CreatedAt = DateTime.UtcNow,

@@ -12,8 +12,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
 
         public DateTime CreatedAt { get; set; }
         public int CreatorId { get; set; }
-        public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
         #endregion
 

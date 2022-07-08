@@ -10,8 +10,6 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
         {
             Name = command.Name,
             Title = command.Title,
-            IsDeleted = false,
-            IsArchived = false,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
             CreatorId = command.RequestInfo.UserId,

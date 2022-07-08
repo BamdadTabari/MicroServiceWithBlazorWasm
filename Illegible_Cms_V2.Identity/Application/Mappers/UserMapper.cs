@@ -23,7 +23,6 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 UpdatedAt = user.UpdatedAt,
                 ConcurrencyStamp = user.ConcurrencyStamp,
                 FailedLoginCount = user.FailedLoginCount,
-                IsDeleted = user.IsDeleted,
                 IsMobileConfirmed = user.IsMobileConfirmed,
                 LastLoginDate = user.LastLoginDate,
                 Claims = (ICollection<ClaimModel>)user.Claims,
