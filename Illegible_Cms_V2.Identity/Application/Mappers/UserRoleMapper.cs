@@ -10,10 +10,9 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
             return new UserRoleModel()
             {
                 CreatedAt = userRole.CreatedAt,
-                CreatorId = userRole.CreatorId,
+                UpdatedAt = userRole.UpdatedAt,
                 RoleId = userRole.RoleId,
                 UserId = userRole.UserId,
-                Creator = userRole.Creator.MapToUserModel(),
                 Role = userRole.Role.MapToRoleModel(),
                 User = userRole.User.MapToUserModel()
             };

@@ -11,8 +11,6 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
             Title = command.Title,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
-            CreatorId = command.RequestInfo.UserId,
-            UpdaterId = command.RequestInfo.UserId,
         };
 
         public static RolePermission CreateRolePermission(int permissionId, int creatorId, int roleId)
@@ -22,7 +20,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
                 RoleId = roleId,
                 PermissionId = permissionId,
                 CreatedAt = DateTime.Now,
-                CreatorId = creatorId
+                UpdatedAt = DateTime.Now
             };
         }
 

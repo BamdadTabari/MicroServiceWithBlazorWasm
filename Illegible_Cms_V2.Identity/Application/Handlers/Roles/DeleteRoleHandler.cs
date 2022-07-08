@@ -23,7 +23,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
             
             entity.UpdatedAt = DateTime.Now;
-            entity.UpdaterId = request.RequestInfo.UserId;
             _unitOfWork.Roles.Update(entity); ;
 
             return new OperationResult(OperationResultStatus.Ok, isPersistAble: true, value: entity);

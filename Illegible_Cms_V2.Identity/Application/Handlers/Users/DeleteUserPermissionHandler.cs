@@ -17,15 +17,13 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(DeleteUserPermissionCommand request, CancellationToken cancellationToken)
         {
-            // Get
+          
             var entity = await _unitOfWork.Claims.GetClaimByIdAsync(request.ClaimId);
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: PermissionErrors.ClaimNotFoundError);
 
-            // Soft Delete
             entity.UpdatedAt = DateTime.UtcNow;
-            entity.UpdaterId = request.RequestInfo.UserId;
             _unitOfWork.Claims.Update(entity);
 
             return new OperationResult(OperationResultStatus.Ok, isPersistAble: true, value: entity);

@@ -7,11 +7,10 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Users
         public int RoleId { get; set; }
         public int UserId { get; set; }
 
-        public int CreatorId { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         public UserModel User { get; set; }
         public RoleModel Role { get; set; }
-        public UserModel Creator { get; set; }
     }
 }

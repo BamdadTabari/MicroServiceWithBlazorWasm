@@ -58,16 +58,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Users
                .HasForeignKey(x => x.UserId)
                .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasOne(x => x.Creator)
-                 .WithMany()
-                 .HasForeignKey(x => x.CreatorId)
-                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.Updater)
-                 .WithMany()
-                 .HasForeignKey(x => x.UpdaterId)
-                 .OnDelete(DeleteBehavior.Restrict);
-
             builder
                 .HasMany(x => x.UserRoles)
                 .WithOne(x => x.User)

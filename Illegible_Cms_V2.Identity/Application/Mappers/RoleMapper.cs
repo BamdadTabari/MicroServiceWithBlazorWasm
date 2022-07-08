@@ -17,11 +17,7 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 Permissions = role?.RolePermission as List<PermissionModel> ?? new List<PermissionModel>(),
                 RolePermission = role?.RolePermission as List<RolePermissionModel> ?? new List<RolePermissionModel>(),
                 CreatedAt = role != null ? role.CreatedAt : DateTime.Now,
-                Creator = role != null ? role.Creator.MapToUserModel() : new UserModel(),
-                CreatorId = role != null ? role.CreatorId : 0,
                 UpdatedAt = role != null ? role.UpdatedAt : DateTime.Now,
-                UpdaterId = role != null ? role.UpdaterId : 0,
-                Updater = role != null ? role.Updater.MapToUserModel() : new UserModel(),
                 UserRoles = (ICollection<UserRoleModel>)
                     (role !=null ? role.UserRoles.MapToUserRoleModels() : new List<UserRoleModel>()),
             };

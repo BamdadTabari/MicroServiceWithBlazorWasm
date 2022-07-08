@@ -38,8 +38,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
                 .Select(x => RoleHelper.CreateRolePermission(x, request.RequestInfo.UserId, request.RoleId)).ToList();
 
             role.UpdatedAt = DateTime.Now;
-            role.UpdaterId = request.RequestInfo.UserId;
-
 
             _unitOfWork.Roles.Update(role);
 

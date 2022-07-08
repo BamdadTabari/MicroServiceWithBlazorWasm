@@ -11,15 +11,13 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
         #region Management
 
         public DateTime CreatedAt { get; set; }
-        public int CreatorId { get; set; }
-
+        public DateTime UpdatedAt { get; set; }
         #endregion
 
         #region Navigations
 
         public Permission Permission { get; set; }
         public Role Role { get; set; }
-        public User Creator { get; set; }
 
         #endregion
     }

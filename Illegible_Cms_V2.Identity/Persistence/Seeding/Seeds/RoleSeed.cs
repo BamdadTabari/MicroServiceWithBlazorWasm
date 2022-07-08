@@ -15,8 +15,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 Title = "Owner",
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
-                CreatorId = 1,
-                UpdaterId = 1
             }
         };
 

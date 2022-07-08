@@ -41,14 +41,10 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
         public string ConcurrencyStamp { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public int CreatorId { get; set; }
-        public int UpdaterId { get; set; }
         public bool IsLockedOut { get; set; }
         #endregion
 
         #region Navigations
-        public User Creator { get; set; }
-        public User Updater { get; set; }
 
         public ICollection<Claim> Claims { get; set; }
         public ICollection<UserRole> UserRoles { get; set; }

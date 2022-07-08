@@ -12,8 +12,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
 
             public DateTime CreatedAt { get; set; }
             public DateTime UpdatedAt { get; set; }
-            public int CreatorId { get; set; }
-            public int UpdaterId { get; set; }
 
             #endregion
 
@@ -21,8 +19,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
 
             public ICollection<UserRole> UserRoles { get; set; }
             public ICollection<RolePermission> RolePermission { get; set; }
-            public User Creator { get; set; }
-            public User Updater { get; set; }
 
             #endregion
     }

@@ -12,8 +12,6 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
             UserId = command.UserId,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
-            CreatorId = command.RequestInfo.UserId,
-            UpdaterId = command.RequestInfo.UserId,
         };
 
     }

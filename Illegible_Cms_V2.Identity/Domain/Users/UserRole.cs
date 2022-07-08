@@ -13,6 +13,7 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 
         public int CreatorId { get; set; }
         public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         #endregion
 
@@ -20,7 +21,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 
         public User User { get; set; }
         public Role Role { get; set; }
-        public User Creator { get; set; }
 
         #endregion
     }
