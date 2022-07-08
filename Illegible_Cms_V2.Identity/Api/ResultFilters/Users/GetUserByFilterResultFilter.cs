@@ -28,7 +28,7 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Users
                         Mobile = x.Mobile,
                      
 
-                        RoleTitles = x.UserRoles.Select(x => x.Name),
+                        RoleTitles = x.UserRoles.Select(x => x.Role.Title),
 
                         Email = x.Email,
                         State = nameof(x.State),

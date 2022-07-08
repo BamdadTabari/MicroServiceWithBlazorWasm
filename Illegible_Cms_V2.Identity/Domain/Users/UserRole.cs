@@ -5,8 +5,8 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 {
     public class UserRole : IEntity
     {
+        public int Id { get; set; }
         public int RoleId { get; set; }
-        public string Name { get; set; }
         public int UserId { get; set; }
 
         #region Management

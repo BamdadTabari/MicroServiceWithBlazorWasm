@@ -11,7 +11,6 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
             {
                 CreatedAt = userRole.CreatedAt,
                 CreatorId = userRole.CreatorId,
-                Name = userRole.Name,
                 RoleId = userRole.RoleId,
                 UserId = userRole.UserId,
                 Creator = userRole.Creator.MapToUserModel(),

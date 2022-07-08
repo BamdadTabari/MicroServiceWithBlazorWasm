@@ -11,13 +11,12 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Users
         {
             var result = context.Result as ObjectResult;
 
-            if (result?.Value is User value)
+            if (result?.Value is UserRole value)
                 result.Value = new
                 {
                     Eid = value.Id.Encode(),
-                    Username = value.Username,
-                    RoleCount = value.UserRoles.Count,
-                    UpdatedAt = value.UpdatedAt
+                    RoleId = value.RoleId.Encode(),
+                    UserId = value.UserId.Encode()
                 };
 
             await next();

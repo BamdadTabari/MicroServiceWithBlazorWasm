@@ -19,7 +19,6 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Auth
                     Roles = value.UserRoles.Select(x => new
                     {
                         Id = x.RoleId.Encode(),
-                        Name = x.Name
                     }),
                     value.Email,
                     value.CreatedAt,

@@ -5,7 +5,6 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Users
     public class UserRoleModel
     {
         public int RoleId { get; set; }
-        public string Name { get; set; }
         public int UserId { get; set; }
 
         public int CreatorId { get; set; }

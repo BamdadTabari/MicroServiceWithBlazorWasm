@@ -20,9 +20,7 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Users
                     IsMobileConfirmed = value.IsMobileConfirmed,
                     IsLockedOut = value.IsLockedOut,
                     Mobile = value.Mobile,
-                    
-                    RoleTitles = value.UserRoles.Select(x => x.Name),
-
+                    RoleTitles = value.UserRoles.Select(x => x.Role.Title),
                     Email = value.Email,
                     State = nameof(value.State),
                     CreatedAt = value.CreatedAt,
