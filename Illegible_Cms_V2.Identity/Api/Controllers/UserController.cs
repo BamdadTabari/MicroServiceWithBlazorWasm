@@ -60,12 +60,10 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             return this.ReturnResponse(operation);
         }
 
-        // Get user by id
         [HttpGet(Routes.Users + "{ueid}")]
         [GetUserByIdResultFilter]
         public async Task<IActionResult> GetUserById([FromRoute] string ueid)
         {
-            // Decode
             var userId = ueid.Decode();
 
             // Operation

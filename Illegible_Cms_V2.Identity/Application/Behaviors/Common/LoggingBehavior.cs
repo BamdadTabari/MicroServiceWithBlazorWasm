@@ -24,7 +24,7 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Common
             }
             else
             {
-                return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.InvalidPasswordValidationError);
+                return new OperationResult(OperationResultStatus.UnProcessable);
             }
         }
     }

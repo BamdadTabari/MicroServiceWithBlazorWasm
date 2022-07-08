@@ -7,8 +7,11 @@ public static class Defaults
     /* DO NOT CHANGE THESE ITEMS TO A LOWER LENGTH */
     public const int TinyLength = 20;
     public const int ShortLength = 40;
-    public const int MidLength = 100;
+    public const int MidLength = 50;
+    public const int LongLength = 100;
+    public const int LongLength2 = 200;
     public const int BigLength = 1000;
+    public const int BigLength2 = 2000;
     public const int HugeLength = 4000;
 
     public const int NameLength = 80;

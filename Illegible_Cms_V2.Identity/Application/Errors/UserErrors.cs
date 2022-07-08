@@ -30,14 +30,6 @@ namespace Illegible_Cms_V2.Identity.Application.Errors
                 Message: "Invalid user id"
             ));
 
-        public static ErrorModel LegalCitizenNotFoundError = new ErrorModel(
-           code: 12005,
-           title: "Identity Error",
-           (
-               Language: Language.English,
-               Message: "Legal citizen not found"
-           ));
-
         public static ErrorModel InvalidUsernameValidationError = new ErrorModel(
             code: 12010,
             title: "Identity Error",

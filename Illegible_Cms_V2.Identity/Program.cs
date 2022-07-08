@@ -32,6 +32,8 @@ try
     IWebHostEnvironment environment = builder.Environment;
     string address = configuration.GetValue<string>("urls");
 
+    #region builder
+
     // Add services to the container.
     builder.Services.AddConfigurations(configuration);
     builder.Services.AddConfiguredDatabase(configuration);
@@ -43,7 +45,11 @@ try
     builder.Services.AddConfiguredSwagger();
     builder.Services.AddControllers();
 
+    #endregion
+
     var app = builder.Build();
+
+    #region app
 
     // Configure the HTTP request pipeline.
 
@@ -67,6 +73,8 @@ try
     Log.Information($"Starting {appName}[{env}] on {address}");
 
     app.Run();
+
+    #endregion
 
     return 0;
 }
