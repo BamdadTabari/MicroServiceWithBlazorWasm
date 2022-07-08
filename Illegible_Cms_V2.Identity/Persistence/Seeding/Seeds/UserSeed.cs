@@ -22,8 +22,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 ConcurrencyStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
                 SecurityStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
                 LastPasswordChangeTime = DateTime.UtcNow,
-                CreatorId = 1,
-                UpdaterId = 1,
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             }
