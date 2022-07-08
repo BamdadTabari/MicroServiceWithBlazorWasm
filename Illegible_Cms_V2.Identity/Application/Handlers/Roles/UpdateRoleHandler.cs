@@ -29,12 +29,11 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
             var isExist = await _unitOfWork.Roles
                 .ExistsAsync(new DuplicateRoleSpecification(request.Title).ToExpression());
 
-            if (isExist && role.Name != request.Name)
+            if (isExist && role.Title != request.Title)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.DuplicateTitleError);
 
             // Update
             role.Title = request.Title;
-            role.Name = request.Name;
             role.RolePermission = request.PermissionIds.Distinct()
                 .Select(x => RoleHelper.CreateRolePermission(x, request.RequestInfo.UserId, request.RoleId)).ToList();
 

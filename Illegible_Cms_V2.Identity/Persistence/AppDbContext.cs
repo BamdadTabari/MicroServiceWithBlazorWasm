@@ -29,9 +29,9 @@ namespace Illegible_Cms_V2.Identity.Persistence
         {
             // Apply Configurations
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
-            modelBuilder.Entity<Role>().HasData(UserSeed.All);
-            modelBuilder.Entity<User>().HasData(UserSeed.All);
-            modelBuilder.Entity<Permission>().HasData(PermissionSeed.All);
+            modelBuilder.Entity<Role>().HasData(RoleSeed.All);
+            //modelBuilder.Entity<User>().HasData(UserSeed.All);
+            //modelBuilder.Entity<Permission>().HasData(PermissionSeed.All);
             // Creating Model
             base.OnModelCreating(modelBuilder);
         }

@@ -22,7 +22,6 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Roles
                     {
                         Eid = x.Id.Encode(),
                         Title = x.Title,
-                        Name = x.Name,
                         CreatorId = x.CreatorId,
                         UpdaterId = x.UpdaterId,
                         CreatedAt = x.CreatedAt,

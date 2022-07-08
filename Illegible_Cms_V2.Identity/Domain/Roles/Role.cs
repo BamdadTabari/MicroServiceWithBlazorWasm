@@ -6,8 +6,7 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
     public class Role : IEntity
     {
             public int Id { get; set; }
-            public string Name { get; set; }
-            public string Title { get; set; }
+            public string? Title { get; set; }
 
             #region Management
 

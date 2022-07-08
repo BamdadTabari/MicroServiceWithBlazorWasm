@@ -13,7 +13,6 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
             return new RoleModel
             {
                 Id = role.Id,
-                Name = role.Name,
                 Title = role.Title,
                 Permissions = role?.RolePermission as List<PermissionModel> ?? new List<PermissionModel>(),
                 RolePermission = role?.RolePermission as List<RolePermissionModel> ?? new List<RolePermissionModel>(),

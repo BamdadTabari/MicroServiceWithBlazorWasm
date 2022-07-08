@@ -8,7 +8,6 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
 
         public static Role CreateRole(CreateRoleCommand command) => new Role
         {
-            Name = command.Name,
             Title = command.Title,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
