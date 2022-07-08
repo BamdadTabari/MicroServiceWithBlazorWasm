@@ -13,16 +13,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
             {
                 Id = 1,
                 Title = "Owner",
-                UserRoles=new List<UserRole>()
-                {
-                    new UserRole
-                    {
-                        UserId = 1,
-                        RoleId = 1,
-                        CreatedAt = DateTime.UtcNow,
-                        CreatorId = 1,
-                    }
-                },
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow,
                 CreatorId = 1,
