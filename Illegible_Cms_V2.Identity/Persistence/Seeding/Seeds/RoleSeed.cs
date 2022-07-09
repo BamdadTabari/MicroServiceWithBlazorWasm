@@ -13,8 +13,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
             {
                 Id = 1,
                 Title = "Owner",
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             }
         };
 

@@ -11,7 +11,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 
         #region Management
 
-        public int CreatorId { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
 

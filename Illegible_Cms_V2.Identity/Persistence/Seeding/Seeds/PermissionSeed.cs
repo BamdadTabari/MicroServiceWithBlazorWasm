@@ -13,6 +13,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 Value = x.Value,
                 Name = x.Name,
                 Title = x.Title,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             });
 
         private static IEnumerable<Permission> _identityPermissions => new List<Permission>

@@ -21,9 +21,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 PasswordHash = PasswordHasher.Hash("owner"),
                 ConcurrencyStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
                 SecurityStamp = StampGenerator.CreateSecurityStamp(Defaults.SecurityStampLength),
-                LastPasswordChangeTime = DateTime.UtcNow,
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
+                LastPasswordChangeTime = DateTime.Now,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             }
         };
 

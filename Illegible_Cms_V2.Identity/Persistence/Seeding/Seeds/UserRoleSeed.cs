@@ -11,8 +11,8 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
                 Id = 1,
                 RoleId = 1,
                 UserId = 1,
-                CreatorId = 1,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now
             }
         };
     }
