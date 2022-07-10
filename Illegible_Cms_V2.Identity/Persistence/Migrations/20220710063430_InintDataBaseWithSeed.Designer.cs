@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220709154634_seedfeed")]
-    partial class seedfeed
+    [Migration("20220710063430_InintDataBaseWithSeed")]
+    partial class InintDataBaseWithSeed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -94,55 +94,55 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8401),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9801),
                             Name = "UserManagement",
                             Title = "مدیریت کاربران",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8404),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9806),
                             Value = "identity.users.command"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8414),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9814),
                             Name = "RoleManagement",
                             Title = "مدیریت نقش‌ها",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8416),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9816),
                             Value = "identity.roles.command"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8419),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9819),
                             Name = "ClaimManagement",
                             Title = "مدیریت دسترسی ها",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8421),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9821),
                             Value = "identity.claims.command"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8424),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9825),
                             Name = "UserView",
                             Title = "نمایش  مدیریت کاربران",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8426),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9827),
                             Value = "identity.users.query"
                         },
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8428),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9830),
                             Name = "RoleView",
                             Title = "نمایش  مدیریت نقش ها",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8430),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9831),
                             Value = "identity.roles.query"
                         },
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8436),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9838),
                             Name = "ClaimView",
                             Title = "نمایش  مدیریت دسترسی ها",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8437),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9839),
                             Value = "identity.claims.query"
                         });
                 });
@@ -172,9 +172,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 919, DateTimeKind.Local).AddTicks(3846),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4497),
                             Title = "Owner",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 919, DateTimeKind.Local).AddTicks(3849)
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4501)
                         });
                 });
 
@@ -197,6 +197,50 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.HasIndex("PermissionId");
 
                     b.ToTable("RolePermissions");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 1,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9929),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9932)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 2,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9938),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9940)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 3,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9943),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9945)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 4,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9948),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9949)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 5,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9952),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9954)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 6,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9958),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9960)
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Users.User", b =>
@@ -283,19 +327,19 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "JW12Q1H34NM3CUULZE294WASGL0FQBFF",
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8213),
+                            ConcurrencyStamp = "1I66FRJPSZ1D0M5M3UGPQAI625QUV5PF",
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9505),
                             Email = "mohammadJavadtabari1024@outlook.com",
                             FailedLoginCount = 0,
                             IsEmailConfirmed = false,
                             IsLockedOut = false,
                             IsMobileConfirmed = false,
-                            LastPasswordChangeTime = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8200),
+                            LastPasswordChangeTime = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9484),
                             Mobile = "09301724389",
-                            PasswordHash = "0l2gk4p60AYEatrHDtPwCzhbBLFpYVDdOoRi+8zuXec=.PP5wGoBQgOK4vxhH0cUTyA==",
-                            SecurityStamp = "VSTN1Z1J96VGUK5TG861V7356D1BSIAM",
+                            PasswordHash = "IQwO265q8doSbB9xfpJwHn3f3qV5B2Pu7n307Z+wv0I=.zhWV9D2fW99FwItkl6oWDA==",
+                            SecurityStamp = "T98N35ZX62RQRCFV84M8BP87XZXNSXUH",
                             State = "Active",
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 930, DateTimeKind.Local).AddTicks(8215),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9509),
                             Username = "Illegible_Owner"
                         });
                 });
@@ -328,9 +372,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         {
                             UserId = 1,
                             RoleId = 1,
-                            CreatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 919, DateTimeKind.Local).AddTicks(3782),
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4402),
                             Id = 1,
-                            UpdatedAt = new DateTime(2022, 7, 9, 8, 46, 33, 919, DateTimeKind.Local).AddTicks(3818)
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4446)
                         });
                 });
 
