@@ -2,6 +2,7 @@
 using Illegible_Cms_V2.Identity.Api.ResultFilters.Auth;
 using Illegible_Cms_V2.Identity.Application.Models.Commands.Auth;
 using Illegible_Cms_V2.Identity.Application.Models.Queries.Auth;
+using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Illegible_Cms_V2.Shared.BasicShared.Extension;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -42,12 +43,16 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             return this.ReturnResponse(operation);
         }
 
-        [HttpGet(Routes.Auth + "profile")]
+        [HttpGet(Routes.Auth + "profile/{ueid}")]
         [GetProfileResultFilter]
-        public async Task<IActionResult> Profile()
+        public async Task<IActionResult> Profile([FromRoute] string ueid)
         {
-            // Operation
-            var operation = await _mediator.Send(new GetUserProfileQuery(Request.GetRequestInfo()));
+            var id = ueid.Decode();
+            
+            var operation = await _mediator.Send(new GetUserProfileQuery(Request.GetRequestInfo())
+            {
+                UserId = id
+            });
 
             return this.ReturnResponse(operation);
         }
