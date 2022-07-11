@@ -8,17 +8,17 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
     {
         public static RoleModel MapToRoleModel(this Role role)
         {
-            //var permission = role.RolePermission?.Select(x => x.Permission)
-            //    .MapToPermissionModels().ToList();
+            var permission = role.RolePermission?.Select(x => x.Permission)
+                .MapToPermissionModels().ToList();
             return new RoleModel
             {
                 Id = role.Id,
                 Title = role.Title,
-                Permissions = role?.RolePermission as List<PermissionModel> ?? new List<PermissionModel>(),
+                Permissions = permission,
                 RolePermission = role?.RolePermission as List<RolePermissionModel> ?? new List<RolePermissionModel>(),
                 CreatedAt = role != null ? role.CreatedAt : DateTime.Now,
                 UpdatedAt = role != null ? role.UpdatedAt : DateTime.Now,
-                UserRoles = (ICollection<UserRoleModel>)
+                UserRoles = (List<UserRoleModel>)
                     (role !=null ? role.UserRoles.MapToUserRoleModels() : new List<UserRoleModel>()),
             };
         }
