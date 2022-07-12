@@ -9,9 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Client", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Shared", "Illegible_Cms_V2\Shared\Illegible_Cms_V2.Shared.csproj", "{7404C7D6-8C67-43F9-8FFC-85D3329C4B5F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Kernel", "Illegible_Cms_V2.Kernel\Illegible_Cms_V2.Kernel.csproj", "{95079594-A2CD-42C1-B061-96AAF21C9E68}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Illegible_Cms_V2.Identity", "Illegible_Cms_V2.Identity\Illegible_Cms_V2.Identity.csproj", "{DA851452-77A2-47C9-AC96-A5FF97F879C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Identity", "Illegible_Cms_V2.Identity\Illegible_Cms_V2.Identity.csproj", "{DA851452-77A2-47C9-AC96-A5FF97F879C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{7404C7D6-8C67-43F9-8FFC-85D3329C4B5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7404C7D6-8C67-43F9-8FFC-85D3329C4B5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7404C7D6-8C67-43F9-8FFC-85D3329C4B5F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{95079594-A2CD-42C1-B061-96AAF21C9E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{95079594-A2CD-42C1-B061-96AAF21C9E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{95079594-A2CD-42C1-B061-96AAF21C9E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{95079594-A2CD-42C1-B061-96AAF21C9E68}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DA851452-77A2-47C9-AC96-A5FF97F879C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DA851452-77A2-47C9-AC96-A5FF97F879C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA851452-77A2-47C9-AC96-A5FF97F879C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
