@@ -1,7 +1,7 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Users;
 using Illegible_Cms_V2.Identity.Application.Models.Queries.Users;
-using Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity;
-using Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity.Models;
+using Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity;
+using Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Models;
 using MassTransit;
 using MediatR;
 

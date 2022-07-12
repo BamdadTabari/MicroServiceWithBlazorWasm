@@ -1,4 +1,4 @@
-﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity.Sample
+﻿namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample
 {
     public class CustomError : Error
     {

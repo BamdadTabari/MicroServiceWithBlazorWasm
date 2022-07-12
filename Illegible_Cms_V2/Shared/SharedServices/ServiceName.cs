@@ -1,4 +1,4 @@
-﻿namespace Illegible_Cms_V2.Kernel;
+﻿namespace Illegible_Cms_V2.Shared.SharedServices;
 
 public enum ServiceName
 {
