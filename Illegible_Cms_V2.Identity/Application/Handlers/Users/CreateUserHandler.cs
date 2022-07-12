@@ -37,8 +37,8 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
                 Email = request.Email,
                 PasswordHash = PasswordHasher.Hash(request.Password),
                 State = request.State,
-                CreatorId = request.CreatorId,
-                UpdaterId = request.UpdaterId
+                CreatedAt = request.CreatedAt,
+                UpdatedAt = request.UpdatedAt
             };
 
             _unitOfWork.Users.Add(entity);    

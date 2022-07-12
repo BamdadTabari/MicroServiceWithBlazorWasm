@@ -16,7 +16,6 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Roles
                 {
                     Eid = value.Id.Encode(),
                     Title = value.Title,
-                    Name = value.Name
                 };
 
             await next();

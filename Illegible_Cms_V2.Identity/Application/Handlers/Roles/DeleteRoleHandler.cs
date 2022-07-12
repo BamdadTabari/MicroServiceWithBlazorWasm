@@ -17,16 +17,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
         public async Task<OperationResult> Handle(DeleteRoleCommand request, CancellationToken cancellationToken)
         {
-            // Get
             var entity = await _unitOfWork.Roles.GetRoleByIdAsync(request.RoleId);
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
-
-            // Soft Delete
-            entity.IsDeleted = true;
+            
             entity.UpdatedAt = DateTime.Now;
-            entity.UpdaterId = request.RequestInfo.UserId;
             _unitOfWork.Roles.Update(entity); ;
 
             return new OperationResult(OperationResultStatus.Ok, isPersistAble: true, value: entity);

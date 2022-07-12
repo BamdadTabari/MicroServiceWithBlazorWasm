@@ -11,10 +11,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Extensions
             if (filter.PermissionIds != null)
                 query = query.Where(x => x.RolePermission.Any(x => filter.PermissionIds.Contains(x.PermissionId)));
 
-            // Filter by name
-            if (!string.IsNullOrEmpty(filter.Name))
-                query = query.Where(x => x.Name.ToLower().Contains(filter.Name.ToLower().Trim()));
-
             // Filter by title
             if (!string.IsNullOrEmpty(filter.Title))
                 query = query.Where(x => x.Title.ToLower().Contains(filter.Title.ToLower().Trim()));

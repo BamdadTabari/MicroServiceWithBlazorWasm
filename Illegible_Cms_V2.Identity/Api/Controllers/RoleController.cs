@@ -32,7 +32,6 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             var operation = await _mediator.Send(new CreateRoleCommand(Request.GetRequestInfo())
             {
                 Title = request.Title,
-                Name = request.Name,
                 PermissionIds = permissionIds
             });
 
@@ -54,7 +53,6 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
                 {
                     PermissionIds = permissionIds,
                     SortBy = request.SortBy,
-                    Name = request.Name,
                     Title = request.Title
                 },
             });
@@ -111,7 +109,6 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             {
                 RoleId = roleId,
                 Title = request.Title,
-                Name = request.Name,
                 PermissionIds = permissionIds
             });
 

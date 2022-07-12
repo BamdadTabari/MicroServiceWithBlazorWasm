@@ -8,14 +8,9 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
 
         public static Role CreateRole(CreateRoleCommand command) => new Role
         {
-            Name = command.Name,
             Title = command.Title,
-            IsDeleted = false,
-            IsArchived = false,
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
-            CreatorId = command.RequestInfo.UserId,
-            UpdaterId = command.RequestInfo.UserId,
         };
 
         public static RolePermission CreateRolePermission(int permissionId, int creatorId, int roleId)
@@ -25,7 +20,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
                 RoleId = roleId,
                 PermissionId = permissionId,
                 CreatedAt = DateTime.Now,
-                CreatorId = creatorId
+                UpdatedAt = DateTime.Now
             };
         }
 

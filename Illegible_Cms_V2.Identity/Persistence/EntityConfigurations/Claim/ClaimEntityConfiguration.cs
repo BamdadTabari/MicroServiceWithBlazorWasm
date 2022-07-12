@@ -12,8 +12,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Claim
         public void Configure(EntityTypeBuilder<Domain.Claims.Claim> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
+            
             #region Mappings
 
             builder.Property(b => b.Value)

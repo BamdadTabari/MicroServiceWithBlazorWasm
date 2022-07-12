@@ -33,15 +33,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(10)
@@ -49,9 +40,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdaterId")
-                        .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
@@ -62,8 +50,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .HasColumnType("nvarchar(1000)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CreatorId");
 
                     b.HasIndex("UserId");
 
@@ -81,9 +67,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(140)
@@ -93,6 +76,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Value")
                         .IsRequired()
                         .HasMaxLength(80)
@@ -100,9 +86,63 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
-
                     b.ToTable("Permissions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9801),
+                            Name = "UserManagement",
+                            Title = "مدیریت کاربران",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9806),
+                            Value = "identity.users.command"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9814),
+                            Name = "RoleManagement",
+                            Title = "مدیریت نقش‌ها",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9816),
+                            Value = "identity.roles.command"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9819),
+                            Name = "ClaimManagement",
+                            Title = "مدیریت دسترسی ها",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9821),
+                            Value = "identity.claims.command"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9825),
+                            Name = "UserView",
+                            Title = "نمایش  مدیریت کاربران",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9827),
+                            Value = "identity.users.query"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9830),
+                            Name = "RoleView",
+                            Title = "نمایش  مدیریت نقش ها",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9831),
+                            Value = "identity.roles.query"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9838),
+                            Name = "ClaimView",
+                            Title = "نمایش  مدیریت دسترسی ها",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9839),
+                            Value = "identity.claims.query"
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Roles.Role", b =>
@@ -116,37 +156,24 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(140)
-                        .HasColumnType("nvarchar(140)");
-
                     b.Property<string>("Title")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdaterId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
-
-                    b.HasIndex("UpdaterId");
-
                     b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4497),
+                            Title = "Owner",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4501)
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Roles.RolePermission", b =>
@@ -160,22 +187,58 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("RoleId", "PermissionId");
-
-                    b.HasIndex("CreatorId");
 
                     b.HasIndex("PermissionId");
 
                     b.ToTable("RolePermissions");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 1,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9929),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9932)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 2,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9938),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9940)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 3,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9943),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9945)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 4,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9948),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9949)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 5,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9952),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9954)
+                        },
+                        new
+                        {
+                            RoleId = 1,
+                            PermissionId = 6,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9958),
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9960)
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Users.User", b =>
@@ -195,9 +258,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(60)
@@ -205,9 +265,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 
                     b.Property<int>("FailedLoginCount")
                         .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsEmailConfirmed")
                         .HasColumnType("bit");
@@ -252,9 +309,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdaterId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -262,14 +316,30 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatorId");
-
-                    b.HasIndex("UpdaterId");
-
                     b.HasIndex("Username")
                         .IsUnique();
 
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ConcurrencyStamp = "1I66FRJPSZ1D0M5M3UGPQAI625QUV5PF",
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9505),
+                            Email = "mohammadJavadtabari1024@outlook.com",
+                            FailedLoginCount = 0,
+                            IsEmailConfirmed = false,
+                            IsLockedOut = false,
+                            IsMobileConfirmed = false,
+                            LastPasswordChangeTime = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9484),
+                            Mobile = "09301724389",
+                            PasswordHash = "IQwO265q8doSbB9xfpJwHn3f3qV5B2Pu7n307Z+wv0I=.zhWV9D2fW99FwItkl6oWDA==",
+                            SecurityStamp = "T98N35ZX62RQRCFV84M8BP87XZXNSXUH",
+                            State = "Active",
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 743, DateTimeKind.Local).AddTicks(9509),
+                            Username = "Illegible_Owner"
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Users.UserRole", b =>
@@ -283,85 +353,42 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatorId")
+                    b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsArchived")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
 
                     b.HasKey("UserId", "RoleId");
-
-                    b.HasIndex("CreatorId");
 
                     b.HasIndex("RoleId");
 
                     b.ToTable("UserRole");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            RoleId = 1,
+                            CreatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4402),
+                            Id = 1,
+                            UpdatedAt = new DateTime(2022, 7, 9, 23, 34, 29, 726, DateTimeKind.Local).AddTicks(4446)
+                        });
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Claims.Claim", b =>
                 {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "User")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.Navigation("Creator");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Permissions.Permission", b =>
-                {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Creator");
-                });
-
-            modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Roles.Role", b =>
-                {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Updater")
-                        .WithMany()
-                        .HasForeignKey("UpdaterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Creator");
-
-                    b.Navigation("Updater");
                 });
 
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Roles.RolePermission", b =>
                 {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Permissions.Permission", "Permission")
                         .WithMany("Roles")
                         .HasForeignKey("PermissionId")
@@ -374,44 +401,17 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
-                    b.Navigation("Creator");
-
                     b.Navigation("Permission");
 
                     b.Navigation("Role");
                 });
 
-            modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Users.User", b =>
-                {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Updater")
-                        .WithMany()
-                        .HasForeignKey("UpdaterId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Creator");
-
-                    b.Navigation("Updater");
-                });
-
             modelBuilder.Entity("Illegible_Cms_V2.Identity.Domain.Users.UserRole", b =>
                 {
-                    b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "Creator")
-                        .WithMany()
-                        .HasForeignKey("CreatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Roles.Role", "Role")
                         .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Illegible_Cms_V2.Identity.Domain.Users.User", "User")
@@ -419,8 +419,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.Navigation("Creator");
 
                     b.Navigation("Role");
 

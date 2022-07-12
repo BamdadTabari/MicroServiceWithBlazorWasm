@@ -18,8 +18,8 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Users
         public string Email { get; set; }
         public string Password { get; set; }
         public UserState State { get; set; }
-        public int CreatorId { get; set; }
-        public int UpdaterId { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         public RequestInfo RequestInfo { get; private set; }
     }

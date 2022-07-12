@@ -1,7 +1,5 @@
 using Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection;
 using Illegible_Cms_V2.Identity.Api.Extensions.Middleware;
-using Illegible_Cms_V2.Identity.Persistence;
-using Illegible_Cms_V2.Identity.Persistence.Seeding;
 using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,9 +64,6 @@ try
 
     if (!environment.IsProduction())
         app.UseConfiguredSwagger();
-
-    //MigrationRunner.Run(app.Services);
-    Seeder.Seed(app.Services);
 
     Log.Information($"Starting {appName}[{env}] on {address}");
 

@@ -12,13 +12,8 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Claims
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public int CreatorId { get; set; }
-        public int UpdaterId { get; set; }
-        public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
 
         public UserModel User { get; set; }
-        public UserModel Creator { get; set; }
 
     }
 }

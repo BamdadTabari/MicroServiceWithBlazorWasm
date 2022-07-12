@@ -11,8 +11,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Users
 
             builder.HasKey(x => new { x.UserId, x.RoleId });
 
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
             #region Conversions
 
             builder

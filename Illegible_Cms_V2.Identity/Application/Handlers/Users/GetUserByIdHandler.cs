@@ -18,12 +18,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(GetUserByIdQuery request, CancellationToken cancellationToken)
         {
-            // Get
+            
             var entity = await _unitOfWork.Users.GetUserByIdAsync(request.UserId);
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.UserNotFoundError);
 
-            // Mapping
+            
             var model = entity.MapToUserModel();
 
             return new OperationResult(OperationResultStatus.Ok, value: model);

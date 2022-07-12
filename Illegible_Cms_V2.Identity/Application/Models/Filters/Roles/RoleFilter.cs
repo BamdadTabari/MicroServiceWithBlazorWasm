@@ -8,7 +8,6 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Filters.Roles
         {
         }
 
-        public string Name { get; set; }
         public string Title { get; set; }
         public int[] PermissionIds { get; set; }
         public RoleIncludes Include { get; set; }

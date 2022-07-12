@@ -5,16 +5,14 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 {
     public class UserRole : IEntity
     {
+        public int Id { get; set; }
         public int RoleId { get; set; }
-        public string Name { get; set; }
         public int UserId { get; set; }
 
         #region Management
 
-        public int CreatorId { get; set; }
         public DateTime CreatedAt { get; set; }
-        public bool IsArchived { get; set; }
-        public bool IsDeleted { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
         #endregion
 
@@ -22,7 +20,6 @@ namespace Illegible_Cms_V2.Identity.Domain.Users
 
         public User User { get; set; }
         public Role Role { get; set; }
-        public User Creator { get; set; }
 
         #endregion
     }
