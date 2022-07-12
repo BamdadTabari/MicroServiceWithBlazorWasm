@@ -5,7 +5,7 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
 {
     public static class UserRoleMapper
     {
-        public static UserRoleModel MapToUserRoleModel(this UserRole userRole)
+        public static UserRoleModel MapToUserRoleModel(this UserRole userRole, int iteration = 0)
         {
             return new UserRoleModel()
             {
@@ -13,7 +13,7 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 UpdatedAt = userRole.UpdatedAt,
                 RoleId = userRole.RoleId,
                 UserId = userRole.UserId,
-                Role = userRole.Role.MapToRoleModel(),
+                Role = userRole.Role.MapToRoleModel(iteration: 1),
                 User = userRole.User.MapToUserModel()
             };
         }

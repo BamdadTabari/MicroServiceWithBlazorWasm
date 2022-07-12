@@ -6,8 +6,16 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
 {
     public static class RoleMapper
     {
-        public static RoleModel MapToRoleModel(this Role role)
+        public static RoleModel MapToRoleModel(this Role role, int iteration = 0)
         {
+            // for avoiding infinity loop on nested maps
+            var userRole = new List<UserRoleModel>();
+            if (iteration == 0)
+            {
+                userRole = role != null ? role.UserRoles.MapToUserRoleModels().ToList() : new List<UserRoleModel>();
+                iteration++;
+            }
+
             var permission = role.RolePermission?.Select(x => x.Permission)
                 .MapToPermissionModels().ToList();
             return new RoleModel
@@ -18,8 +26,7 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 RolePermission = role?.RolePermission as List<RolePermissionModel> ?? new List<RolePermissionModel>(),
                 CreatedAt = role != null ? role.CreatedAt : DateTime.Now,
                 UpdatedAt = role != null ? role.UpdatedAt : DateTime.Now,
-                UserRoles = (List<UserRoleModel>)
-                    (role !=null ? role.UserRoles.MapToUserRoleModels() : new List<UserRoleModel>()),
+                UserRoles = userRole
             };
         }
 
