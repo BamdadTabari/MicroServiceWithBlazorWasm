@@ -86,7 +86,6 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
         {
             var Id = wpeid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new DeleteWeblogPostCommand(Request.GetRequestInfo())
             {
                 Id = Id,

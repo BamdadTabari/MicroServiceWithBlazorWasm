@@ -7,7 +7,6 @@ namespace Illegible_Cms_V2.Server.Persistence.Extensions.Weblog
     {
         public static IQueryable<WeblogPost> ApplyFilter(this IQueryable<WeblogPost> query, WeblogPostFilter filter)
         {
-            // Filter by keyword
             if (!string.IsNullOrEmpty(filter.KeyWord))
                 query = query.Where(x =>
                     x.Title.ToLower().Contains(filter.KeyWord.ToLower().Trim()));

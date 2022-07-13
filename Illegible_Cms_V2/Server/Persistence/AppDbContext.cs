@@ -15,10 +15,8 @@ namespace Illegible_Cms_V2.Server.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Apply Configurations
             modelBuilder.ApplyConfigurationsFromAssembly(GetType().Assembly);
 
-            // Creating Model
             base.OnModelCreating(modelBuilder);
         }
     }

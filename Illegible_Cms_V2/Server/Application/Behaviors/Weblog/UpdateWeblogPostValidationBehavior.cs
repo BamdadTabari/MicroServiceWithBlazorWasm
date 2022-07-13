@@ -12,7 +12,6 @@ namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog
         public async Task<OperationResult> Handle(UpdateWeblogPostCommand request,
            CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            // Validation
             var validation = new UpdateWeblogPostCommandValidator().Validate(request);
             if (!validation.IsValid)
                 return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());

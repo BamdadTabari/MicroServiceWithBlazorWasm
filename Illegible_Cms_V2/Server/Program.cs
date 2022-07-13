@@ -6,16 +6,13 @@ using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Environment and System Name
 string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development";
 var appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
-// Configuration
 builder.Configuration.AddJsonFile("appsettings.json")
             .AddJsonFile($"appsettings.{env}.json")
             .AddEnvironmentVariables();
 
-// Logger
 Log.Logger = new LoggerConfiguration()
         .ReadFrom.Configuration(builder.Configuration)
         .CreateLogger();
@@ -63,7 +60,6 @@ try
     #region app
 
 
-    // Configure the HTTP request pipeline.
     if (app.Environment.IsDevelopment())
     {
         app.UseWebAssemblyDebugging();

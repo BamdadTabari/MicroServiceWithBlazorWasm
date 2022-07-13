@@ -9,7 +9,6 @@ namespace Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection
         {
             var config = configuration.GetSection(RedisCacheConfig.Key).Get<RedisCacheConfig>();
 
-            // Distributed caching
             services.AddStackExchangeRedis("server", config);
 
             return services;

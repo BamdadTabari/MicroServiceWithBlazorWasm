@@ -21,12 +21,10 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
 
         #region User
 
-        // Create
         [HttpPost(Routes.Users)]
         [CreateUserResultFilter]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
-            // Operation
             var operation = await _mediator.Send(new CreateUserCommand(Request.GetRequestInfo())
             {
                 Username = request.Username,
@@ -39,15 +37,12 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             return this.ReturnResponse(operation);
         }
 
-        // Update
         [HttpPut(Routes.Users + "{ueid}")]
         [UpdateUserResultFilter]
         public async Task<IActionResult> UpdateUser([FromRoute] string ueid, [FromBody] UpdateUserRequest request)
         {
-            // Decode
             var userId = ueid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new UpdateUserCommand(Request.GetRequestInfo())
             {
                 UserId = userId,
@@ -66,7 +61,6 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
         {
             var userId = ueid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new GetUserByIdQuery(Request.GetRequestInfo())
             {
                 UserId = userId
@@ -81,10 +75,8 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
         [UpdateUserResultFilter]
         public async Task<IActionResult> UpdateUserPassword([FromRoute] string ueid, [FromBody] UpdateUserPasswordRequest request)
         {
-            // Decode
             var userId = ueid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new UpdateUserPasswordCommand(Request.GetRequestInfo())
             {
                 UserId = userId,
@@ -98,16 +90,13 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
 
         #region Role
 
-        // Update Roles
         [HttpPatch(Routes.Users + "{ueid}/roles")]
         [UpdateUserRolesResultFilter]
         public async Task<IActionResult> UpdateUserRoles([FromRoute] string ueid, [FromBody] UpdateUserRolesRequest request)
         {
-            // Decode
             var userId = ueid.Decode();
             var roleIds = request.RoleEids?.Select(x => x.Decode());
 
-            // Operation
             var operation = await _mediator.Send(new UpdateUserRolesCommand(Request.GetRequestInfo())
             {
                 UserId = userId,
@@ -121,16 +110,13 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
 
         #region Permission
 
-        // Create User Permission
         [HttpPost(Routes.Users + "{ueid}/permissions/{peid}")]
         [CreateUserPermissionResultFilter]
         public async Task<IActionResult> CreateUserPermission([FromRoute] string ueid, [FromRoute] string peid)
         {
-            // Decode
             var userId = ueid.Decode();
             var permissionId = peid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new CreateUserPermissionCommand(Request.GetRequestInfo())
             {
                 UserId = userId,
@@ -140,12 +126,10 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             return this.ReturnResponse(operation);
         }
 
-        // Delete User Permission
         [HttpDelete(Routes.Users + "permission/{ceid}")]
         [DeleteUserPermissionResultFilter]
         public async Task<IActionResult> DeleteUserPermission([FromRoute] string ceid)
         {
-            // Decode
             var claimId = ceid.Decode();
 
             // Operation
