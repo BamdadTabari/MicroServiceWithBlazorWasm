@@ -11,7 +11,7 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Users
         {
             RequestInfo = requestInfo;
         }
-        
+
         public int UserId { get; set; }
         public string Username { get; set; }
         public string Mobile { get; set; }

@@ -2,7 +2,7 @@
 
 namespace Illegible_Cms_V2.Server.Domain.Weblog
 {
-    public class WeblogPost: IEntity
+    public class WeblogPost : IEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }

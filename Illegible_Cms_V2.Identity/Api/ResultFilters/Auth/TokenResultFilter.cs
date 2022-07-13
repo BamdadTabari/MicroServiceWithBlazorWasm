@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Auth
 {
-    public class TokenResultFilter: ResultFilterAttribute
+    public class TokenResultFilter : ResultFilterAttribute
     {
         public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {

@@ -5,21 +5,21 @@ namespace Illegible_Cms_V2.Identity.Domain.Roles
 {
     public class Role : IEntity
     {
-            public int Id { get; set; }
-            public string? Title { get; set; }
+        public int Id { get; set; }
+        public string? Title { get; set; }
 
-            #region Management
+        #region Management
 
-            public DateTime CreatedAt { get; set; }
-            public DateTime UpdatedAt { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
 
-            #endregion
+        #endregion
 
-            #region Navigations
+        #region Navigations
 
-            public ICollection<UserRole> UserRoles { get; set; }
-            public ICollection<RolePermission> RolePermission { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<RolePermission> RolePermission { get; set; }
 
-            #endregion
+        #endregion
     }
 }

@@ -1,11 +1,11 @@
-﻿using System.Reflection;
-using Illegible_Cms_V2.Identity.Application.Behaviors.Common;
+﻿using Illegible_Cms_V2.Identity.Application.Behaviors.Common;
 using Illegible_Cms_V2.Identity.Application.Behaviors.Roles;
 using Illegible_Cms_V2.Identity.Application.Behaviors.Users;
 using Illegible_Cms_V2.Identity.Application.Models.Commands.Roles;
 using Illegible_Cms_V2.Identity.Application.Models.Commands.Users;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
+using System.Reflection;
 
 namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
 {

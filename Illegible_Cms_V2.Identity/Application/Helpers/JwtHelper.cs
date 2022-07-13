@@ -1,10 +1,10 @@
-﻿using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using Illegible_Cms_V2.Identity.Application.Configurations;
+﻿using Illegible_Cms_V2.Identity.Application.Configurations;
 using Illegible_Cms_V2.Identity.Domain.Users;
 using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace Illegible_Cms_V2.Identity.Application.Helpers
 {

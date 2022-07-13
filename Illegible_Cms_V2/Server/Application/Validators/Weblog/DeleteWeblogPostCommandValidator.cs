@@ -8,7 +8,7 @@ namespace Illegible_Cms_V2.Server.Application.Validators.Weblog
     {
         public DeleteWeblogPostCommandValidator()
         {
-            
+
             RuleFor(x => x.Id)
                 .NotEmpty()
                 .WithState(_ => WeblogPostErrors.InvalidPostIdValidationError);

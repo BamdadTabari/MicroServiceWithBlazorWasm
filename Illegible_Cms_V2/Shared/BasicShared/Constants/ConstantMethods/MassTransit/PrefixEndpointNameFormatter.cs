@@ -1,5 +1,5 @@
-﻿using System.Text.RegularExpressions;
-using MassTransit;
+﻿using MassTransit;
+using System.Text.RegularExpressions;
 
 namespace Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods.MassTransit;
 

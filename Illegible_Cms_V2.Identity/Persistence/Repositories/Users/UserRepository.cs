@@ -20,7 +20,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Repositories.Users
         {
             var user = await _queryable
                 .Include(x => x.UserRoles)
-                .ThenInclude(x=>x.Role)
+                .ThenInclude(x => x.Role)
                 .SingleOrDefaultAsync(x => x.Id == id);
 
             if (user == null)
@@ -72,7 +72,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Repositories.Users
             query = query.AsNoTracking();
 
             // Includes
-            if (filter.Include is {Role: true}) query = query.Include(x => x.UserRoles);
+            if (filter.Include is { Role: true }) query = query.Include(x => x.UserRoles);
 
             query = query.ApplyFilter(filter);
             query = query.ApplySort(filter.SortBy);

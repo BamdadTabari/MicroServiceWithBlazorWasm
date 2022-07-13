@@ -1,6 +1,5 @@
-﻿using System.Text.Json;
-using Microsoft.AspNetCore.Mvc;
-using StackExchange.Redis;
+﻿using StackExchange.Redis;
+using System.Text.Json;
 
 namespace Illegible_Cms_V2.Shared.SharedServices.Caching.StackExchangeRedis
 {

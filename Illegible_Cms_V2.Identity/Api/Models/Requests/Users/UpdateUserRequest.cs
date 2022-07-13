@@ -1,6 +1,4 @@
-﻿using Illegible_Cms_V2.Shared.BasicShared.Models;
-
-namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Users
+﻿namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Users
 {
     public class UpdateUserRequest
     {

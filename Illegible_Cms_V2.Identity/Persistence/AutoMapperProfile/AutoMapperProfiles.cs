@@ -8,7 +8,7 @@ using Illegible_Cms_V2.Identity.Domain.Users;
 
 namespace Illegible_Cms_V2.Identity.Persistence.AutoMapperProfile
 {
-    public class AutoMapperProfiles: Profile
+    public class AutoMapperProfiles : Profile
     {
         public AutoMapperProfiles()
         {

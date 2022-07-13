@@ -50,7 +50,7 @@ try
     #region app
 
     // Configure the HTTP request pipeline.
-    
+
     app.UseHttpsRedirection();
     app.UseDeveloperExceptionPage();
     app.UseConfiguredExceptionHandler(environment);

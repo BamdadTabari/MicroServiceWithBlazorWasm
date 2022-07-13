@@ -15,7 +15,7 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
             // Validation
             var validation = new CreateUserPermissionCommandValidator().Validate(request);
             if (!validation.IsValid)
-                return new OperationResult(OperationResultStatus.Invalidated, value:validation.GetFirstErrorState());
+                return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 
             return await next();
         }

@@ -1,5 +1,4 @@
 ﻿using Illegible_Cms_V2.Identity.Domain.Roles;
-using Illegible_Cms_V2.Identity.Domain.Users;
 using Illegible_Cms_V2.Shared.BasicShared.Models;
 
 namespace Illegible_Cms_V2.Identity.Domain.Permissions

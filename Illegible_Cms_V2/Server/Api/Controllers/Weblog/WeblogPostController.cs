@@ -41,10 +41,10 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
 
             var operation = await _mediator.Send(new UpdateWeblogPostCommand(Request.GetRequestInfo())
             {
-               Id = Id,
-               Summery = request.Summery,
-               Title = request.Title,
-               TextContent=request.TextContent,
+                Id = Id,
+                Summery = request.Summery,
+                Title = request.Title,
+                TextContent = request.TextContent,
             });
 
             return this.ReturnResponse(operation);
@@ -72,7 +72,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             {
                 Filter = new WeblogPostFilter(request.Page, request.PageSize)
                 {
-                    KeyWord = request?.Keyword??"",
+                    KeyWord = request?.Keyword ?? "",
                     SortBy = request?.SortBy,
                 },
             });

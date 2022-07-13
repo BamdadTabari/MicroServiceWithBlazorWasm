@@ -1,5 +1,5 @@
-﻿using MediatR;
-using Illegible_Cms_V2.Server.Application.Behaviors.Common;
+﻿using Illegible_Cms_V2.Server.Application.Behaviors.Common;
+using MediatR;
 namespace Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection
 {
     public static class MediatRInjection

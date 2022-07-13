@@ -1,6 +1,6 @@
-﻿using System.Net;
-using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Diagnostics;
 using Newtonsoft.Json;
+using System.Net;
 
 namespace Illegible_Cms_V2.Identity.Api.Extensions.Middleware
 {

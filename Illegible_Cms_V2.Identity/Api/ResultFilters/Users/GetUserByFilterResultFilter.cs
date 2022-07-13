@@ -26,7 +26,7 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Users
                         IsMobileConfirmed = x.IsMobileConfirmed,
                         IsLockedOut = x.IsLockedOut,
                         Mobile = x.Mobile,
-                     
+
 
                         RoleTitles = x.UserRoles.Select(x => x.Role.Title),
 

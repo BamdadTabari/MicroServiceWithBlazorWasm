@@ -1,5 +1,4 @@
-﻿using Illegible_Cms_V2.Server.Application.Errors.Weblog;
-using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
+﻿using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
 using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 using Illegible_Cms_V2.Server.Persistence.Extensions.Weblog;
@@ -38,7 +37,7 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
 
         public async Task<WeblogPost> GetWeblogPostByWeblogPostnameAsync(string weblogPostname)
         {
-            var data = await _queryable.SingleOrDefaultAsync(x=>x.Title == weblogPostname);
+            var data = await _queryable.SingleOrDefaultAsync(x => x.Title == weblogPostname);
 
             if (data == null)
                 throw new NullReferenceException("Weblog post not found with this name");
@@ -60,7 +59,7 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
         public async Task<List<WeblogPost>> GetWeblogPostsByIdsAsync(IEnumerable<int> ids)
         {
             var query = _queryable;
-            
+
             if (ids?.Any() == true)
                 query = query.Where(x => ids.Contains(x.Id));
 

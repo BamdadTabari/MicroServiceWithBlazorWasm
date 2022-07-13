@@ -48,7 +48,7 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
         public async Task<IActionResult> Profile([FromRoute] string ueid)
         {
             var id = ueid.Decode();
-            
+
             var operation = await _mediator.Send(new GetUserProfileQuery(Request.GetRequestInfo())
             {
                 UserId = id

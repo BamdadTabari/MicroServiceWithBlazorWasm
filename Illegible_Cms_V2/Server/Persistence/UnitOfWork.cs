@@ -9,7 +9,7 @@ namespace Illegible_Cms_V2.Server.Persistence
         private readonly AppDbContext _context;
 
         public IWeblogPostRepository WeblogPost { get; }
-       
+
         public UnitOfWork(AppDbContext context)
         {
             _context = context;

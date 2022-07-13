@@ -1,5 +1,4 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Permissions;
-using Illegible_Cms_V2.Identity.Application.Models.Base.Users;
 
 namespace Illegible_Cms_V2.Identity.Application.Models.Base.Roles
 {

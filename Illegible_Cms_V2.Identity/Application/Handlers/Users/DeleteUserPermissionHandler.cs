@@ -17,7 +17,7 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(DeleteUserPermissionCommand request, CancellationToken cancellationToken)
         {
-          
+
             var entity = await _unitOfWork.Claims.GetClaimByIdAsync(request.ClaimId);
 
             if (entity == null)

@@ -23,7 +23,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Permissions
             #endregion
 
             #region Navigations
-            
+
             #endregion
         }
     }

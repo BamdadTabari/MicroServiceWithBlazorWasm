@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
+﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
 {
     public class OperationResult
     {
@@ -13,7 +7,7 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
         public readonly object Value;
         public readonly Dictionary<string, string> OperationValues;
 
-        public OperationResult(OperationResultStatus status, bool isPersistAble = false, object value =null,
+        public OperationResult(OperationResultStatus status, bool isPersistAble = false, object value = null,
             Dictionary<string, string> operationValues = null)
         {
             Status = status;
@@ -34,10 +28,10 @@ namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
 
         private bool IsSucceeded(OperationResultStatus status) => status switch
         {
-            _ when 
+            _ when
                 status == OperationResultStatus.Ok => true,
             _ when
-                status == OperationResultStatus.Invalidated || 
+                status == OperationResultStatus.Invalidated ||
                 status == OperationResultStatus.NotFound ||
                 status == OperationResultStatus.Unauthorized ||
                 status == OperationResultStatus.UnProcessable => false,

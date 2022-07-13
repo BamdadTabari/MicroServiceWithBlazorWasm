@@ -8,5 +8,5 @@ public class RedisCacheConfig
     public string[] ClusterNodes { get; set; } = new string[1];
     public bool IsClusterEnabled { get; set; }
 
-    public string[] Connections => IsClusterEnabled ? ClusterNodes : new[] {SingleNode};
+    public string[] Connections => IsClusterEnabled ? ClusterNodes : new[] { SingleNode };
 }

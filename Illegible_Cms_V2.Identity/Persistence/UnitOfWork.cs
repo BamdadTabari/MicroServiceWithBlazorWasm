@@ -19,7 +19,7 @@ namespace Illegible_Cms_V2.Identity.Persistence
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
-            
+
             Users = new UserRepository(_context);
             Roles = new RoleRepository(_context);
             Claims = new ClaimRepository(_context);
