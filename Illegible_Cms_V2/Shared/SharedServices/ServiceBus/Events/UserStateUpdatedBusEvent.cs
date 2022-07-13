@@ -1,4 +1,4 @@
-﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Events;
+﻿namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Events;
 
 public class UserStateUpdatedBusEvent : BusEvent
 {

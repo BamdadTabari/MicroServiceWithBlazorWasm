@@ -1,4 +1,4 @@
-﻿namespace Illegible_Cms_V2.Kernel.ServiceBus.Rpc.Identity.Models
+﻿namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Models
 {
     public class UserBusModel
     {
