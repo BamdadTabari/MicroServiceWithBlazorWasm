@@ -22,6 +22,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Host.UseSerilog().
     ConfigureLogging(loggingConfiguration => loggingConfiguration.ClearProviders());
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 try
 {
     Log.Information("Configuring web host ({ApplicationContext})...", appName);

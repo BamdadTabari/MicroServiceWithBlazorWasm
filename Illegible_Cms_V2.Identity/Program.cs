@@ -20,7 +20,7 @@ Log.Logger = new LoggerConfiguration()
 
 builder.Host.UseSerilog().
     ConfigureLogging(loggingConfiguration => loggingConfiguration.ClearProviders());
-
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 try
 {
@@ -50,7 +50,7 @@ try
     #region app
 
     // Configure the HTTP request pipeline.
-
+    
     app.UseHttpsRedirection();
     app.UseDeveloperExceptionPage();
     app.UseConfiguredExceptionHandler(environment);

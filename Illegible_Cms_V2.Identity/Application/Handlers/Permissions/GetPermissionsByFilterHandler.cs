@@ -1,5 +1,5 @@
-﻿using Illegible_Cms_V2.Identity.Application.Interfaces;
-using Illegible_Cms_V2.Identity.Application.Mappers;
+﻿using AutoMapper;
+using Illegible_Cms_V2.Identity.Application.Interfaces;
 using Illegible_Cms_V2.Identity.Application.Models.Base.Permissions;
 using Illegible_Cms_V2.Identity.Application.Models.Queries.Permissions;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
@@ -11,25 +11,25 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Permissions
     public class GetPermissionsByFilterHandler : IRequestHandler<GetPermissionsByFilterQuery, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public GetPermissionsByFilterHandler(IUnitOfWork unitOfWork)
+        public GetPermissionsByFilterHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<OperationResult> Handle(GetPermissionsByFilterQuery request, CancellationToken cancellationToken)
         {
-            // Get
             var entities = await _unitOfWork.Permissions.GetPermissionsByFilterAsync(request.Filter);
 
-            // Mapper
-            var models = entities.MapToPermissionModels();
+            var models = _mapper.Map<List<PermissionModel>>(entities);
 
             var result = new PaginatedList<PermissionModel>
             {
                 Page = request.Filter.Page,
                 PageSize = request.Filter.PageSize,
-                Data = models.ToList(),
+                Data = models,
                 TotalCount = models.Count()
             };
 
