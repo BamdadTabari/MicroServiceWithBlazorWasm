@@ -12,7 +12,6 @@ namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Roles
         {
         }
 
-        public string? Name { get; set; }
         public string? Title { get; set; }
         public List<string>? PermissionEids { get; set; }
         public RoleSortBy? SortBy { get; set; }

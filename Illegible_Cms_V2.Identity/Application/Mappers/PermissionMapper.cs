@@ -16,8 +16,7 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 Title = permission.Title,
                 Name = permission.Name,
                 CreatedAt = permission.CreatedAt,
-                CreatorId = permission.CreatorId,
-                Creator = permission.Creator.MapToUserModel(),
+                UpdatedAt = permission.UpdatedAt,
                 Roles = (ICollection<RolePermissionModel>)
                     ((IEnumerable<Role>)permission.Roles).MapToRoleModels(),
             };

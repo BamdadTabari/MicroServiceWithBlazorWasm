@@ -13,8 +13,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Users
         {
             builder.HasKey(x => x.Id);
 
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
             builder.HasIndex(b => b.Username).IsUnique();
 
             #region Mappings
@@ -59,16 +57,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Users
                .WithOne(x => x.User)
                .HasForeignKey(x => x.UserId)
                .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.Creator)
-                 .WithMany()
-                 .HasForeignKey(x => x.CreatorId)
-                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasOne(x => x.Updater)
-                 .WithMany()
-                 .HasForeignKey(x => x.UpdaterId)
-                 .OnDelete(DeleteBehavior.Restrict);
 
             builder
                 .HasMany(x => x.UserRoles)

@@ -13,7 +13,6 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Roles
 
         public int RoleId { get; set; }
         public string Title { get; set; }
-        public string Name { get; set; }
         public IList<int> PermissionIds { get; set; }
 
         public RequestInfo RequestInfo { get; private set; }

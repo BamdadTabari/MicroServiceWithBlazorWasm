@@ -3,7 +3,6 @@
     public class UpdateRoleRequest
     {
         public string Title { get; set; }
-        public string Name { get; set; }
         public IList<string> PermissionEids { get; set; }
     }
 }

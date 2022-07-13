@@ -19,8 +19,6 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
             ConcurrencyStamp = Guid.NewGuid().ToString("N"),
             CreatedAt = DateTime.UtcNow,
             UpdatedAt = DateTime.UtcNow,
-            CreatorId = command.RequestInfo.UserId,
-            UpdaterId = command.RequestInfo.UserId,
         };
 
         public static void Activate(this User user)

@@ -12,24 +12,9 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
             new Role()
             {
                 Id = 1,
-                Name = "owner",
-                Title = "مالک",
-                IsDeleted = false,
-                IsArchived = false,
-                UserRoles=new List<UserRole>()
-                {
-                    new UserRole
-                    {
-                        UserId = 1,
-                        RoleId = 1,
-                        CreatedAt = DateTime.UtcNow,
-                        CreatorId = 1
-                    }
-                },
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow,
-                CreatorId = 1,
-                UpdaterId = 1
+                Title = "Owner",
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
             }
         };
 
@@ -37,19 +22,19 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
         {
             var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
             var roleSeeds = RoleSeed.All;
-            var roleSeedNames = roleSeeds.ConvertAll(x => x.Name.ToLower());
+            var roleSeedNames = roleSeeds.ConvertAll(x => x.Title.ToLower());
 
             var toBeUpdatedRoles = context.Roles
                 .Include(x => x.RolePermission)
-                .Where(x => roleSeedNames.Contains(x.Name.ToLower()))
+                .Where(x => roleSeedNames.Contains(x.Title.ToLower()))
                 .ToList();
 
             var toBeAddedRoles = roleSeeds
-                .Where(x => !toBeUpdatedRoles.ConvertAll(y => y.Name.ToLower()).Contains(x.Name));
+                .Where(x => !toBeUpdatedRoles.ConvertAll(y => y.Title.ToLower()).Contains(x.Title));
 
             foreach (var item in toBeUpdatedRoles)
             {
-                var seed = roleSeeds.Single(x => x.Name.ToLower() == item.Name.ToLower());
+                var seed = roleSeeds.Single(x => x.Title.ToLower() == item.Title.ToLower());
                 item.RolePermission = seed.RolePermission;
                 item.UpdatedAt = DateTime.UtcNow;
             }

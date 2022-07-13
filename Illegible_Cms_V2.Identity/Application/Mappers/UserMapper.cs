@@ -23,19 +23,14 @@ namespace Illegible_Cms_V2.Identity.Application.Mappers
                 UpdatedAt = user.UpdatedAt,
                 ConcurrencyStamp = user.ConcurrencyStamp,
                 FailedLoginCount = user.FailedLoginCount,
-                IsDeleted = user.IsDeleted,
                 IsMobileConfirmed = user.IsMobileConfirmed,
                 LastLoginDate = user.LastLoginDate,
                 Claims = (ICollection<ClaimModel>)user.Claims,
-                CreatorId = user.CreatorId,
                 LastPasswordChangeTime = user.LastPasswordChangeTime,
                 LockoutEndTime = user.LockoutEndTime,
                 Mobile = user.Mobile,
                 PasswordHash = user.PasswordHash,
                 SecurityStamp = user.SecurityStamp,
-                UpdaterId = user.UpdaterId,
-                Creator = MapToUserModel(user.Creator),
-                Updater = MapToUserModel(user.Updater),
                 UserRoles = (ICollection<UserRoleModel>)(ICollection<UserRole>)(roles ?? new List<RoleModel>())
             };
         }

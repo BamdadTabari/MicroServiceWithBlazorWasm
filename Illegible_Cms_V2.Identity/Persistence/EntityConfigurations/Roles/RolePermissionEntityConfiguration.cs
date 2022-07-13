@@ -10,8 +10,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
         {
             builder.HasKey(x => new { x.RoleId, x.PermissionId });
 
-            builder.HasQueryFilter(x => !x.IsDeleted);
-
             #region Navigations
 
             builder

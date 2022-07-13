@@ -25,7 +25,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
             user.PasswordHash = PasswordHasher.Hash(request.NewPassword);
 
-            user.UpdaterId = request.RequestInfo.UserId;
             user.UpdatedAt = DateTime.Now;
 
             _unitOfWork.Users.Update(user);

@@ -20,6 +20,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Repositories.Users
         {
             var user = await _queryable
                 .Include(x => x.UserRoles)
+                .ThenInclude(x=>x.Role)
                 .SingleOrDefaultAsync(x => x.Id == id);
 
             if (user == null)
