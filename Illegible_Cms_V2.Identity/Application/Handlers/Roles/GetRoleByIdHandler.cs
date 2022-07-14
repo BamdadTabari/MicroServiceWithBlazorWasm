@@ -25,8 +25,8 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
-
-            var model = _mapper.Map<RoleModel>(entity);
+            var model = new RoleModel();
+            model = _mapper.Map<RoleModel>(entity);
 
             return new OperationResult(OperationResultStatus.Ok, value: model);
         }
