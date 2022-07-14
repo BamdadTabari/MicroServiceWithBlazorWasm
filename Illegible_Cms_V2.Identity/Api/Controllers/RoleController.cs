@@ -69,15 +69,12 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
         }
 
 
-        // Delete
         [HttpDelete(Routes.Roles + "{reid}")]
         [DeleteRoleResultFilter]
         public async Task<IActionResult> DeleteRole([FromRoute] string reid)
         {
-            // Decode
             var roleId = reid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new DeleteRoleCommand(Request.GetRequestInfo())
             {
                 RoleId = roleId
@@ -86,16 +83,13 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             return this.ReturnResponse(operation);
         }
 
-        // Update
         [HttpPut(Routes.Roles + "{reid}")]
         [UpdateRoleResultFilter]
         public async Task<IActionResult> UpdateRole([FromRoute] string reid, [FromBody] UpdateRoleRequest request)
         {
-            // Decode
             var roleId = reid.Decode();
             var permissionIds = request.PermissionEids?.Select(x => x.Decode()).ToList();
 
-            // Operation
             var operation = await _mediator.Send(new UpdateRoleCommand(Request.GetRequestInfo())
             {
                 RoleId = roleId,

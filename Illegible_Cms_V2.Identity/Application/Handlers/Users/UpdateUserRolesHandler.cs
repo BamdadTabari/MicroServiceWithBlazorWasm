@@ -18,14 +18,11 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(UpdateUserRolesCommand request, CancellationToken cancellationToken)
         {
-            // Get
             var user = await _unitOfWork.Users.GetUserByIdAsync(request.UserId);
 
-            // Validation
             if (user == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.UserNotFoundError);
 
-            // Simple security
             if (user.UserRoles.Count == 0)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: AuthErrors.UnauthorizedRequestError);
 

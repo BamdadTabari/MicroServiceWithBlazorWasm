@@ -9,7 +9,6 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Users
         public CreateUserPermissionCommandValidator()
         {
 
-            // Permission Id
             RuleFor(x => x.PermissionId)
                 .NotEmpty()
                 .WithState(_ => PermissionErrors.InvalidPermissionIdValidationError);
@@ -18,7 +17,6 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Users
                 .GreaterThan(0)
                 .WithState(_ => PermissionErrors.InvalidPermissionIdValidationError);
 
-            // User Id
             RuleFor(x => x.UserId)
                 .NotEmpty()
                 .WithState(_ => UserErrors.InvalidUserIdValidationError);

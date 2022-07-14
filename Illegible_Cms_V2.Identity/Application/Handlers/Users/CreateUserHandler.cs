@@ -20,14 +20,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            // Checking same user name
             var isExist = await _unitOfWork.Users
                 .ExistsAsync(new DuplicateUserSpecification(request.Username).ToExpression());
 
             if (!isExist)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.DuplicateUsernameError);
 
-            // Factory
             var entity = new User()
             {
                 Username = request.Username,

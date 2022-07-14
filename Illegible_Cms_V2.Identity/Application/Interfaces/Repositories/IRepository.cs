@@ -8,7 +8,6 @@ namespace Illegible_Cms_V2.Identity.Application.Interfaces.Repositories
         Task<bool> ExistsAsync(int id);
         Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> predicate);
 
-        // Commands
         void Add(TEntity entity);
         void AddRange(IEnumerable<TEntity> entities);
         void Remove(TEntity entity);

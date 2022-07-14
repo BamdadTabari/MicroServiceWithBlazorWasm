@@ -12,7 +12,6 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Roles
         public async Task<OperationResult> Handle(CreateRoleCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            // Validation
             var validation = new CreateRoleCommandValidator().Validate(request);
             if (!validation.IsValid)
                 return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());

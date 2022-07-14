@@ -12,7 +12,6 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
         public async Task<OperationResult> Handle(DeleteUserCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            // Validation
             var validation = new DeleteUserCommandValidator().Validate(request);
             if (!validation.IsValid)
                 return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());

@@ -19,13 +19,11 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
         public async Task<OperationResult> Handle(UpdateRoleCommand request, CancellationToken cancellationToken)
         {
-            // Get
             var role = await _unitOfWork.Roles.GetRoleByIdAsync(request.RoleId);
 
             if (role == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
 
-            // Checking same title
             var isExist = await _unitOfWork.Roles
                 .ExistsAsync(new DuplicateRoleSpecification(request.Title).ToExpression());
 

@@ -11,7 +11,7 @@ namespace Illegible_Cms_V2.Identity.Persistence.Extensions
             if (filter.UserId.HasValue)
                 query = query.Where(x => x.UserId == filter.UserId.Value);
 
-            /// Filter By Value
+            // Filter By Value
             if (!string.IsNullOrEmpty(filter.Value))
                 query = query.Where(x => x.Value.ToLower().Contains(filter.Value.ToLower().Trim()));
 

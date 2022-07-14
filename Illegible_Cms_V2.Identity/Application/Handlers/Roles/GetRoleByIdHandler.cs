@@ -21,13 +21,11 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
         public async Task<OperationResult> Handle(GetRoleByIdQuery request, CancellationToken cancellationToken)
         {
-            // Get
             var entity = await _unitOfWork.Roles.GetRoleByIdAsync(request.RoleId);
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
 
-            // Mapping
             var model = _mapper.Map<RoleModel>(entity);
 
             return new OperationResult(OperationResultStatus.Ok, value: model);

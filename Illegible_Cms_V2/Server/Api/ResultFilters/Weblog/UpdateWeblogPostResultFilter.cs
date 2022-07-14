@@ -16,7 +16,6 @@ namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
                 {
                     Eid = value.Id.Encode(),
                     Title = value.Title,
-                    //UpdatedAt = value.UpdatedAt
                 };
 
             await next();

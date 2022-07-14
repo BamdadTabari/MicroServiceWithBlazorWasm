@@ -132,7 +132,6 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
         {
             var claimId = ceid.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new DeleteUserPermissionCommand(Request.GetRequestInfo())
             {
                 ClaimId = claimId

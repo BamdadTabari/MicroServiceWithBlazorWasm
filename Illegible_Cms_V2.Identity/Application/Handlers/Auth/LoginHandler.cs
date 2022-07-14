@@ -20,7 +20,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Auth
 
         public async Task<OperationResult> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            // Get
             var user = await _unitOfWork.Users.GetUserByUsernameAsync(request.UserName);
 
             if (user == null)

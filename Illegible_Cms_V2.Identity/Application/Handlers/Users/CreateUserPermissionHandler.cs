@@ -20,14 +20,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(CreateUserPermissionCommand request, CancellationToken cancellationToken)
         {
-            // Checking same Claim
             var isExist = await _unitOfWork.Claims
                 .ExistsAsync(new DuplicateClaimSpecification(request.PermissionId, request.UserId, ClaimType.Permission).ToExpression());
 
             if (isExist)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: PermissionErrors.DuplicateClaimError);
 
-            // Factory
             var entity = ClaimHelper.CreateClaim(request);
 
             _unitOfWork.Claims.Add(entity);

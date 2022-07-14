@@ -8,11 +8,9 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Roles
     {
         public DeleteRoleCommandValidator()
         {
-            // Role id
             RuleFor(x => x.RoleId)
                 .GreaterThan(0)
                 .WithState(_ => CommonErrors.InvalidInputValidationError);
-
         }
     }
 }

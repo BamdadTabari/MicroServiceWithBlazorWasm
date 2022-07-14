@@ -19,14 +19,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
         public async Task<OperationResult> Handle(CreateRoleCommand request, CancellationToken cancellationToken)
         {
-            // Checking same title
             var isExist = await _unitOfWork.Roles
                 .ExistsAsync(new DuplicateRoleSpecification(request.Title).ToExpression());
 
             if (isExist)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.DuplicateTitleError);
 
-            // Factory
             var entity = RoleHelper.CreateRole(request);
 
             _unitOfWork.Roles.Add(entity);
