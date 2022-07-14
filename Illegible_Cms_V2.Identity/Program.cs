@@ -34,7 +34,7 @@ try
 
     // Add services to the container.
     builder.Services.AddConfigurations(configuration);
-    builder.Services.AddConfiguredDatabase(configuration);
+    builder.Services.AddConfiguredDatabase(configuration, environment);
     builder.Services.AddServices();
     builder.Services.AddConfiguredMediatR();
 

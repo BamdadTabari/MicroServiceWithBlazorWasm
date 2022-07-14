@@ -39,15 +39,23 @@ namespace Illegible_Cms_V2.Identity.Persistence.Repositories.Permissions
 
         public async Task<List<Permission>> GetPermissionsByFilterAsync(PermissionFilter filter)
         {
-            var query = _queryable;
+            try
+            {
+                var query = _queryable;
 
-            query = query.AsNoTracking()
-                .Include(x => x.Roles); ;
+                query = query.AsNoTracking()
+                    .Include(x => x.Roles);
 
-            query = query.ApplyFilter(filter);
-            query = query.ApplySort();
+                query = query.ApplyFilter(filter);
+                query = query.ApplySort();
 
-            return await query.Paginate(filter.Page, filter.PageSize).ToListAsync();
+                return await query.Paginate(filter.Page, filter.PageSize).ToListAsync();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public async Task<int> CountPermissionsByFilterAsync(PermissionFilter filter)

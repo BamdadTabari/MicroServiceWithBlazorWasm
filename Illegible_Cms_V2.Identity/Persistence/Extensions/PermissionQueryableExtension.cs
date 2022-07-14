@@ -8,15 +8,15 @@ namespace Illegible_Cms_V2.Identity.Persistence.Extensions
         public static IQueryable<Permission> ApplyFilter(this IQueryable<Permission> query, PermissionFilter filter)
         {
             // Filter by Value
-            if (string.IsNullOrEmpty(filter.Value))
+            if (!string.IsNullOrEmpty(filter.Value))
                 query = query.Where(x => x.Value.ToLower().Contains(filter.Value.ToLower().Trim()));
 
             // Filter by Name
-            if (string.IsNullOrEmpty(filter.Name))
+            if (!string.IsNullOrEmpty(filter.Name))
                 query = query.Where(x => x.Name.ToLower().Contains(filter.Name.ToLower().Trim()));
 
             // Filter by Title
-            if (string.IsNullOrEmpty(filter.Title))
+            if (!string.IsNullOrEmpty(filter.Title))
                 query = query.Where(x => x.Title.ToLower().Contains(filter.Title.ToLower().Trim()));
 
             // Filter By RoleId
