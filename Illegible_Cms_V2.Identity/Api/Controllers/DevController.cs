@@ -1,6 +1,6 @@
-﻿using MassTransit;
+﻿using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
-using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 
 namespace Illegible_Cms_V2.Identity.Api.Controllers
 {

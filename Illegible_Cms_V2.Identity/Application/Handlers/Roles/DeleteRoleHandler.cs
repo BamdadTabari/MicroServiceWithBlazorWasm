@@ -21,7 +21,7 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: RoleErrors.RoleNotFoundError);
-            
+
             entity.UpdatedAt = DateTime.Now;
             _unitOfWork.Roles.Update(entity); ;
 

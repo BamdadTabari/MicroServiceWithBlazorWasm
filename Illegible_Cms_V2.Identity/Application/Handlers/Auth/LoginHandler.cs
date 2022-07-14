@@ -20,7 +20,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Auth
 
         public async Task<OperationResult> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            // Get
             var user = await _unitOfWork.Users.GetUserByUsernameAsync(request.UserName);
 
             if (user == null)
@@ -31,7 +30,7 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Auth
                 return new OperationResult(OperationResultStatus.UnProcessable, value: AuthErrors.InvalidLoginError);
 
             // Login check via password
-            var isLogin =PasswordHasher.Check(user.PasswordHash, request.Password);
+            var isLogin = PasswordHasher.Check(user.PasswordHash, request.Password);
 
             // Lockout history
             if (!isLogin)

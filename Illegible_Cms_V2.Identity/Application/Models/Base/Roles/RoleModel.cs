@@ -10,7 +10,7 @@ namespace Illegible_Cms_V2.Identity.Application.Models.Base.Roles
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-   
+
         public ICollection<UserRoleModel> UserRoles { get; set; }
         public ICollection<RolePermissionModel> RolePermission { get; set; }
         public List<PermissionModel> Permissions { get; internal set; }

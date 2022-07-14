@@ -2,9 +2,7 @@
 using Illegible_Cms_V2.Identity.Application.Helpers;
 using Illegible_Cms_V2.Identity.Application.Interfaces;
 using Illegible_Cms_V2.Identity.Application.Models.Commands.Users;
-using Illegible_Cms_V2.Identity.Application.Specifications.Claims;
 using Illegible_Cms_V2.Identity.Application.Specifications.Users;
-using Illegible_Cms_V2.Identity.Domain.Claims;
 using Illegible_Cms_V2.Identity.Domain.Users;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
@@ -22,14 +20,12 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
 
         public async Task<OperationResult> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
-            // Checking same user name
             var isExist = await _unitOfWork.Users
                 .ExistsAsync(new DuplicateUserSpecification(request.Username).ToExpression());
 
             if (!isExist)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: UserErrors.DuplicateUsernameError);
 
-            // Factory
             var entity = new User()
             {
                 Username = request.Username,
@@ -41,7 +37,7 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Users
                 UpdatedAt = request.UpdatedAt
             };
 
-            _unitOfWork.Users.Add(entity);    
+            _unitOfWork.Users.Add(entity);
 
             return new OperationResult(OperationResultStatus.Ok, isPersistAble: true, value: entity);
         }

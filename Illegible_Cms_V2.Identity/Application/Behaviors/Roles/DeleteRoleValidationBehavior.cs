@@ -12,10 +12,9 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Roles
         public async Task<OperationResult> Handle(DeleteRoleCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            // Validation
             var validation = new DeleteRoleCommandValidator().Validate(request);
             if (!validation.IsValid)
-                return new OperationResult(OperationResultStatus.Invalidated, value:validation.GetFirstErrorState());
+                return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 
             return await next();
         }

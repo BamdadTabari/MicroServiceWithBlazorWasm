@@ -24,7 +24,7 @@ namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
                         Title = x.Title,
                         Summery = x.Summery,
                         TextContent = x.TextContent
-                      
+
                     })
                 };
 

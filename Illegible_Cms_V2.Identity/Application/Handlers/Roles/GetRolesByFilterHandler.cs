@@ -1,5 +1,5 @@
-﻿using Illegible_Cms_V2.Identity.Application.Interfaces;
-using Illegible_Cms_V2.Identity.Application.Mappers;
+﻿using AutoMapper;
+using Illegible_Cms_V2.Identity.Application.Interfaces;
 using Illegible_Cms_V2.Identity.Application.Models.Base.Roles;
 using Illegible_Cms_V2.Identity.Application.Models.Filters.Roles;
 using Illegible_Cms_V2.Identity.Application.Models.Queries.Roles;
@@ -12,27 +12,27 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Roles
     public class GetRolesByFilterHandler : IRequestHandler<GetRolesByFilterQuery, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public GetRolesByFilterHandler(IUnitOfWork unitOfWork)
+        public GetRolesByFilterHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<OperationResult> Handle(GetRolesByFilterQuery request, CancellationToken cancellationToken)
         {
-            // Get
             request.Filter.Include = new RoleIncludes { Permission = true };
 
             var entities = await _unitOfWork.Roles.GetRolesByFilterAsync(request.Filter);
 
-            // Mapper
-            var models = entities.MapToRoleModels();
+            var models = _mapper.Map<List<RoleModel>>(entities);
 
             var result = new PaginatedList<RoleModel>
             {
                 Page = request.Filter.Page,
                 PageSize = request.Filter.PageSize,
-                Data = models.ToList(),
+                Data = models,
                 TotalCount = models.Count()
             };
 

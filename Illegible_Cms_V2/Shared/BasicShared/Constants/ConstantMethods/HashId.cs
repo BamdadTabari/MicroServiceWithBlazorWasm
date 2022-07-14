@@ -32,7 +32,6 @@ namespace Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods
             catch
             {
                 return -1;
-                // throw new ArgumentException("Invalid encoded Id value");
             }
         }
     }

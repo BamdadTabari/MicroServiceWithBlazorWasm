@@ -1,5 +1,4 @@
 ﻿using Illegible_Cms_V2.Identity.Domain.Permissions;
-using Illegible_Cms_V2.Identity.Domain.Users;
 
 namespace Illegible_Cms_V2.Identity.Domain.Roles
 {

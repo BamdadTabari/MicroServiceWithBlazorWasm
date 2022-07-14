@@ -10,7 +10,7 @@ namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
         public static IServiceCollection AddConfiguredMassTransit(this IServiceCollection services, IConfiguration configuration)
         {
             var rabbitConfig = configuration.GetSection(RabbitMQConfig.Key).Get<RabbitMQConfig>();
-            
+
             services.AddMassTransit(x =>
             {
                 x.SetKebabCaseEndpointNameFormatter();

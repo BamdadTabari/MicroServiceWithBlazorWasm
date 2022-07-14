@@ -21,7 +21,6 @@ namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: WeblogPostErrors.PostNotFoundError);
 
-            // hard delete
             _unitOfWork.WeblogPost.Remove(entity);
             return new OperationResult(OperationResultStatus.Ok, isPersistAble: true, value: entity);
         }

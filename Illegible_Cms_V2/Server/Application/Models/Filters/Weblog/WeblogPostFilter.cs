@@ -2,7 +2,7 @@
 
 namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog
 {
-    public class WeblogPostFilter: PaginationFilter
+    public class WeblogPostFilter : PaginationFilter
     {
         public WeblogPostFilter(int page, int pageSize) : base(page, pageSize)
         {

@@ -2,7 +2,6 @@
 using Illegible_Cms_V2.Shared.BasicShared.Models;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
-using System.Security.Claims;
 
 namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Users
 {

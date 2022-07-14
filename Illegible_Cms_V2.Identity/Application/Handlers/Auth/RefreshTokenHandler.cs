@@ -21,7 +21,6 @@ namespace Illegible_Cms_V2.Identity.Application.Handlers.Auth
         {
             var username = JwtHelper.GetUsername(request.RefreshToken);
 
-            // Get
             var user = await _unitOfWork.Users.GetUserByUsernameAsync(username);
             if (user == null)
                 return new OperationResult(OperationResultStatus.Unauthorized, value: UserErrors.UserNotFoundError);

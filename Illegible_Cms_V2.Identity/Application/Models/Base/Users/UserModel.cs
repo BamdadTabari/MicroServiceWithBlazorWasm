@@ -1,6 +1,4 @@
 ﻿using Illegible_Cms_V2.Identity.Application.Models.Base.Claims;
-using Illegible_Cms_V2.Identity.Application.Models.Base.Roles;
-using Illegible_Cms_V2.Identity.Domain.Claims;
 using Illegible_Cms_V2.Identity.Domain.Users;
 
 namespace Illegible_Cms_V2.Identity.Application.Models.Base.Users

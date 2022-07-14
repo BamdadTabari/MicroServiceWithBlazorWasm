@@ -8,7 +8,6 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Users
     {
         public DeleteUserPermissionCommandValidator()
         {
-            // Permission Id
             RuleFor(x => x.ClaimId)
                 .NotEmpty()
                 .WithState(_ => PermissionErrors.InvalidClaimIdValidationError);

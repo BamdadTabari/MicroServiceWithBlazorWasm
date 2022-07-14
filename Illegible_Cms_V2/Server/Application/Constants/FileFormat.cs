@@ -2,12 +2,10 @@
 {
     public static class FileFormat
     {
-        // All
         public static IEnumerable<string> AcceptableFileFormats => new List<string>()
             .Concat(AcceptableImageFileFormats)
             .Concat(AcceptableDocumentFileFormats);
 
-        // Images
         public static IEnumerable<string> AcceptableImageFileFormats =>
             new List<string>
             {
@@ -17,7 +15,6 @@
                 "gif"
             }.Select(x => x.Normalize());
 
-        // Documents
         public static IEnumerable<string> AcceptableDocumentFileFormats =>
             new List<string>
             {

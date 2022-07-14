@@ -9,7 +9,6 @@ namespace Illegible_Cms_V2.Server.Application.Validators.Weblog
     {
         public CreateWeblogPostCammandValidator()
         {
-            // Title
             RuleFor(x => x.Title)
                 .NotEmpty()
                 .WithState(_ => WeblogPostErrors.InvalidPostTitleValidationError);

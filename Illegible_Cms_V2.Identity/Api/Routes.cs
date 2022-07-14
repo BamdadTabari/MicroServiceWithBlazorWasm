@@ -3,7 +3,7 @@
     public static class Routes
     {
         public const string Api = "api/";
-        
+
         public const string Dev = Api + "dev/";
 
         public const string Auth = Api + "auth/";

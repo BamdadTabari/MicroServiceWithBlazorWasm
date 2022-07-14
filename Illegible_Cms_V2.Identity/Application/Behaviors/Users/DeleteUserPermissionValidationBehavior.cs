@@ -12,10 +12,9 @@ namespace Illegible_Cms_V2.Identity.Application.Behaviors.Users
         public async Task<OperationResult> Handle(DeleteUserPermissionCommand request,
             CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            // Validation
             var validation = new DeleteUserPermissionCommandValidator().Validate(request);
             if (!validation.IsValid)
-                return new OperationResult(OperationResultStatus.Invalidated, value:validation.GetFirstErrorState());
+                return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 
             return await next();
         }

@@ -5,7 +5,7 @@ namespace Illegible_Cms_V2.Identity.Application.Helpers
     public sealed class PasswordHasher
     {
         private const int SaltSize = 128 / 8; // 128 bit
-        private const int KeySize = 256 / 8; // 128 bit
+        private const int KeySize = 256 / 8; // 256 bit
         private const int Iteration = 10000;
 
         public static string Hash(string password)

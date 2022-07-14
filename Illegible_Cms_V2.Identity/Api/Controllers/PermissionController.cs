@@ -19,15 +19,12 @@ namespace Illegible_Cms_V2.Identity.Api.Controllers
             _mediator = mediator;
         }
 
-        // Get by filter
         [HttpGet(Routes.Permissions)]
         [GetPermissionsResultFilter]
         public async Task<IActionResult> GetPermissionsByFilter([FromQuery] GetPermissionsByFilterRequest request)
         {
-            // Decode
             var roleId = request.RoleEid?.Decode();
 
-            // Operation
             var operation = await _mediator.Send(new GetPermissionsByFilterQuery(Request.GetRequestInfo())
             {
                 Filter = new PermissionFilter(request.Page, request.PageSize)

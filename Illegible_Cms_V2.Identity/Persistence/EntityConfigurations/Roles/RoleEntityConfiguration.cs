@@ -1,5 +1,4 @@
 ﻿using Illegible_Cms_V2.Identity.Domain.Roles;
-using Illegible_Cms_V2.Shared.BasicShared.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

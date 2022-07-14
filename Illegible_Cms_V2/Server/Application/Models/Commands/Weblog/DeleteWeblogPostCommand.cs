@@ -4,7 +4,7 @@ using MediatR;
 
 namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog
 {
-    public class DeleteWeblogPostCommand: IRequestInfo, IRequest<OperationResult>
+    public class DeleteWeblogPostCommand : IRequestInfo, IRequest<OperationResult>
     {
         public RequestInfo RequestInfo { get; set; }
 

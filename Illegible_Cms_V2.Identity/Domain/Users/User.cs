@@ -3,7 +3,7 @@ using Illegible_Cms_V2.Shared.BasicShared.Models;
 
 namespace Illegible_Cms_V2.Identity.Domain.Users
 {
-    public class User: IEntity
+    public class User : IEntity
     {
         #region Identity
 

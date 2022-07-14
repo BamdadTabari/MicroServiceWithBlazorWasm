@@ -7,7 +7,6 @@ namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
     {
         public static IServiceCollection AddConfiguredDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            // Data Context
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("IdentityDbConnection")));
 

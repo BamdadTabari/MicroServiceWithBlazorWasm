@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 
 namespace Illegible_Cms_V2.Server.Application.Specifications.Weblog
 {
-    public class DuplicateWeblogPostSpecification: Specification<WeblogPost>
+    public class DuplicateWeblogPostSpecification : Specification<WeblogPost>
     {
         private readonly string _title;
 

@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Illegible_Cms_V2.Identity.Domain.Roles;
-using Illegible_Cms_V2.Identity.Domain.Users;
+﻿using Illegible_Cms_V2.Identity.Domain.Roles;
 using Microsoft.EntityFrameworkCore;
 
 namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds

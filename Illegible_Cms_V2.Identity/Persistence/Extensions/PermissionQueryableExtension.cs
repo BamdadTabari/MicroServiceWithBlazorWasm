@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Illegible_Cms_V2.Identity.Application.Models.Filters.Permissions;
+﻿using Illegible_Cms_V2.Identity.Application.Models.Filters.Permissions;
 using Illegible_Cms_V2.Identity.Domain.Permissions;
 
 namespace Illegible_Cms_V2.Identity.Persistence.Extensions

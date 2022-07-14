@@ -4,7 +4,6 @@
     {
         public static string Development => "dev";
 
-        // Users
         public static string UserProfile => "userId-{0}-profile";
     }
 }

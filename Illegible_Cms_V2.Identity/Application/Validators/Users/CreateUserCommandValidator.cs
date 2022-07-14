@@ -9,7 +9,6 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Users
     {
         public CreateUserCommandValidator()
         {
-            // Username
             RuleFor(x => x.Username)
                 .NotEmpty()
                 .WithState(_ => UserErrors.InvalidUsernameValidationError);
@@ -18,13 +17,11 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Users
                 .Length(2, Defaults.UsernameLength)
                 .WithState(_ => UserErrors.InvalidUsernameValidationError);
 
-            // Password
             RuleFor(x => x.Password)
                 .NotEmpty()
                 .MinimumLength(Defaults.MinPasswordLength)
                 .WithState(_ => UserErrors.InvalidPasswordValidationError);
 
-            // Firstname
             RuleFor(x => x.Mobile)
                 .MaximumLength(Defaults.MobileNumberLength)
                 .WithState(_ => UserErrors.InvalidPhoneNumberValidationError);

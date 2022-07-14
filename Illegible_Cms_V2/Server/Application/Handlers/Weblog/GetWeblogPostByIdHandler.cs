@@ -17,13 +17,11 @@ namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
 
         public async Task<OperationResult> Handle(GetWeblogPostByIdQuery request, CancellationToken cancellationToken)
         {
-            // Get
             var entity = await _unitOfWork.WeblogPost.GetWeblogPostByIdAsync(request.WeblogPostId);
 
             if (entity == null)
                 return new OperationResult(OperationResultStatus.UnProcessable, value: WeblogPostErrors.PostNotFoundError);
 
-            // Mapping
             var model = entity.MapToWeblogPostModel();
 
             return new OperationResult(OperationResultStatus.Ok, value: model);

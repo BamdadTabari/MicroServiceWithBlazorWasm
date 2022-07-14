@@ -9,17 +9,14 @@ namespace Illegible_Cms_V2.Identity.Application.Validators.Roles
     {
         public UpdateRoleCommandValidator()
         {
-            // Role id
             RuleFor(x => x.RoleId)
                 .GreaterThan(0)
                 .WithState(_ => CommonErrors.InvalidInputValidationError);
 
-            // Permission id
             RuleFor(x => x.PermissionIds)
                 .NotEmpty()
                 .WithState(_ => PermissionErrors.InvalidPermissionIdValidationError);
 
-            // Title
             RuleFor(x => x.Title)
                 .MaximumLength(Defaults.NameLength)
                 .WithState(_ => CommonErrors.InvalidTitleValidationError);
