@@ -7,6 +7,8 @@ namespace Illegible_Cms_V2.Server.Persistence
     {
         #region DbSets
         public DbSet<WeblogPost> WeblogPosts { get; set; }
+
+        public DbSet<WeblogPostCategory> WeblogPostCategory { get; set; }
         #endregion
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
