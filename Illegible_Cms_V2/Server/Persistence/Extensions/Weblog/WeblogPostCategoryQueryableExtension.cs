@@ -3,18 +3,18 @@ using Illegible_Cms_V2.Server.Domain.Weblog;
 
 namespace Illegible_Cms_V2.Server.Persistence.Extensions.Weblog
 {
-    public static class WeblogPostQueryableExtension
+    public static class WeblogPostCategoryQueryableExtension
     {
-        public static IQueryable<WeblogPost> ApplyFilter(this IQueryable<WeblogPost> query, WeblogPostFilter filter)
+        public static IQueryable<WeblogPostCategory> ApplyFilter(this IQueryable<WeblogPostCategory> query, WeblogPostCategoryFilter filter)
         {
             if (!string.IsNullOrEmpty(filter.KeyWord))
                 query = query.Where(x =>
-                    x.Title.ToLower().Contains(filter.KeyWord.ToLower().Trim()));
+                    x.CategoryTitle.ToLower().Contains(filter.KeyWord.ToLower().Trim()));
 
             return query;
         }
 
-        public static IQueryable<WeblogPost> ApplySort(this IQueryable<WeblogPost> query, WeblogPostSortBy? sortBy)
+        public static IQueryable<WeblogPostCategory> ApplySort(this IQueryable<WeblogPostCategory> query, WeblogPostSortBy? sortBy)
         {
             return sortBy switch
             {
