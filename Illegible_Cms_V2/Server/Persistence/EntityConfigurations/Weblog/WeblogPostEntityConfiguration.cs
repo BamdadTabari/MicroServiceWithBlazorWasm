@@ -9,6 +9,8 @@ namespace Illegible_Cms_V2.Server.Persistence.EntityConfigurations.Weblog
     {
         public void Configure(EntityTypeBuilder<WeblogPost> builder)
         {
+            #region Properties features
+
             builder.HasKey(e => e.Id);
 
             builder.Property(e => e.Title).IsRequired()
@@ -19,6 +21,18 @@ namespace Illegible_Cms_V2.Server.Persistence.EntityConfigurations.Weblog
 
             builder.Property(e => e.TextContent).IsRequired()
                 .HasMaxLength(Defaults.HugeLength);
+
+            #endregion
+
+            #region Navigation
+
+            builder.HasOne(x => x.WeblogPostCategory)
+                .WithMany(x => x.WeblogPosts)
+                .HasForeignKey(x => x.WeblogPostCategoryId);
+
+            #endregion
+
+
         }
 
     }
