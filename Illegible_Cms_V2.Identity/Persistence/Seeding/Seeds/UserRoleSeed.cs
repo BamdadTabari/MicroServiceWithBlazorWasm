@@ -8,7 +8,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Seeding.Seeds
         {
             new UserRole()
             {
-                Id = 1,
                 RoleId = 1,
                 UserId = 1,
                 CreatedAt = DateTime.Now,
