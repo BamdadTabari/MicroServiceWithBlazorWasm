@@ -14,7 +14,6 @@ namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Users
             if (result?.Value is UserRole value)
                 result.Value = new
                 {
-                    Eid = value.Id.Encode(),
                     RoleId = value.RoleId.Encode(),
                     UserId = value.UserId.Encode()
                 };

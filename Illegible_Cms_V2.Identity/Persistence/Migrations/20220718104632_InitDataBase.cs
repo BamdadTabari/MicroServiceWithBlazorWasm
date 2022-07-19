@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Illegible_Cms_V2.Identity.Persistence.Migrations
 {
-    public partial class INIT : Migration
+    public partial class InitDataBase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -122,7 +122,6 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                 {
                     RoleId = table.Column<int>(type: "int", nullable: false),
                     UserId = table.Column<int>(type: "int", nullable: false),
-                    Id = table.Column<int>(type: "int", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -148,41 +147,41 @@ namespace Illegible_Cms_V2.Identity.Persistence.Migrations
                 columns: new[] { "Id", "CreatedAt", "Name", "Title", "UpdatedAt", "Value" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5854), "UserManagement", "مدیریت کاربران", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5859), "identity.users.command" },
-                    { 2, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5867), "RoleManagement", "مدیریت نقش‌ها", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5869), "identity.roles.command" },
-                    { 3, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5873), "ClaimManagement", "مدیریت دسترسی ها", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5875), "identity.claims.command" },
-                    { 4, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5954), "UserView", "نمایش  مدیریت کاربران", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5957), "identity.users.query" },
-                    { 5, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5963), "RoleView", "نمایش  مدیریت نقش ها", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5965), "identity.roles.query" },
-                    { 6, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5974), "ClaimView", "نمایش  مدیریت دسترسی ها", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5976), "identity.claims.query" }
+                    { 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2483), "UserManagement", "مدیریت کاربران", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2486), "identity.users.command" },
+                    { 2, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2493), "RoleManagement", "مدیریت نقش‌ها", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2494), "identity.roles.command" },
+                    { 3, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2497), "ClaimManagement", "مدیریت دسترسی ها", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2499), "identity.claims.command" },
+                    { 4, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2501), "UserView", "نمایش  مدیریت کاربران", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2503), "identity.users.query" },
+                    { 5, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2596), "RoleView", "نمایش  مدیریت نقش ها", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2597), "identity.roles.query" },
+                    { 6, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2603), "ClaimView", "نمایش  مدیریت دسترسی ها", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2605), "identity.claims.query" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "CreatedAt", "Title", "UpdatedAt" },
-                values: new object[] { 1, new DateTime(2022, 7, 14, 8, 32, 10, 404, DateTimeKind.Local).AddTicks(2834), "Owner", new DateTime(2022, 7, 14, 8, 32, 10, 404, DateTimeKind.Local).AddTicks(2837) });
+                values: new object[] { 1, new DateTime(2022, 7, 18, 3, 46, 32, 185, DateTimeKind.Local).AddTicks(8793), "Owner", new DateTime(2022, 7, 18, 3, 46, 32, 185, DateTimeKind.Local).AddTicks(8795) });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "ConcurrencyStamp", "CreatedAt", "Email", "FailedLoginCount", "IsEmailConfirmed", "IsLockedOut", "IsMobileConfirmed", "LastLoginDate", "LastPasswordChangeTime", "LockoutEndTime", "Mobile", "PasswordHash", "SecurityStamp", "State", "UpdatedAt", "Username" },
-                values: new object[] { 1, "OFTR54IEPDFEGSBW2CZHH58EDUSEHBP2", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5539), "mohammadJavadtabari1024@outlook.com", 0, false, false, false, null, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5510), null, "09301724389", "XvFOGcApjqbmO1e00uv2akZfmiq3vmU34wUhElAMvFg=.lW5T6C4Qbrlh/y99Yh+MQg==", "LZ6CUPQW4ND1XOS1B5KMWW02XI03NJN3", "Active", new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(5542), "Illegible_Owner" });
+                values: new object[] { 1, "G69XK0PR5HCGH7GSAB1VQII8JBZBE3QT", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2275), "mohammadJavadtabari1024@outlook.com", 0, false, false, false, null, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2262), null, "09301724389", "xf4G1N5C1auE8SW4dMTX7CYD6yI1a4BPgp6dQ1hanBM=.iY4eRAgDxbuJ7mnzYfauEw==", "2L27V1RGVN9KPV68QKLVEW786TL6EE7C", "Active", new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2278), "Illegible_Owner" });
 
             migrationBuilder.InsertData(
                 table: "RolePermissions",
                 columns: new[] { "PermissionId", "RoleId", "CreatedAt", "UpdatedAt" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6138), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6141) },
-                    { 2, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6148), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6150) },
-                    { 3, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6153), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6154) },
-                    { 4, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6157), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6159) },
-                    { 5, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6161), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6163) },
-                    { 6, 1, new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6167), new DateTime(2022, 7, 14, 8, 32, 10, 416, DateTimeKind.Local).AddTicks(6169) }
+                    { 1, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2708), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2711) },
+                    { 2, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2768), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2770) },
+                    { 3, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2772), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2774) },
+                    { 4, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2776), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2777) },
+                    { 5, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2779), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2781) },
+                    { 6, 1, new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2784), new DateTime(2022, 7, 18, 3, 46, 32, 195, DateTimeKind.Local).AddTicks(2785) }
                 });
 
             migrationBuilder.InsertData(
                 table: "UserRole",
-                columns: new[] { "RoleId", "UserId", "CreatedAt", "Id", "UpdatedAt" },
-                values: new object[] { 1, 1, new DateTime(2022, 7, 14, 8, 32, 10, 404, DateTimeKind.Local).AddTicks(2757), 1, new DateTime(2022, 7, 14, 8, 32, 10, 404, DateTimeKind.Local).AddTicks(2798) });
+                columns: new[] { "RoleId", "UserId", "CreatedAt", "UpdatedAt" },
+                values: new object[] { 1, 1, new DateTime(2022, 7, 18, 3, 46, 32, 185, DateTimeKind.Local).AddTicks(8727), new DateTime(2022, 7, 18, 3, 46, 32, 185, DateTimeKind.Local).AddTicks(8761) });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Claims_UserId",
