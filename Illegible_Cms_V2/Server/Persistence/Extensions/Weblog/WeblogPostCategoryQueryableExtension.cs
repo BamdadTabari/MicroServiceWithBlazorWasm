@@ -10,16 +10,15 @@ namespace Illegible_Cms_V2.Server.Persistence.Extensions.Weblog
             if (!string.IsNullOrEmpty(filter.KeyWord))
                 query = query.Where(x =>
                     x.CategoryTitle.ToLower().Contains(filter.KeyWord.ToLower().Trim()));
-
             return query;
         }
 
-        public static IQueryable<WeblogPostCategory> ApplySort(this IQueryable<WeblogPostCategory> query, WeblogPostSortBy? sortBy)
+        public static IQueryable<WeblogPostCategory> ApplySort(this IQueryable<WeblogPostCategory> query, WeblogPostCategorySortBy sortBy)
         {
             return sortBy switch
             {
-                WeblogPostSortBy.CreationDate => query.OrderBy(x => x.CreatedAt),
-                WeblogPostSortBy.CreationDateDescending => query.OrderByDescending(x => x.CreatedAt),
+                WeblogPostCategorySortBy.CreationDate => query.OrderBy(x => x.CreatedAt),
+                WeblogPostCategorySortBy.CreationDateDescending => query.OrderByDescending(x => x.CreatedAt),
                 _ => query.OrderByDescending(x => x.Id)
             };
         }

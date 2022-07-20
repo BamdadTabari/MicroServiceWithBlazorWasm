@@ -2,7 +2,7 @@
 {
     public enum WeblogPostCategorySortBy
     {
-        Ascending=10,
-        Descending=11,
+        CreationDate = 12,
+        CreationDateDescending = 13,
     }
 }

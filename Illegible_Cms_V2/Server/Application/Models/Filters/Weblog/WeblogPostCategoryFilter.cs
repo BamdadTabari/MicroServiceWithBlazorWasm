@@ -8,6 +8,6 @@ namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog
         {
         }
         public string KeyWord { get; set; }
-        public WeblogPostCategorySortBy sortBy { get; set; }
+        public WeblogPostCategorySortBy SortBy { get; set; }
     }
 }
