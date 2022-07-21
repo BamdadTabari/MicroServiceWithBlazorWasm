@@ -1,5 +1,5 @@
-﻿using Illegible_Cms_V2.Server.Application.Interfaces;
-using Illegible_Cms_V2.Server.Application.Mappers.Weblog;
+﻿using AutoMapper;
+using Illegible_Cms_V2.Server.Application.Interfaces;
 using Illegible_Cms_V2.Server.Application.Models.Base.Weblog;
 using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
@@ -11,10 +11,11 @@ namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
     public class GetWeblogPostByFilterHandler : IRequestHandler<GetWeblogPostByFilterQuery, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public GetWeblogPostByFilterHandler(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public GetWeblogPostByFilterHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<OperationResult> Handle(GetWeblogPostByFilterQuery request, CancellationToken cancellationToken)
@@ -22,14 +23,14 @@ namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
 
             var entities = await _unitOfWork.WeblogPost.GetWeblogPostsByFilterAsync(request.Filter);
 
-            var models = entities.MapToWeblogPostModels();
+            var models = _mapper.Map<List<WeblogPostModel>>(entities);
 
             var result = new PaginatedList<WeblogPostModel>
             {
                 Page = request.Filter.Page,
                 PageSize = request.Filter.PageSize,
-                Data = models.ToList(),
-                TotalCount = models.Count()
+                Data = models,
+                TotalCount = models.Count
             };
 
             return new OperationResult(OperationResultStatus.Ok, value: result);
