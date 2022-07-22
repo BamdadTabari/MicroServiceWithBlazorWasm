@@ -5,9 +5,9 @@ using Illegible_Cms_V2.Shared.BasicShared.Constants;
 
 namespace Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators
 {
-    public class CreateWeblogPostCategoryCammandValidator : AbstractValidator<CreateWeblogPostCommand>
+    public class CreateWeblogPostCammandValidator : AbstractValidator<CreateWeblogPostCommand>
     {
-        public CreateWeblogPostCategoryCammandValidator()
+        public CreateWeblogPostCammandValidator()
         {
             RuleFor(x => x.Title)
                 .NotEmpty()

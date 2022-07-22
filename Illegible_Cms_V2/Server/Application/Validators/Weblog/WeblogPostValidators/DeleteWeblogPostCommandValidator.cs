@@ -4,9 +4,9 @@ using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
 
 namespace Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators
 {
-    public class DeleteWeblogPostCategoryCommandValidator : AbstractValidator<DeleteWeblogPostCommand>
+    public class DeleteWeblogPostCommandValidator : AbstractValidator<DeleteWeblogPostCommand>
     {
-        public DeleteWeblogPostCategoryCommandValidator()
+        public DeleteWeblogPostCommandValidator()
         {
 
             RuleFor(x => x.Id)

@@ -1,18 +1,19 @@
 ﻿using Illegible_Cms_V2.Server.Application.Helpers.Common;
 using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
-using Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators;
+using Illegible_Cms_V2.Server.Application.Validators.Weblog;
+using Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostCategoryValidators;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog.WeblogPostBehaviors
+namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog.WeblogPostCategoryBehaviors
 {
     public class UpdateWeblogPostCategoryValidationBehavior<TRequest, TResponse>
-        : IPipelineBehavior<UpdateWeblogPostCommand, OperationResult>
+        : IPipelineBehavior<UpdateWeblogPostCategoryCommand, OperationResult>
     {
-        public async Task<OperationResult> Handle(UpdateWeblogPostCommand request,
+        public async Task<OperationResult> Handle(UpdateWeblogPostCategoryCommand request,
            CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
         {
-            var validation = new UpdateWeblogPostCommandValidator().Validate(request);
+            var validation = new UpdateWeblogPostCategoryCommandValidator().Validate(request);
             if (!validation.IsValid)
                 return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
 

@@ -5,9 +5,9 @@ using Illegible_Cms_V2.Shared.BasicShared.Constants;
 
 namespace Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators
 {
-    public class UpdateWeblogPostCategoryCommandValidator : AbstractValidator<UpdateWeblogPostCommand>
+    public class UpdateWeblogPostCommandValidator : AbstractValidator<UpdateWeblogPostCommand>
     {
-        public UpdateWeblogPostCategoryCommandValidator()
+        public UpdateWeblogPostCommandValidator()
         {
             RuleFor(x => x.Id)
               .GreaterThan(0)
