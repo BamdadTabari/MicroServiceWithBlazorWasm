@@ -11,7 +11,7 @@ namespace Illegible_Cms_V2.Server.Application.Models.Queries.Weblog
             RequestInfo = requestInfo;
         }
 
-        public int WeblogPostCategoryId { get; set; }
+        public int Id { get; set; }
         public RequestInfo RequestInfo { get; private set; }
     }
 }

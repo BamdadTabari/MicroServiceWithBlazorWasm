@@ -4,12 +4,12 @@ using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers
 {
-    public class UpdateWeblogPostHandler : IRequestHandler<UpdateWeblogPostCommand, OperationResult>
+    public class UpdateWeblogPostCategoryHandler : IRequestHandler<UpdateWeblogPostCommand, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public UpdateWeblogPostHandler(IUnitOfWork unitOfWork)
+        public UpdateWeblogPostCategoryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }

@@ -6,26 +6,26 @@ using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostCategoryHandlers
 {
-    public class GetWeblogPostByFilterHandler : IRequestHandler<GetWeblogPostByFilterQuery, OperationResult>
+    public class GetWeblogPostCategoryByFilterHandler : IRequestHandler<GetWeblogPostCategoryByFilterQuery, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public GetWeblogPostByFilterHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetWeblogPostCategoryByFilterHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
 
-        public async Task<OperationResult> Handle(GetWeblogPostByFilterQuery request, CancellationToken cancellationToken)
+        public async Task<OperationResult> Handle(GetWeblogPostCategoryByFilterQuery request, CancellationToken cancellationToken)
         {
 
-            var entities = await _unitOfWork.WeblogPost.GetWeblogPostsByFilterAsync(request.Filter);
+            var entities = await _unitOfWork.WeblogPostCategory.GetWeblogPostCategoriesByFilterAsync(request.Filter);
 
-            var models = _mapper.Map<List<WeblogPostModel>>(entities);
+            var models = _mapper.Map<List<WeblogPostCategoryModel>>(entities);
 
-            var result = new PaginatedList<WeblogPostModel>
+            var result = new PaginatedList<WeblogPostCategoryModel>
             {
                 Page = request.Filter.Page,
                 PageSize = request.Filter.PageSize,

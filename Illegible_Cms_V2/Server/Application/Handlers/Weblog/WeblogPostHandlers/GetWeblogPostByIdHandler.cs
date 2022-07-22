@@ -6,13 +6,13 @@ using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers
 {
-    public class GetWeblogPostByIdHandler : IRequestHandler<GetWeblogPostByIdQuery, OperationResult>
+    public class GetWeblogPostCategoryByIdHandler : IRequestHandler<GetWeblogPostByIdQuery, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public GetWeblogPostByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetWeblogPostCategoryByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;

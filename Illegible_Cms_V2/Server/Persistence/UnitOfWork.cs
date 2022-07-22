@@ -10,11 +10,14 @@ namespace Illegible_Cms_V2.Server.Persistence
 
         public IWeblogPostRepository WeblogPost { get; }
 
+        public IWeblogPostCategoryRepository WeblogPostCategory { get; }
+
         public UnitOfWork(AppDbContext context)
         {
             _context = context;
 
             WeblogPost = new WeblogPostRepository(_context);
+            WeblogPostCategory = new WeblogPostCategoryRepository(_context);
         }
 
         public async Task<bool> CommitAsync()

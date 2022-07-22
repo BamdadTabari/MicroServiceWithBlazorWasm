@@ -6,7 +6,7 @@ using Illegible_Cms_V2.Server.Domain.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers
 {
     public class CreateWeblogPostHandler : IRequestHandler<CreateWeblogPostCommand, OperationResult>
     {

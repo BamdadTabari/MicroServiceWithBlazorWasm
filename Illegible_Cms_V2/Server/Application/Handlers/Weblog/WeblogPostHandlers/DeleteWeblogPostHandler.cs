@@ -4,13 +4,13 @@ using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers
 {
-    public class DeleteWeblogPostHandler : IRequestHandler<DeleteWeblogPostCommand, OperationResult>
+    public class DeleteWeblogPostCategoryHandler : IRequestHandler<DeleteWeblogPostCommand, OperationResult>
     {
         private readonly IUnitOfWork _unitOfWork;
 
-        public DeleteWeblogPostHandler(IUnitOfWork unitOfWork)
+        public DeleteWeblogPostCategoryHandler(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
