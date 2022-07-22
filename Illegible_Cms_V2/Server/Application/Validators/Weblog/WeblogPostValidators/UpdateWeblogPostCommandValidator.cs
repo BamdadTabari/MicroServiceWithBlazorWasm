@@ -3,15 +3,19 @@ using Illegible_Cms_V2.Server.Application.Errors.Weblog;
 using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
 using Illegible_Cms_V2.Shared.BasicShared.Constants;
 
-namespace Illegible_Cms_V2.Server.Application.Validators.Weblog
+namespace Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators
 {
-    public class CreateWeblogPostCammandValidator : AbstractValidator<CreateWeblogPostCommand>
+    public class UpdateWeblogPostCategoryCommandValidator : AbstractValidator<UpdateWeblogPostCommand>
     {
-        public CreateWeblogPostCammandValidator()
+        public UpdateWeblogPostCategoryCommandValidator()
         {
+            RuleFor(x => x.Id)
+              .GreaterThan(0)
+              .WithState(_ => WeblogPostErrors.InvalidPostIdValidationError);
+
             RuleFor(x => x.Title)
-                .NotEmpty()
-                .WithState(_ => WeblogPostErrors.InvalidPostTitleValidationError);
+               .NotEmpty()
+               .WithState(_ => WeblogPostErrors.InvalidPostTitleValidationError);
 
             // 50 <= summary caracters <= 100
             RuleFor(x => x.Summery)

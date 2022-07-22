@@ -2,11 +2,11 @@
 using Illegible_Cms_V2.Server.Application.Errors.Weblog;
 using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
 
-namespace Illegible_Cms_V2.Server.Application.Validators.Weblog
+namespace Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators
 {
-    public class DeleteWeblogPostCommandValidator : AbstractValidator<DeleteWeblogPostCommand>
+    public class DeleteWeblogPostCategoryCommandValidator : AbstractValidator<DeleteWeblogPostCommand>
     {
-        public DeleteWeblogPostCommandValidator()
+        public DeleteWeblogPostCategoryCommandValidator()
         {
 
             RuleFor(x => x.Id)

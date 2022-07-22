@@ -36,5 +36,9 @@
     <ProjectReference Include="..\Shared\Illegible_Cms_V2.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Application\Behaviors\Weblog\WeblogPostCategoryBehaviors\" />
+  </ItemGroup>
+
 
 </Project>
