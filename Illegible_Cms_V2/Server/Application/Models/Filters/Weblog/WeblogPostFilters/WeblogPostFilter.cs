@@ -1,6 +1,6 @@
 ﻿using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 
-namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog
+namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters
 {
     public class WeblogPostFilter : PaginationFilter
     {

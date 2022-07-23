@@ -1,6 +1,6 @@
 ﻿using Illegible_Cms_V2.Server.Application.Errors.Weblog;
 using Illegible_Cms_V2.Server.Application.Interfaces;
-using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
+using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCommands;
 using Illegible_Cms_V2.Server.Application.Specifications.Weblog;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;

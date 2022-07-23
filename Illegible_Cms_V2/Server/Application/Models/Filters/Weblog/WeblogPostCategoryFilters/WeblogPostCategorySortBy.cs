@@ -1,4 +1,4 @@
-﻿namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog
+﻿namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostCategoryFilters
 {
     public enum WeblogPostCategorySortBy
     {

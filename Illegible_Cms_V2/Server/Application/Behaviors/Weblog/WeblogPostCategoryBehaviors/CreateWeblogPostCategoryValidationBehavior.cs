@@ -1,5 +1,5 @@
 ﻿using Illegible_Cms_V2.Server.Application.Helpers.Common;
-using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
+using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCategoryCommands;
 using Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostCategoryValidators;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;

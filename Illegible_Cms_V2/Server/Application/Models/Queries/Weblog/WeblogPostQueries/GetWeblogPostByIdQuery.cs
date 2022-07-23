@@ -2,7 +2,7 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Models.Queries.Weblog
+namespace Illegible_Cms_V2.Server.Application.Models.Queries.Weblog.WeblogPostQueries
 {
     public class GetWeblogPostByIdQuery : IRequestInfo, IRequest<OperationResult>
     {

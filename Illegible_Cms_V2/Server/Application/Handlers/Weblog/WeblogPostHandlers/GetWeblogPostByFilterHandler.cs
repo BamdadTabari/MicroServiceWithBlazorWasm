@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Illegible_Cms_V2.Server.Application.Interfaces;
 using Illegible_Cms_V2.Server.Application.Models.Base.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog;
+using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog.WeblogPostQueries;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 using MediatR;

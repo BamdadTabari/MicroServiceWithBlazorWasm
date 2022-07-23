@@ -1,5 +1,5 @@
 ﻿using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
+using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostCategoryFilters;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 using Illegible_Cms_V2.Server.Persistence.Extensions.Weblog;
 using Illegible_Cms_V2.Shared.BasicShared.Extension;

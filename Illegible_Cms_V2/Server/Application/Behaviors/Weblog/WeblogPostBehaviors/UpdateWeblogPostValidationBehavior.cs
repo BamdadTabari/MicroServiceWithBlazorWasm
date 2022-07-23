@@ -1,12 +1,12 @@
 ﻿using Illegible_Cms_V2.Server.Application.Helpers.Common;
-using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
+using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCommands;
 using Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostValidators;
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
 namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog.WeblogPostBehaviors
 {
-    public class UpdateWeblogPostCategoryValidationBehavior<TRequest, TResponse>
+    public class UpdateWeblogPostValidationBehavior<TRequest, TResponse>
         : IPipelineBehavior<UpdateWeblogPostCommand, OperationResult>
     {
         public async Task<OperationResult> Handle(UpdateWeblogPostCommand request,

@@ -2,7 +2,7 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog
+namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCommands
 {
     public class DeleteWeblogPostCommand : IRequestInfo, IRequest<OperationResult>
     {

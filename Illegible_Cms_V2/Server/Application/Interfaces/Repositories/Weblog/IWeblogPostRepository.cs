@@ -1,4 +1,4 @@
-﻿using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
+﻿using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 
 namespace Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog
