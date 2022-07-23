@@ -1,8 +1,7 @@
 ﻿using Illegible_Cms_V2.Server.Api.Models.Requests.Weblog.WeblogPostRequests;
-using Illegible_Cms_V2.Server.Api.ResultFilters.Weblog;
+using Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults;
 using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCommands;
 using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
-using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog;
 using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog.WeblogPostQueries;
 using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Illegible_Cms_V2.Shared.BasicShared.Extension;

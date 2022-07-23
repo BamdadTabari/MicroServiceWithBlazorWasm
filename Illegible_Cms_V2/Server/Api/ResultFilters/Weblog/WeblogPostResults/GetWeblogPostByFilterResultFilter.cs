@@ -4,7 +4,7 @@ using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
+namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults
 {
     public class GetWeblogPostByFilterResultFilter : ResultFilterAttribute
     {
@@ -21,9 +21,9 @@ namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
                     Data = value.Data.Select(x => new
                     {
                         Eid = x.Id.Encode(),
-                        Title = x.Title,
-                        Summery = x.Summery,
-                        TextContent = x.TextContent
+                        x.Title,
+                        x.Summery,
+                        x.TextContent
 
                     })
                 };

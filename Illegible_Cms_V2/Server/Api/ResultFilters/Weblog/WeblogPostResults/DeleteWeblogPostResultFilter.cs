@@ -3,9 +3,9 @@ using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
+namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults
 {
-    public class UpdateWeblogPostResultFilter : ResultFilterAttribute
+    public class DeleteWeblogPostResultFilter : ResultFilterAttribute
     {
         public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {
@@ -15,7 +15,7 @@ namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog
                 result.Value = new
                 {
                     Eid = value.Id.Encode(),
-                    Title = value.Title,
+                    value.Title
                 };
 
             await next();
