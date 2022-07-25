@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostCategoryResults
 {
-    public class GetWeblogPostCategryByFilterResultFilter : ResultFilterAttribute
+    public class GetWeblogPostCategoryByFilterResultFilter : ResultFilterAttribute
     {
         public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {

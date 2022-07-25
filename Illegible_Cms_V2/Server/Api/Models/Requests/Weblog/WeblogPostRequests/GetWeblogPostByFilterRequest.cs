@@ -14,6 +14,6 @@ namespace Illegible_Cms_V2.Server.Api.Models.Requests.Weblog.WeblogPostRequests
         }
 
         public string? Keyword { get; set; }
-        public WeblogPostSortBy? SortBy { get; set; }
+        public WeblogPostSortBy SortBy { get; set; }
     }
 }
