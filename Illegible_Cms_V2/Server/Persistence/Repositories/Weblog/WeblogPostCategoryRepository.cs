@@ -1,5 +1,5 @@
 ﻿using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
+using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostCategoryFilters;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 using Illegible_Cms_V2.Server.Persistence.Extensions.Weblog;
 using Illegible_Cms_V2.Shared.BasicShared.Extension;
@@ -7,16 +7,16 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
 {
-    public class WeblogPostRepository : Repository<WeblogPost>, IWeblogPostRepository
+    public class WeblogPostCategoryRepository : Repository<WeblogPostCategory>, IWeblogPostCategoryRepository
     {
-        private readonly IQueryable<WeblogPost> _queryable;
+        private readonly IQueryable<WeblogPostCategory> _queryable;
 
-        public WeblogPostRepository(AppDbContext dbContext) : base(dbContext)
+        public WeblogPostCategoryRepository(AppDbContext dbContext) : base(dbContext)
         {
-            _queryable = DbContext.Set<WeblogPost>();
+            _queryable = DbContext.Set<WeblogPostCategory>();
         }
 
-        public async Task<int> CountWeblogPostsByFilterAsync(WeblogPostFilter filter)
+        public async Task<int> CountWeblogPostCategoriesByFilterAsync(WeblogPostCategoryFilter filter)
         {
             var query = _queryable;
 
@@ -25,27 +25,27 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
             return await query.CountAsync();
         }
 
-        public async Task<WeblogPost> GetWeblogPostByIdAsync(int id)
+        public async Task<WeblogPostCategory> GetWeblogPostCategoryByIdAsync(int id)
         {
             var data = await _queryable.SingleOrDefaultAsync(x => x.Id == id);
 
             if (data == null)
-                throw new NullReferenceException("Weblog post not found with this id");
+                throw new NullReferenceException("Weblog post category not found with this id");
 
             return data;
         }
 
-        public async Task<WeblogPost> GetWeblogPostByWeblogPostNameAsync(string weblogPostname)
+        public async Task<WeblogPostCategory> GetWeblogPostCategoryByWeblogPostCategoryTitleAsync(string weblogPostCategoryTitle)
         {
-            var data = await _queryable.SingleOrDefaultAsync(x => x.Title == weblogPostname);
+            var data = await _queryable.SingleOrDefaultAsync(x => x.CategoryTitle == weblogPostCategoryTitle);
 
             if (data == null)
-                throw new NullReferenceException("Weblog post not found with this name");
+                throw new NullReferenceException("Weblog post category not found with this name");
 
             return data;
         }
 
-        public async Task<List<WeblogPost>> GetWeblogPostsByFilterAsync(WeblogPostFilter filter)
+        public async Task<List<WeblogPostCategory>> GetWeblogPostCategoriesByFilterAsync(WeblogPostCategoryFilter filter)
         {
             var query = _queryable;
 
@@ -56,7 +56,7 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
             return await query.Paginate(filter.Page, filter.PageSize).ToListAsync();
         }
 
-        public async Task<List<WeblogPost>> GetWeblogPostsByIdsAsync(IEnumerable<int> ids)
+        public async Task<List<WeblogPostCategory>> GetWeblogPostCategoriesByIdsAsync(IEnumerable<int> ids)
         {
             var query = _queryable;
 
@@ -69,3 +69,5 @@ namespace Illegible_Cms_V2.Server.Persistence.Repositories.Weblog
         }
     }
 }
+
+

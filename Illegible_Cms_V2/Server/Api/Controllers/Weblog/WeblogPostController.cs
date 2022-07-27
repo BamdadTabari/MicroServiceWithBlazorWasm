@@ -1,8 +1,8 @@
-﻿using Illegible_Cms_V2.Server.Api.Models.Requests.Weblog;
-using Illegible_Cms_V2.Server.Api.ResultFilters.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
-using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog;
+﻿using Illegible_Cms_V2.Server.Api.Models.Requests.Weblog.WeblogPostRequests;
+using Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults;
+using Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCommands;
+using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
+using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog.WeblogPostQueries;
 using Illegible_Cms_V2.Shared.BasicShared.Constants.ConstantMethods;
 using Illegible_Cms_V2.Shared.BasicShared.Extension;
 using MediatR;
@@ -19,7 +19,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             _mediator = mediator;
         }
 
-        [HttpPost(Routes.Weblog + "AddPost")]
+        [HttpPost(Routes.WeblogPost + "AddPost")]
         [CreateWeblogPostResultFilter]
         public async Task<IActionResult> AddWeblogPost([FromBody] CreateWeblogPostRequest request)
         {
@@ -33,7 +33,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             return this.ReturnResponse(operation);
         }
 
-        [HttpPut(Routes.Weblog + "update/{wpeid}")]
+        [HttpPut(Routes.WeblogPost + "update/{wpeid}")]
         [UpdateWeblogPostResultFilter]
         public async Task<IActionResult> UpdateWeblogPost([FromRoute] string wpeid, [FromBody] UpdateWeblogPostRequest request)
         {
@@ -50,7 +50,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             return this.ReturnResponse(operation);
         }
 
-        [HttpGet(Routes.Weblog + "get_by_id/{wpeid}")]
+        [HttpGet(Routes.WeblogPost + "get_by_id/{wpeid}")]
         [GetWeblogPostByIdResultFilter]
         public async Task<IActionResult> GetWeblogPostById([FromRoute] string wpeid)
         {
@@ -64,7 +64,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             return this.ReturnResponse(operation);
         }
 
-        [HttpGet(Routes.Weblog + "get_weblogs_by_filter")]
+        [HttpGet(Routes.WeblogPost + "get_weblogposts_by_filter")]
         [GetWeblogPostByFilterResultFilter]
         public async Task<IActionResult> GetWeblogPostsByFilter([FromQuery] GetWeblogPostByFilterRequest request)
         {
@@ -80,7 +80,7 @@ namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
             return this.ReturnResponse(operation);
         }
 
-        [HttpDelete(Routes.Weblog + "{wpeid}")]
+        [HttpDelete(Routes.WeblogPost + "{wpeid}")]
         [DeleteWeblogPostResultFilter]
         public async Task<IActionResult> DeleteWeblogPost([FromRoute] string wpeid)
         {

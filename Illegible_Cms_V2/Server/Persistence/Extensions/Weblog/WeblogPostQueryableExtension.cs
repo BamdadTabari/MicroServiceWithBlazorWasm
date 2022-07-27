@@ -1,4 +1,4 @@
-﻿using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog;
+﻿using Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
 using Illegible_Cms_V2.Server.Domain.Weblog;
 
 namespace Illegible_Cms_V2.Server.Persistence.Extensions.Weblog
@@ -18,8 +18,8 @@ namespace Illegible_Cms_V2.Server.Persistence.Extensions.Weblog
         {
             return sortBy switch
             {
-                //WeblogPostSortBy.CreationDate => query.OrderBy(x => x.CreatedAt),
-                //WeblogPostSortBy.CreationDateDescending => query.OrderByDescending(x => x.CreatedAt),
+                WeblogPostSortBy.CreationDate => query.OrderBy(x => x.CreatedAt),
+                WeblogPostSortBy.CreationDateDescending => query.OrderByDescending(x => x.CreatedAt),
                 _ => query.OrderByDescending(x => x.Id)
             };
         }
