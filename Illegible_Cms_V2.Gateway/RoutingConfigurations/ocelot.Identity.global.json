@@ -1,0 +1,16 @@
+﻿{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/Illegible_Cms_V2.Identity/health",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 4002
+        }
+      ]
+    }
+  ]
+}
