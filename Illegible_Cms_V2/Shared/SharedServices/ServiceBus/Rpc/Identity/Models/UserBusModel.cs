@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
         public string Email { get; set; }
+        public string SecurityStamp { get; set; }
+        public IEnumerable<PermissionBusModel> Permissions { get; set; }
     }
 }
