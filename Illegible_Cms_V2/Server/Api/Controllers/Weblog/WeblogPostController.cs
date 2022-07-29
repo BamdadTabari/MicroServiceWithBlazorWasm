@@ -8,90 +8,89 @@ using Illegible_Cms_V2.Shared.BasicShared.Extension;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog
+namespace Illegible_Cms_V2.Server.Api.Controllers.Weblog;
+
+public class WeblogPostController : ControllerBase
 {
-    public class WeblogPostController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public WeblogPostController(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public WeblogPostController(IMediator mediator)
+    [HttpPost(Routes.WeblogPost + "AddPost")]
+    [CreateWeblogPostResultFilter]
+    public async Task<IActionResult> AddWeblogPost([FromBody] CreateWeblogPostRequest request)
+    {
+        var operation = await _mediator.Send(new CreateWeblogPostCommand(Request.GetRequestInfo())
         {
-            _mediator = mediator;
-        }
+            Title = request.Title,
+            TextContent = request.TextContent,
+            Summery = request.Summery,
+        });
 
-        [HttpPost(Routes.WeblogPost + "AddPost")]
-        [CreateWeblogPostResultFilter]
-        public async Task<IActionResult> AddWeblogPost([FromBody] CreateWeblogPostRequest request)
+        return this.ReturnResponse(operation);
+    }
+
+    [HttpPut(Routes.WeblogPost + "update/{wpeid}")]
+    [UpdateWeblogPostResultFilter]
+    public async Task<IActionResult> UpdateWeblogPost([FromRoute] string wpeid, [FromBody] UpdateWeblogPostRequest request)
+    {
+        var Id = wpeid.Decode();
+
+        var operation = await _mediator.Send(new UpdateWeblogPostCommand(Request.GetRequestInfo())
         {
-            var operation = await _mediator.Send(new CreateWeblogPostCommand(Request.GetRequestInfo())
+            Id = Id,
+            Summery = request.Summery,
+            Title = request.Title,
+            TextContent = request.TextContent,
+        });
+
+        return this.ReturnResponse(operation);
+    }
+
+    [HttpGet(Routes.WeblogPost + "get_by_id/{wpeid}")]
+    [GetWeblogPostByIdResultFilter]
+    public async Task<IActionResult> GetWeblogPostById([FromRoute] string wpeid)
+    {
+        var Id = wpeid.Decode();
+
+        var operation = await _mediator.Send(new GetWeblogPostByIdQuery(Request.GetRequestInfo())
+        {
+            WeblogPostId = Id,
+        });
+
+        return this.ReturnResponse(operation);
+    }
+
+    [HttpGet(Routes.WeblogPost + "get_weblogposts_by_filter")]
+    [GetWeblogPostByFilterResultFilter]
+    public async Task<IActionResult> GetWeblogPostsByFilter([FromQuery] GetWeblogPostByFilterRequest request)
+    {
+        var operation = await _mediator.Send(new GetWeblogPostByFilterQuery(Request.GetRequestInfo())
+        {
+            Filter = new WeblogPostFilter(request.Page, request.PageSize)
             {
-                Title = request.Title,
-                TextContent = request.TextContent,
-                Summery = request.Summery,
-            });
+                KeyWord = request?.Keyword ?? "",
+                SortBy = request?.SortBy,
+            },
+        });
 
-            return this.ReturnResponse(operation);
-        }
+        return this.ReturnResponse(operation);
+    }
 
-        [HttpPut(Routes.WeblogPost + "update/{wpeid}")]
-        [UpdateWeblogPostResultFilter]
-        public async Task<IActionResult> UpdateWeblogPost([FromRoute] string wpeid, [FromBody] UpdateWeblogPostRequest request)
+    [HttpDelete(Routes.WeblogPost + "{wpeid}")]
+    [DeleteWeblogPostResultFilter]
+    public async Task<IActionResult> DeleteWeblogPost([FromRoute] string wpeid)
+    {
+        var Id = wpeid.Decode();
+
+        var operation = await _mediator.Send(new DeleteWeblogPostCommand(Request.GetRequestInfo())
         {
-            var Id = wpeid.Decode();
+            Id = Id,
+        });
 
-            var operation = await _mediator.Send(new UpdateWeblogPostCommand(Request.GetRequestInfo())
-            {
-                Id = Id,
-                Summery = request.Summery,
-                Title = request.Title,
-                TextContent = request.TextContent,
-            });
-
-            return this.ReturnResponse(operation);
-        }
-
-        [HttpGet(Routes.WeblogPost + "get_by_id/{wpeid}")]
-        [GetWeblogPostByIdResultFilter]
-        public async Task<IActionResult> GetWeblogPostById([FromRoute] string wpeid)
-        {
-            var Id = wpeid.Decode();
-
-            var operation = await _mediator.Send(new GetWeblogPostByIdQuery(Request.GetRequestInfo())
-            {
-                WeblogPostId = Id,
-            });
-
-            return this.ReturnResponse(operation);
-        }
-
-        [HttpGet(Routes.WeblogPost + "get_weblogposts_by_filter")]
-        [GetWeblogPostByFilterResultFilter]
-        public async Task<IActionResult> GetWeblogPostsByFilter([FromQuery] GetWeblogPostByFilterRequest request)
-        {
-            var operation = await _mediator.Send(new GetWeblogPostByFilterQuery(Request.GetRequestInfo())
-            {
-                Filter = new WeblogPostFilter(request.Page, request.PageSize)
-                {
-                    KeyWord = request?.Keyword ?? "",
-                    SortBy = request?.SortBy,
-                },
-            });
-
-            return this.ReturnResponse(operation);
-        }
-
-        [HttpDelete(Routes.WeblogPost + "{wpeid}")]
-        [DeleteWeblogPostResultFilter]
-        public async Task<IActionResult> DeleteWeblogPost([FromRoute] string wpeid)
-        {
-            var Id = wpeid.Decode();
-
-            var operation = await _mediator.Send(new DeleteWeblogPostCommand(Request.GetRequestInfo())
-            {
-                Id = Id,
-            });
-
-            return this.ReturnResponse(operation);
-        }
+        return this.ReturnResponse(operation);
     }
 }

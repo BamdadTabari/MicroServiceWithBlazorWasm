@@ -5,19 +5,18 @@ using Illegible_Cms_V2.Server.Application.Validators.Weblog.WeblogPostCategoryVa
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog.WeblogPostCategoryBehaviors
-{
-    public class UpdateWeblogPostCategoryValidationBehavior<TRequest, TResponse>
-        : IPipelineBehavior<UpdateWeblogPostCategoryCommand, OperationResult>
-    {
-        public async Task<OperationResult> Handle(UpdateWeblogPostCategoryCommand request,
-           CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
-        {
-            var validation = new UpdateWeblogPostCategoryCommandValidator().Validate(request);
-            if (!validation.IsValid)
-                return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
+namespace Illegible_Cms_V2.Server.Application.Behaviors.Weblog.WeblogPostCategoryBehaviors;
 
-            return await next();
-        }
+public class UpdateWeblogPostCategoryValidationBehavior<TRequest, TResponse>
+    : IPipelineBehavior<UpdateWeblogPostCategoryCommand, OperationResult>
+{
+    public async Task<OperationResult> Handle(UpdateWeblogPostCategoryCommand request,
+        CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
+    {
+        var validation = new UpdateWeblogPostCategoryCommandValidator().Validate(request);
+        if (!validation.IsValid)
+            return new OperationResult(OperationResultStatus.Invalidated, value: validation.GetFirstErrorState());
+
+        return await next();
     }
 }

@@ -1,17 +1,16 @@
 ﻿using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 
-namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters
+namespace Illegible_Cms_V2.Server.Application.Models.Filters.Weblog.WeblogPostFilters;
+
+public class WeblogPostFilter : PaginationFilter
 {
-    public class WeblogPostFilter : PaginationFilter
+    public WeblogPostFilter(int page, int pageSize) : base(page, pageSize)
     {
-        public WeblogPostFilter(int page, int pageSize) : base(page, pageSize)
-        {
-
-        }
-
-        public string KeyWord { get; set; }
-
-        public WeblogPostSortBy? SortBy { get; set; }
 
     }
+
+    public string KeyWord { get; set; }
+
+    public WeblogPostSortBy? SortBy { get; set; }
+
 }

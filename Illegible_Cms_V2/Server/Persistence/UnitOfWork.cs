@@ -2,32 +2,31 @@
 using Illegible_Cms_V2.Server.Application.Interfaces.Repositories.Weblog;
 using Illegible_Cms_V2.Server.Persistence.Repositories.Weblog;
 
-namespace Illegible_Cms_V2.Server.Persistence
+namespace Illegible_Cms_V2.Server.Persistence;
+
+public class UnitOfWork : IUnitOfWork
 {
-    public class UnitOfWork : IUnitOfWork
+    private readonly AppDbContext _context;
+
+    public IWeblogPostRepository WeblogPost { get; }
+
+    public IWeblogPostCategoryRepository WeblogPostCategory { get; }
+
+    public UnitOfWork(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
 
-        public IWeblogPostRepository WeblogPost { get; }
+        WeblogPost = new WeblogPostRepository(_context);
+        WeblogPostCategory = new WeblogPostCategoryRepository(_context);
+    }
 
-        public IWeblogPostCategoryRepository WeblogPostCategory { get; }
+    public async Task<bool> CommitAsync()
+    {
+        return await _context.SaveChangesAsync() > 0;
+    }
 
-        public UnitOfWork(AppDbContext context)
-        {
-            _context = context;
-
-            WeblogPost = new WeblogPostRepository(_context);
-            WeblogPostCategory = new WeblogPostCategoryRepository(_context);
-        }
-
-        public async Task<bool> CommitAsync()
-        {
-            return await _context.SaveChangesAsync() > 0;
-        }
-
-        public void Dispose()
-        {
-            _context.Dispose();
-        }
+    public void Dispose()
+    {
+        _context.Dispose();
     }
 }

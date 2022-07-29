@@ -6,28 +6,27 @@ using Illegible_Cms_V2.Server.Application.Models.Queries.Weblog.WeblogPostQuerie
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers
+namespace Illegible_Cms_V2.Server.Application.Handlers.Weblog.WeblogPostHandlers;
+
+public class GetWeblogPostCategoryByIdHandler : IRequestHandler<GetWeblogPostByIdQuery, OperationResult>
 {
-    public class GetWeblogPostCategoryByIdHandler : IRequestHandler<GetWeblogPostByIdQuery, OperationResult>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IMapper _mapper;
+    public GetWeblogPostCategoryByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
-        public GetWeblogPostCategoryByIdHandler(IUnitOfWork unitOfWork, IMapper mapper)
-        {
-            _unitOfWork = unitOfWork;
-            _mapper = mapper;
-        }
+        _unitOfWork = unitOfWork;
+        _mapper = mapper;
+    }
 
-        public async Task<OperationResult> Handle(GetWeblogPostByIdQuery request, CancellationToken cancellationToken)
-        {
-            var entity = await _unitOfWork.WeblogPost.GetWeblogPostByIdAsync(request.WeblogPostId);
+    public async Task<OperationResult> Handle(GetWeblogPostByIdQuery request, CancellationToken cancellationToken)
+    {
+        var entity = await _unitOfWork.WeblogPost.GetWeblogPostByIdAsync(request.WeblogPostId);
 
-            if (entity == null)
-                return new OperationResult(OperationResultStatus.UnProcessable, value: WeblogPostErrors.PostNotFoundError);
+        if (entity == null)
+            return new OperationResult(OperationResultStatus.UnProcessable, value: WeblogPostErrors.PostNotFoundError);
 
-            var model = _mapper.Map<WeblogPostModel>(entity);
+        var model = _mapper.Map<WeblogPostModel>(entity);
 
-            return new OperationResult(OperationResultStatus.Ok, value: model);
-        }
+        return new OperationResult(OperationResultStatus.Ok, value: model);
     }
 }

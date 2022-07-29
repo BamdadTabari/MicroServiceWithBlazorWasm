@@ -1,7 +1,6 @@
-﻿namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample
+﻿namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample;
+
+public class CustomError : Error
 {
-    public class CustomError : Error
-    {
-        public string CustomProperty { get; set; }
-    }
+    public string CustomProperty { get; set; }
 }

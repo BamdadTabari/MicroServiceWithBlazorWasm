@@ -2,18 +2,17 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCategoryCommands
-{
-    public class UpdateWeblogPostCategoryCommand : IRequestInfo, IRequest<OperationResult>
-    {
-        public UpdateWeblogPostCategoryCommand(RequestInfo requestInfo)
-        {
-            RequestInfo = requestInfo;
-        }
-        public int Id { get; set; }
-        public string CategoryTitle { get; set; }
-        public string CategoryIcon { get; set; }
+namespace Illegible_Cms_V2.Server.Application.Models.Commands.Weblog.WeblogPostCategoryCommands;
 
-        public RequestInfo RequestInfo { get; set; }
+public class UpdateWeblogPostCategoryCommand : IRequestInfo, IRequest<OperationResult>
+{
+    public UpdateWeblogPostCategoryCommand(RequestInfo requestInfo)
+    {
+        RequestInfo = requestInfo;
     }
+    public int Id { get; set; }
+    public string CategoryTitle { get; set; }
+    public string CategoryIcon { get; set; }
+
+    public RequestInfo RequestInfo { get; set; }
 }

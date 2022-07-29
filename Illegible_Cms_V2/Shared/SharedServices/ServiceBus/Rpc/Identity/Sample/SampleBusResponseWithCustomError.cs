@@ -1,20 +1,19 @@
-namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample
-{
-    public class SampleBusResponseWithCustomError : BusResponse
-    {
-        public string Text { get; set; }
-        public new CustomError Error { get; set; }
+namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample;
 
-        public override bool HasError()
+public class SampleBusResponseWithCustomError : BusResponse
+{
+    public string Text { get; set; }
+    public new CustomError Error { get; set; }
+
+    public override bool HasError()
+    {
+        if (this.Error != null)
         {
-            if (this.Error != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

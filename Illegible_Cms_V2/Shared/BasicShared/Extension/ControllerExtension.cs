@@ -2,26 +2,24 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Illegible_Cms_V2.Shared.BasicShared.Extension
+namespace Illegible_Cms_V2.Shared.BasicShared.Extension;
+
+public static class ControllerExtension
 {
-
-    public static class ControllerExtension
+    public static IActionResult ReturnResponse(this ControllerBase controller, OperationResult operation)
     {
-        public static IActionResult ReturnResponse(this ControllerBase controller, OperationResult operation)
-        {
-            object response = operation.Value;
-            if (response is ErrorModel errorModel)
-                response = new ErrorResponse(errorModel);
+        object response = operation.Value;
+        if (response is ErrorModel errorModel)
+            response = new ErrorResponse(errorModel);
 
-            return operation.Status switch
-            {
-                OperationResultStatus.Ok => controller.Ok(response),
-                OperationResultStatus.Invalidated => controller.BadRequest(response),
-                OperationResultStatus.NotFound => controller.NotFound(response),
-                OperationResultStatus.Unauthorized => controller.UnprocessableEntity(response),
-                OperationResultStatus.UnProcessable => controller.UnprocessableEntity(response),
-                _ => controller.UnprocessableEntity(response)
-            };
-        }
+        return operation.Status switch
+        {
+            OperationResultStatus.Ok => controller.Ok(response),
+            OperationResultStatus.Invalidated => controller.BadRequest(response),
+            OperationResultStatus.NotFound => controller.NotFound(response),
+            OperationResultStatus.Unauthorized => controller.UnprocessableEntity(response),
+            OperationResultStatus.UnProcessable => controller.UnprocessableEntity(response),
+            _ => controller.UnprocessableEntity(response)
+        };
     }
 }

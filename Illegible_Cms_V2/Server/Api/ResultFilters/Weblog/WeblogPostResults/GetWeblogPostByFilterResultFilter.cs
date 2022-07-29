@@ -4,31 +4,30 @@ using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults
+namespace Illegible_Cms_V2.Server.Api.ResultFilters.Weblog.WeblogPostResults;
+
+public class GetWeblogPostByFilterResultFilter : ResultFilterAttribute
 {
-    public class GetWeblogPostByFilterResultFilter : ResultFilterAttribute
+    public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
-        public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
-        {
-            var result = context.Result as ObjectResult;
+        var result = context.Result as ObjectResult;
 
-            if (result?.Value is PaginatedList<WeblogPostModel> value)
-                result.Value = new
+        if (result?.Value is PaginatedList<WeblogPostModel> value)
+            result.Value = new
+            {
+                value.Page,
+                value.PageSize,
+                value.TotalCount,
+                Data = value.Data.Select(x => new
                 {
-                    value.Page,
-                    value.PageSize,
-                    value.TotalCount,
-                    Data = value.Data.Select(x => new
-                    {
-                        Eid = x.Id.Encode(),
-                        x.Title,
-                        x.Summery,
-                        x.TextContent
+                    Eid = x.Id.Encode(),
+                    x.Title,
+                    x.Summery,
+                    x.TextContent
 
-                    })
-                };
+                })
+            };
 
-            await next();
-        }
+        await next();
     }
 }

@@ -1,10 +1,9 @@
-﻿namespace Illegible_Cms_V2.Server.Api
-{
-    public static class Routes
-    {
-        public const string Api = "api/";
+﻿namespace Illegible_Cms_V2.Server.Api;
 
-        public const string WeblogPost = Api + "weblog_post/";
-        public const string WeblogPostCategory = Api + "weblog_post_category/";
-    }
+public static class Routes
+{
+    public const string Api = "api/";
+
+    public const string WeblogPost = Api + "weblog_post/";
+    public const string WeblogPostCategory = Api + "weblog_post_category/";
 }

@@ -3,24 +3,23 @@ using Illegible_Cms_V2.Shared.BasicShared.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Illegible_Cms_V2.Server.Persistence.EntityConfigurations.Weblog
+namespace Illegible_Cms_V2.Server.Persistence.EntityConfigurations.Weblog;
+
+public class WeblogPostCategoryEntityConfiguration : IEntityTypeConfiguration<WeblogPostCategory>
 {
-    public class WeblogPostCategoryEntityConfiguration : IEntityTypeConfiguration<WeblogPostCategory>
+    public void Configure(EntityTypeBuilder<WeblogPostCategory> builder)
     {
-        public void Configure(EntityTypeBuilder<WeblogPostCategory> builder)
-        {
-            #region Properties features
+        #region Properties features
 
-            builder.HasKey(e => e.Id);
+        builder.HasKey(e => e.Id);
 
-            builder.Property(e => e.CategoryTitle).IsRequired()
-                .HasMaxLength(Defaults.TinyLength);
+        builder.Property(e => e.CategoryTitle).IsRequired()
+            .HasMaxLength(Defaults.TinyLength);
 
-            builder.Property(e => e.CategoryIcon)
-                .IsRequired();
-            #endregion
-
-        }
+        builder.Property(e => e.CategoryIcon)
+            .IsRequired();
+        #endregion
 
     }
+
 }

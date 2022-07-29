@@ -1,25 +1,24 @@
-namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample
-{
-    public class SampleBusResponse : BusResponse
-    {
-        public string Text { get; set; }
+namespace Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Sample;
 
-        /// <summary>
-        /// Specific Possible Errors For This Response
-        /// Usage:
-        /// if (response.HasError()) {
-        ///     var e = response.Error;
-        ///     if (e.Is(SampleBusResponse.Errors.NotFound))
-        ///     {
-        ///     }else if (e.Is(SampleBusResponse.Errors.NotAllowed))
-        ///     {
-        ///     }
-        /// }
-        /// </summary>
-        public enum Errors
-        {
-            NotFound = 1,
-            NotAllowed = 2
-        }
+public class SampleBusResponse : BusResponse
+{
+    public string Text { get; set; }
+
+    /// <summary>
+    /// Specific Possible Errors For This Response
+    /// Usage:
+    /// if (response.HasError()) {
+    ///     var e = response.Error;
+    ///     if (e.Is(SampleBusResponse.Errors.NotFound))
+    ///     {
+    ///     }else if (e.Is(SampleBusResponse.Errors.NotAllowed))
+    ///     {
+    ///     }
+    /// }
+    /// </summary>
+    public enum Errors
+    {
+        NotFound = 1,
+        NotAllowed = 2
     }
 }

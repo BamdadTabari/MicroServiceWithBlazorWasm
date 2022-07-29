@@ -1,29 +1,28 @@
 ﻿using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Server.Application.Behaviors.Common
+namespace Illegible_Cms_V2.Server.Application.Behaviors.Common;
+
+public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, OperationResult> where TRequest : MediatR.IRequest<OperationResult>
 {
-    public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, OperationResult> where TRequest : MediatR.IRequest<OperationResult>
+    private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
+
+    public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
     {
-        private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
+        _logger = logger;
+    }
 
-        public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
+    public async Task<OperationResult> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
+    {
+        var response = await next();
+
+        if (response.Succeeded)
         {
-            _logger = logger;
+            return new OperationResult(OperationResultStatus.Ok, value: response);
         }
-
-        public async Task<OperationResult> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<OperationResult> next)
+        else
         {
-            var response = await next();
-
-            if (response.Succeeded)
-            {
-                return new OperationResult(OperationResultStatus.Ok, value: response);
-            }
-            else
-            {
-                return new OperationResult(OperationResultStatus.UnProcessable);
-            }
+            return new OperationResult(OperationResultStatus.UnProcessable);
         }
     }
 }

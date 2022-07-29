@@ -1,11 +1,10 @@
-﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Operations
+﻿namespace Illegible_Cms_V2.Shared.Infrastructure.Operations;
+
+public enum OperationResultStatus
 {
-    public enum OperationResultStatus
-    {
-        Ok = 1,
-        Invalidated,
-        NotFound,
-        Unauthorized,
-        UnProcessable
-    }
+    Ok = 1,
+    Invalidated,
+    NotFound,
+    Unauthorized,
+    UnProcessable
 }
