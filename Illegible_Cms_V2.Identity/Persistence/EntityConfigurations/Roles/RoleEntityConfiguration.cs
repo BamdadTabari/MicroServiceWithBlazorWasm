@@ -2,30 +2,29 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles
+namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Roles;
+
+internal class RoleEntityConfiguration : IEntityTypeConfiguration<Role>
 {
-    internal class RoleEntityConfiguration : IEntityTypeConfiguration<Role>
+    public void Configure(EntityTypeBuilder<Role> builder)
     {
-        public void Configure(EntityTypeBuilder<Role> builder)
-        {
-            builder.HasKey(x => x.Id);
+        builder.HasKey(x => x.Id);
 
-            #region Navigations
+        #region Navigations
 
-            builder
-                .HasMany(x => x.UserRoles)
-                .WithOne(x => x.Role)
-                .HasForeignKey(x => x.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
+        builder
+            .HasMany(x => x.UserRoles)
+            .WithOne(x => x.Role)
+            .HasForeignKey(x => x.RoleId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-            builder
-                .HasMany(x => x.RolePermission)
-                .WithOne(x => x.Role)
-                .HasForeignKey(x => x.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
+        builder
+            .HasMany(x => x.RolePermission)
+            .WithOne(x => x.Role)
+            .HasForeignKey(x => x.RoleId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-            #endregion
+        #endregion
 
-        }
     }
 }

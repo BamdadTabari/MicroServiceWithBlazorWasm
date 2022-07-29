@@ -2,15 +2,14 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Identity.Application.Models.Queries.Auth
+namespace Illegible_Cms_V2.Identity.Application.Models.Queries.Auth;
+
+public class RefreshTokenQuery : IRequestInfo, IRequest<OperationResult>
 {
-    public class RefreshTokenQuery : IRequestInfo, IRequest<OperationResult>
+    public RequestInfo RequestInfo { get; private set; }
+    public RefreshTokenQuery(RequestInfo requestInfo)
     {
-        public RequestInfo RequestInfo { get; private set; }
-        public RefreshTokenQuery(RequestInfo requestInfo)
-        {
-            RequestInfo = requestInfo;
-        }
-        public string RefreshToken { get; set; }
+        RequestInfo = requestInfo;
     }
+    public string RefreshToken { get; set; }
 }

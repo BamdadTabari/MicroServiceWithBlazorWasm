@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Roles
+﻿namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Roles;
+
+public class UpdateRoleRequest
 {
-    public class UpdateRoleRequest
-    {
-        public string Title { get; set; }
-        public IList<string> PermissionEids { get; set; }
-    }
+    public string Title { get; set; }
+    public IList<string> PermissionEids { get; set; }
 }

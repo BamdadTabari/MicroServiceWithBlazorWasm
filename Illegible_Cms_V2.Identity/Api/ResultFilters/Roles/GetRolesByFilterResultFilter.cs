@@ -4,30 +4,29 @@ using Illegible_Cms_V2.Shared.Infrastructure.Pagination;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Roles
+namespace Illegible_Cms_V2.Identity.Api.ResultFilters.Roles;
+
+public class GetRolesByFilterResultFilter : ResultFilterAttribute
 {
-    public class GetRolesByFilterResultFilter : ResultFilterAttribute
+    public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
-        public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
-        {
-            var result = context.Result as ObjectResult;
+        var result = context.Result as ObjectResult;
 
-            if (result?.Value is PaginatedList<RoleModel> value)
-                result.Value = new
+        if (result?.Value is PaginatedList<RoleModel> value)
+            result.Value = new
+            {
+                value.Page,
+                value.PageSize,
+                value.TotalCount,
+                Data = value.Data.Select(x => new
                 {
-                    value.Page,
-                    value.PageSize,
-                    value.TotalCount,
-                    Data = value.Data.Select(x => new
-                    {
-                        Eid = x.Id.Encode(),
-                        Title = x.Title,
-                        CreatedAt = x.CreatedAt,
-                        UpdatedAt = x.UpdatedAt
-                    })
-                };
+                    Eid = x.Id.Encode(),
+                    Title = x.Title,
+                    CreatedAt = x.CreatedAt,
+                    UpdatedAt = x.UpdatedAt
+                })
+            };
 
-            await next();
-        }
+        await next();
     }
 }

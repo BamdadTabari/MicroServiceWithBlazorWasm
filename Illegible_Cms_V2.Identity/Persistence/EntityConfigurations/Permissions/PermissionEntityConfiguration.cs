@@ -3,28 +3,27 @@ using Illegible_Cms_V2.Shared.BasicShared.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Permissions
+namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Permissions;
+
+internal class PermissionEntityConfiguration : IEntityTypeConfiguration<Permission>
 {
-    internal class PermissionEntityConfiguration : IEntityTypeConfiguration<Permission>
+    public void Configure(EntityTypeBuilder<Permission> builder)
     {
-        public void Configure(EntityTypeBuilder<Permission> builder)
-        {
-            builder.HasKey(x => x.Id);
+        builder.HasKey(x => x.Id);
 
-            #region Mappings
+        #region Mappings
 
-            builder.Property(b => b.Value)
-                .HasMaxLength(Defaults.NameLength)
-                .IsRequired();
+        builder.Property(b => b.Value)
+            .HasMaxLength(Defaults.NameLength)
+            .IsRequired();
 
-            builder.Property(b => b.Name)
-                .HasMaxLength(Defaults.TitleLength);
+        builder.Property(b => b.Name)
+            .HasMaxLength(Defaults.TitleLength);
 
-            #endregion
+        #endregion
 
-            #region Navigations
+        #region Navigations
 
-            #endregion
-        }
+        #endregion
     }
 }

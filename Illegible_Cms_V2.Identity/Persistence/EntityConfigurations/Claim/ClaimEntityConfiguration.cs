@@ -5,39 +5,38 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Claim
+namespace Illegible_Cms_V2.Identity.Persistence.EntityConfigurations.Claim;
+
+internal class ClaimEntityConfiguration : IEntityTypeConfiguration<Domain.Claims.Claim>
 {
-    internal class ClaimEntityConfiguration : IEntityTypeConfiguration<Domain.Claims.Claim>
+    public void Configure(EntityTypeBuilder<Domain.Claims.Claim> builder)
     {
-        public void Configure(EntityTypeBuilder<Domain.Claims.Claim> builder)
-        {
-            builder.HasKey(x => x.Id);
+        builder.HasKey(x => x.Id);
 
-            #region Mappings
+        #region Mappings
 
-            builder.Property(b => b.Value)
-                .HasMaxLength(Defaults.BigLength)
-                .IsRequired();
+        builder.Property(b => b.Value)
+            .HasMaxLength(Defaults.BigLength)
+            .IsRequired();
 
-            #endregion
+        #endregion
 
-            #region Conversions
+        #region Conversions
 
-            builder.Property(x => x.Type)
-                .HasConversion(new EnumToStringConverter<ClaimType>())
-                .HasMaxLength(ClaimType.Permission.GetMaxLength());
+        builder.Property(x => x.Type)
+            .HasConversion(new EnumToStringConverter<ClaimType>())
+            .HasMaxLength(ClaimType.Permission.GetMaxLength());
 
-            #endregion
+        #endregion
 
-            #region Navigations
+        #region Navigations
 
-            builder
-                .HasOne(x => x.User)
-                .WithMany(x => x.Claims)
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
+        builder
+            .HasOne(x => x.User)
+            .WithMany(x => x.Claims)
+            .HasForeignKey(x => x.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
 
-            #endregion
-        }
+        #endregion
     }
 }

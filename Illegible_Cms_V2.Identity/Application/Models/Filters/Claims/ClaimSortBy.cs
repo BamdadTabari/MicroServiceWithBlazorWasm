@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Identity.Application.Models.Filters.Claims
+﻿namespace Illegible_Cms_V2.Identity.Application.Models.Filters.Claims;
+
+public enum ClaimSortBy
 {
-    public enum ClaimSortBy
-    {
-        CreationDate = 10,
-        CreationDateDescending = 11,
-    }
+    CreationDate = 10,
+    CreationDateDescending = 11,
 }

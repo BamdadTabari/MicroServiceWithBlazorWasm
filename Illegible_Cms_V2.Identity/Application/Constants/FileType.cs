@@ -1,8 +1,7 @@
-﻿namespace Illegible_Cms_V2.Identity.Application.Constants
+﻿namespace Illegible_Cms_V2.Identity.Application.Constants;
+
+public enum FileType
 {
-    public enum FileType
-    {
-        Image = 10,
-        Document = 20
-    }
+    Image = 10,
+    Document = 20
 }

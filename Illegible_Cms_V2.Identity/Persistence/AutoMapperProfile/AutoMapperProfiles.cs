@@ -8,23 +8,22 @@ using Illegible_Cms_V2.Identity.Domain.Roles;
 using Illegible_Cms_V2.Identity.Domain.Users;
 using System.Security.Claims;
 
-namespace Illegible_Cms_V2.Identity.Persistence.AutoMapperProfile
+namespace Illegible_Cms_V2.Identity.Persistence.AutoMapperProfile;
+
+public class AutoMapperProfiles : Profile
 {
-    public class AutoMapperProfiles : Profile
+    public AutoMapperProfiles()
     {
-        public AutoMapperProfiles()
-        {
-            CreateMap<PermissionModel, Permission>().ReverseMap();
+        CreateMap<PermissionModel, Permission>().ReverseMap();
 
-            CreateMap<RoleModel, Role>().ReverseMap();
+        CreateMap<RoleModel, Role>().ReverseMap();
 
-            CreateMap<UserModel, User>().ReverseMap();
+        CreateMap<UserModel, User>().ReverseMap();
 
-            CreateMap<UserRoleModel, UserRole>().ReverseMap();
+        CreateMap<UserRoleModel, UserRole>().ReverseMap();
 
-            CreateMap<RolePermissionModel, RolePermission>().ReverseMap();
+        CreateMap<RolePermissionModel, RolePermission>().ReverseMap();
 
-            CreateMap<ClaimModel, Claim>().ReverseMap();
-        }
+        CreateMap<ClaimModel, Claim>().ReverseMap();
     }
 }

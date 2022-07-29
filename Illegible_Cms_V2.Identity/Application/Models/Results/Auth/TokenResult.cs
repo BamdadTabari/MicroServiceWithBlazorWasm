@@ -1,7 +1,6 @@
-﻿namespace Illegible_Cms_V2.Identity.Application.Models.Results.Auth
+﻿namespace Illegible_Cms_V2.Identity.Application.Models.Results.Auth;
+
+public class TokenResult
 {
-    public class TokenResult
-    {
-        public string AccessToken { get; set; }
-    }
+    public string AccessToken { get; set; }
 }

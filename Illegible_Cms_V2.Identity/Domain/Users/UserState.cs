@@ -1,9 +1,8 @@
-﻿namespace Illegible_Cms_V2.Identity.Domain.Users
+﻿namespace Illegible_Cms_V2.Identity.Domain.Users;
+
+public enum UserState
 {
-    public enum UserState
-    {
-        Active = 1,
-        InActive,
-        Suspended,
-    }
+    Active = 1,
+    InActive,
+    Suspended,
 }

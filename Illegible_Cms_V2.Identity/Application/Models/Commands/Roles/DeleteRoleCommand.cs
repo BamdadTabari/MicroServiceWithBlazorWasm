@@ -2,16 +2,15 @@
 using Illegible_Cms_V2.Shared.Infrastructure.Operations;
 using MediatR;
 
-namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Roles
-{
-    public class DeleteRoleCommand : IRequestInfo, IRequest<OperationResult>
-    {
-        public DeleteRoleCommand(RequestInfo requestInfo)
-        {
-            RequestInfo = requestInfo;
-        }
-        public int RoleId { get; set; }
+namespace Illegible_Cms_V2.Identity.Application.Models.Commands.Roles;
 
-        public RequestInfo RequestInfo { get; private set; }
+public class DeleteRoleCommand : IRequestInfo, IRequest<OperationResult>
+{
+    public DeleteRoleCommand(RequestInfo requestInfo)
+    {
+        RequestInfo = requestInfo;
     }
+    public int RoleId { get; set; }
+
+    public RequestInfo RequestInfo { get; private set; }
 }

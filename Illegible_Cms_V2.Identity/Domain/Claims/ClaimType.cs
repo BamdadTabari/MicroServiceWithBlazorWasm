@@ -1,7 +1,6 @@
-﻿namespace Illegible_Cms_V2.Identity.Domain.Claims
+﻿namespace Illegible_Cms_V2.Identity.Domain.Claims;
+
+public enum ClaimType
 {
-    public enum ClaimType
-    {
-        Permission = 1
-    }
+    Permission = 1
 }

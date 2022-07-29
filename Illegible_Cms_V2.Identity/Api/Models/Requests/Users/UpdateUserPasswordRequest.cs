@@ -1,7 +1,6 @@
-﻿namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Users
+﻿namespace Illegible_Cms_V2.Identity.Api.Models.Requests.Users;
+
+public class UpdateUserPasswordRequest
 {
-    public class UpdateUserPasswordRequest
-    {
-        public string NewPassword { get; set; }
-    }
+    public string NewPassword { get; set; }
 }

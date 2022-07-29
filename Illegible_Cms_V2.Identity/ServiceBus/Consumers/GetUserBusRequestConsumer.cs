@@ -5,37 +5,36 @@ using Illegible_Cms_V2.Shared.SharedServices.ServiceBus.Rpc.Identity.Models;
 using MassTransit;
 using MediatR;
 
-namespace Illegible_Cms_V2.Identity.ServiceBus.Consumers
+namespace Illegible_Cms_V2.Identity.ServiceBus.Consumers;
+
+public class GetUserBusRequestConsumer : IConsumer<GetUserBusRequest>
 {
-    public class GetUserBusRequestConsumer : IConsumer<GetUserBusRequest>
+    private readonly IMediator _mediator;
+
+    public GetUserBusRequestConsumer(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public GetUserBusRequestConsumer(IMediator mediator)
+    public async Task Consume(ConsumeContext<GetUserBusRequest> context)
+    {
+        // Payload
+        var userId = context.Message.UserId;
+
+        // Operation
+        var operation = await _mediator.Send(new GetUserByIdQuery { UserId = userId });
+
+        var value = operation.Value as UserModel;
+
+        // Response
+        await context.RespondAsync(new GetUserBusResponse
         {
-            _mediator = mediator;
-        }
-
-        public async Task Consume(ConsumeContext<GetUserBusRequest> context)
-        {
-            // Payload
-            var userId = context.Message.UserId;
-
-            // Operation
-            var operation = await _mediator.Send(new GetUserByIdQuery { UserId = userId });
-
-            var value = operation.Value as UserModel;
-
-            // Response
-            await context.RespondAsync(new GetUserBusResponse
+            User = new UserBusModel
             {
-                User = new UserBusModel
-                {
-                    Id = value.Id,
-                    Username = value.Username,
-                    Email = value.Email
-                }
-            });
-        }
+                Id = value.Id,
+                Username = value.Username,
+                Email = value.Email
+            }
+        });
     }
 }

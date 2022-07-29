@@ -1,18 +1,18 @@
 ﻿using Illegible_Cms_V2.Shared.BasicShared.Configurations;
 using Illegible_Cms_V2.Shared.BasicShared.DependencyInjection;
 
-namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection
+namespace Illegible_Cms_V2.Identity.Api.Extensions.DependencyInjection;
+
+public static class RedisCacheInjection
 {
-    public static class RedisCacheInjection
+    public static IServiceCollection AddConfiguredRedisCache(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddConfiguredRedisCache(this IServiceCollection services, IConfiguration configuration)
-        {
-            var config = configuration.GetSection(RedisCacheConfig.Key).Get<RedisCacheConfig>();
+        var config = configuration.GetSection(RedisCacheConfig.Key).Get<RedisCacheConfig>();
 
-            // Distributed caching
-            services.AddStackExchangeRedis("identity", config);
+        // Distributed caching
+        services.AddStackExchangeRedis("identity", config);
 
-            return services;
-        }
+        return services;
     }
 }
+
