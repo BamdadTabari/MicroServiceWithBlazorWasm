@@ -11,7 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Shared", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Identity", "Illegible_Cms_V2.Identity\Illegible_Cms_V2.Identity.csproj", "{DA851452-77A2-47C9-AC96-A5FF97F879C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Illegible_Cms_V2.Gateway", "Illegible_Cms_V2.Gateway\Illegible_Cms_V2.Gateway.csproj", "{7C7209C8-4819-4F35-B506-D2897F22B360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Illegible_Cms_V2.Gateway", "Illegible_Cms_V2.Gateway\Illegible_Cms_V2.Gateway.csproj", "{7C7209C8-4819-4F35-B506-D2897F22B360}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E7488A2-F4D8-4659-9EC9-85087A41D9B7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
