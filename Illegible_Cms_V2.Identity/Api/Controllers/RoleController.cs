@@ -8,96 +8,95 @@ using Illegible_Cms_V2.Shared.BasicShared.Extension;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Illegible_Cms_V2.Identity.Api.Controllers
+namespace Illegible_Cms_V2.Identity.Api.Controllers;
+
+[ApiController]
+public class RoleController : ControllerBase
 {
-    [ApiController]
-    public class RoleController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public RoleController(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public RoleController(IMediator mediator)
+    [HttpPost(Routes.Roles)]
+    [CreateRoleResultFilter]
+    public async Task<IActionResult> CreateRole([FromBody] CreateRoleRequest request)
+    {
+        var permissionIds = request.PermissionEids.Select(x => x.Decode()).ToList();
+
+        var operation = await _mediator.Send(new CreateRoleCommand(Request.GetRequestInfo())
         {
-            _mediator = mediator;
-        }
+            Title = request.Title,
+            PermissionIds = permissionIds
+        });
 
-        [HttpPost(Routes.Roles)]
-        [CreateRoleResultFilter]
-        public async Task<IActionResult> CreateRole([FromBody] CreateRoleRequest request)
+        return this.ReturnResponse(operation);
+    }
+
+    [HttpGet(Routes.Roles)]
+    [GetRolesByFilterResultFilter]
+    public async Task<IActionResult> GetRolesByFilter([FromQuery] GetRolesByFilterRequest request)
+    {
+        var permissionIds = (request.PermissionEids != null && request.PermissionEids.Any()) ? request.PermissionEids.Select(x => x.Decode()).ToArray() : null;
+
+        var operation = await _mediator.Send(new GetRolesByFilterQuery(Request.GetRequestInfo())
         {
-            var permissionIds = request.PermissionEids.Select(x => x.Decode()).ToList();
-
-            var operation = await _mediator.Send(new CreateRoleCommand(Request.GetRequestInfo())
+            Filter = new RoleFilter(request.Page, request.PageSize)
             {
-                Title = request.Title,
-                PermissionIds = permissionIds
-            });
+                PermissionIds = permissionIds,
+                SortBy = request.SortBy,
+                Title = request.Title
+            },
+        });
 
-            return this.ReturnResponse(operation);
-        }
+        return this.ReturnResponse(operation);
+    }
 
-        [HttpGet(Routes.Roles)]
-        [GetRolesByFilterResultFilter]
-        public async Task<IActionResult> GetRolesByFilter([FromQuery] GetRolesByFilterRequest request)
+    [HttpGet(Routes.Roles + "{reid}")]
+    [GetRoleByIdResultFilter]
+    public async Task<IActionResult> GetRoleById([FromRoute] string reid)
+    {
+        var roleId = reid.Decode();
+
+        var operation = await _mediator.Send(new GetRoleByIdQuery(Request.GetRequestInfo())
         {
-            var permissionIds = (request.PermissionEids != null && request.PermissionEids.Any()) ? request.PermissionEids.Select(x => x.Decode()).ToArray() : null;
+            RoleId = roleId
+        });
 
-            var operation = await _mediator.Send(new GetRolesByFilterQuery(Request.GetRequestInfo())
-            {
-                Filter = new RoleFilter(request.Page, request.PageSize)
-                {
-                    PermissionIds = permissionIds,
-                    SortBy = request.SortBy,
-                    Title = request.Title
-                },
-            });
+        return this.ReturnResponse(operation);
+    }
 
-            return this.ReturnResponse(operation);
-        }
 
-        [HttpGet(Routes.Roles + "{reid}")]
-        [GetRoleByIdResultFilter]
-        public async Task<IActionResult> GetRoleById([FromRoute] string reid)
+    [HttpDelete(Routes.Roles + "{reid}")]
+    [DeleteRoleResultFilter]
+    public async Task<IActionResult> DeleteRole([FromRoute] string reid)
+    {
+        var roleId = reid.Decode();
+
+        var operation = await _mediator.Send(new DeleteRoleCommand(Request.GetRequestInfo())
         {
-            var roleId = reid.Decode();
+            RoleId = roleId
+        });
 
-            var operation = await _mediator.Send(new GetRoleByIdQuery(Request.GetRequestInfo())
-            {
-                RoleId = roleId
-            });
+        return this.ReturnResponse(operation);
+    }
 
-            return this.ReturnResponse(operation);
-        }
+    [HttpPut(Routes.Roles + "{reid}")]
+    [UpdateRoleResultFilter]
+    public async Task<IActionResult> UpdateRole([FromRoute] string reid, [FromBody] UpdateRoleRequest request)
+    {
+        var roleId = reid.Decode();
+        var permissionIds = request.PermissionEids?.Select(x => x.Decode()).ToList();
 
-
-        [HttpDelete(Routes.Roles + "{reid}")]
-        [DeleteRoleResultFilter]
-        public async Task<IActionResult> DeleteRole([FromRoute] string reid)
+        var operation = await _mediator.Send(new UpdateRoleCommand(Request.GetRequestInfo())
         {
-            var roleId = reid.Decode();
+            RoleId = roleId,
+            Title = request.Title,
+            PermissionIds = permissionIds
+        });
 
-            var operation = await _mediator.Send(new DeleteRoleCommand(Request.GetRequestInfo())
-            {
-                RoleId = roleId
-            });
-
-            return this.ReturnResponse(operation);
-        }
-
-        [HttpPut(Routes.Roles + "{reid}")]
-        [UpdateRoleResultFilter]
-        public async Task<IActionResult> UpdateRole([FromRoute] string reid, [FromBody] UpdateRoleRequest request)
-        {
-            var roleId = reid.Decode();
-            var permissionIds = request.PermissionEids?.Select(x => x.Decode()).ToList();
-
-            var operation = await _mediator.Send(new UpdateRoleCommand(Request.GetRequestInfo())
-            {
-                RoleId = roleId,
-                Title = request.Title,
-                PermissionIds = permissionIds
-            });
-
-            return this.ReturnResponse(operation);
-        }
+        return this.ReturnResponse(operation);
     }
 }

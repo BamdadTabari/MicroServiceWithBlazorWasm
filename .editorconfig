@@ -2,3 +2,5 @@
 
 # CS8600: Converting null literal or possible null value to non-nullable type.
 dotnet_diagnostic.CS8600.severity = silent
+csharp_using_directive_placement=outside_namespace:warning
+csharp_style_namespace_declarations=file_scoped:silent

@@ -7,36 +7,35 @@ using Illegible_Cms_V2.Shared.BasicShared.Extension;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Illegible_Cms_V2.Identity.Api.Controllers
+namespace Illegible_Cms_V2.Identity.Api.Controllers;
+
+[ApiController]
+public class PermissionController : ControllerBase
 {
-    [ApiController]
-    public class PermissionController : ControllerBase
+    private readonly IMediator _mediator;
+
+    public PermissionController(IMediator mediator)
     {
-        private readonly IMediator _mediator;
+        _mediator = mediator;
+    }
 
-        public PermissionController(IMediator mediator)
+    [HttpGet(Routes.Permissions)]
+    [GetPermissionsResultFilter]
+    public async Task<IActionResult> GetPermissionsByFilter([FromQuery] GetPermissionsByFilterRequest request)
+    {
+        var roleId = request.RoleEid?.Decode();
+
+        var operation = await _mediator.Send(new GetPermissionsByFilterQuery(Request.GetRequestInfo())
         {
-            _mediator = mediator;
-        }
-
-        [HttpGet(Routes.Permissions)]
-        [GetPermissionsResultFilter]
-        public async Task<IActionResult> GetPermissionsByFilter([FromQuery] GetPermissionsByFilterRequest request)
-        {
-            var roleId = request.RoleEid?.Decode();
-
-            var operation = await _mediator.Send(new GetPermissionsByFilterQuery(Request.GetRequestInfo())
+            Filter = new PermissionFilter(request.Page, request.PageSize)
             {
-                Filter = new PermissionFilter(request.Page, request.PageSize)
-                {
-                    RoleId = roleId,
-                    Value = request.Value,
-                    Name = request.Name,
-                    Title = request.Title
-                },
-            });
+                RoleId = roleId,
+                Value = request.Value,
+                Name = request.Name,
+                Title = request.Title
+            },
+        });
 
-            return this.ReturnResponse(operation);
-        }
+        return this.ReturnResponse(operation);
     }
 }
