@@ -10,7 +10,6 @@ string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "De
 var appName = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
 
 builder.Configuration.AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{env}.json")
             .AddEnvironmentVariables();
 
 Log.Logger = new LoggerConfiguration()
@@ -51,8 +50,7 @@ try
     builder.Services.AddConfiguredMassTransit(configuration);
     builder.Services.AddConfiguredHealthChecks();
     builder.Services.AddConfiguredSwagger();
-    builder.Services.AddControllers();
-
+    builder.Services.AddMvc();
     #endregion
 
     var app = builder.Build();
@@ -94,7 +92,7 @@ try
     {
         endpoints.MapHealthChecks("/health");
         endpoints.MapRazorPages(); // <- Add this (for prerendering)
-        //endpoints.MapFallbackToPage("/_Host"); // <- Change method + file (for prerendering)
+        endpoints.MapFallbackToPage("/_Host"); // <- Change method + file (for prerendering)
     });
     app.Run();
 
