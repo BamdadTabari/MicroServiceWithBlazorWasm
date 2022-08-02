@@ -1,4 +1,4 @@
-using Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection;
+    using Illegible_Cms_V2.Server.Api.Extensions.DependencyInjection;
 using Illegible_Cms_V2.Server.Api.Extensions.Middleware;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
@@ -49,7 +49,6 @@ try
 
     builder.Services.AddConfiguredMassTransit(configuration);
     builder.Services.AddConfiguredHealthChecks();
-    builder.Services.AddConfiguredSwagger();
     builder.Services.AddMvc();
     #endregion
 
@@ -73,9 +72,6 @@ try
     app.UseHttpsRedirection();
     app.UseDeveloperExceptionPage();
     app.UseConfiguredExceptionHandler(environment);
-
-    if (!environment.IsProduction())
-        app.UseConfiguredSwagger();
 
     Log.Information($"Starting {appName}[{env}] on {address}");
 
