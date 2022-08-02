@@ -2,7 +2,8 @@
 using Illegible_Cms_V2.Server.Api.Extensions.Middleware;
 using Microsoft.AspNetCore.Hosting.Server;
 using Microsoft.AspNetCore.Hosting.Server.Features;
-using Serilog;
+    using MudBlazor.Services;
+    using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,23 @@ Log.Logger = new LoggerConfiguration()
         .CreateLogger();
 builder.Host.UseSerilog().
     ConfigureLogging(loggingConfiguration => loggingConfiguration.ClearProviders());
+
+
+builder.Services.AddMudServices();
+
+builder.Services.AddMudBlazorDialog();
+builder.Services.AddMudBlazorJsApi();
+builder.Services.AddMudBlazorJsEvent();
+builder.Services.AddMudBlazorKeyInterceptor();
+builder.Services.AddMudBlazorResizeListener();
+builder.Services.AddMudBlazorResizeObserver();
+builder.Services.AddMudBlazorResizeObserverFactory();
+builder.Services.AddMudBlazorScrollListener();
+builder.Services.AddMudBlazorScrollManager();
+builder.Services.AddMudBlazorScrollSpy();
+builder.Services.AddMudBlazorSnackbar();
+builder.Services.AddMudEventManager();
+builder.Services.AddMudBlazorKeyInterceptor();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 try

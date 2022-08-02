@@ -9,11 +9,21 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-builder.Services.AddMudServices(config =>
-{
-    config.SnackbarConfiguration.PositionClass = Defaults.Classes.Position.TopCenter;
-    config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
-    config.SnackbarConfiguration.ShowCloseIcon = true;
-    config.SnackbarConfiguration.MaxDisplayedSnackbars = 1;
-});
+builder.Services.AddMudServices();
+
+builder.Services.AddMudBlazorDialog();
+builder.Services.AddMudBlazorJsApi();
+builder.Services.AddMudBlazorJsEvent();
+builder.Services.AddMudBlazorKeyInterceptor();
+builder.Services.AddMudBlazorResizeListener();
+builder.Services.AddMudBlazorResizeObserver();
+builder.Services.AddMudBlazorResizeObserverFactory();
+builder.Services.AddMudBlazorScrollListener();
+builder.Services.AddMudBlazorScrollManager();
+builder.Services.AddMudBlazorScrollSpy();
+builder.Services.AddMudBlazorSnackbar();
+builder.Services.AddMudEventManager();
+builder.Services.AddMudBlazorKeyInterceptor();
+
+
 await builder.Build().RunAsync();
