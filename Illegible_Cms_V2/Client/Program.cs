@@ -11,19 +11,4 @@ builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.
 
 builder.Services.AddMudServices();
 
-builder.Services.AddMudBlazorDialog();
-builder.Services.AddMudBlazorJsApi();
-builder.Services.AddMudBlazorJsEvent();
-builder.Services.AddMudBlazorKeyInterceptor();
-builder.Services.AddMudBlazorResizeListener();
-builder.Services.AddMudBlazorResizeObserver();
-builder.Services.AddMudBlazorResizeObserverFactory();
-builder.Services.AddMudBlazorScrollListener();
-builder.Services.AddMudBlazorScrollManager();
-builder.Services.AddMudBlazorScrollSpy();
-builder.Services.AddMudBlazorSnackbar();
-builder.Services.AddMudEventManager();
-builder.Services.AddMudBlazorKeyInterceptor();
-
-
 await builder.Build().RunAsync();

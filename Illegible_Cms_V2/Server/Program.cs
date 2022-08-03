@@ -22,20 +22,6 @@ builder.Host.UseSerilog().
 
 builder.Services.AddMudServices();
 
-builder.Services.AddMudBlazorDialog();
-builder.Services.AddMudBlazorJsApi();
-builder.Services.AddMudBlazorJsEvent();
-builder.Services.AddMudBlazorKeyInterceptor();
-builder.Services.AddMudBlazorResizeListener();
-builder.Services.AddMudBlazorResizeObserver();
-builder.Services.AddMudBlazorResizeObserverFactory();
-builder.Services.AddMudBlazorScrollListener();
-builder.Services.AddMudBlazorScrollManager();
-builder.Services.AddMudBlazorScrollSpy();
-builder.Services.AddMudBlazorSnackbar();
-builder.Services.AddMudEventManager();
-builder.Services.AddMudBlazorKeyInterceptor();
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 try
 {
