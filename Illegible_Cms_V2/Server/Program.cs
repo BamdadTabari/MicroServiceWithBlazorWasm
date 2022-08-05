@@ -45,7 +45,7 @@ try
         return new HttpClient { BaseAddress = new Uri(baseAddress) };
     });
 
-    //// Add services to the container.
+    // Add services to the container.
     builder.Services.AddConfigurations(configuration);
     builder.Services.AddConfiguredDatabase(configuration);
     builder.Services.AddServices();
