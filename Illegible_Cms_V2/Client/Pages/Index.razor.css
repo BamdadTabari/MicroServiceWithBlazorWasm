@@ -1,0 +1,10 @@
+﻿.page {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.circleCards {
+    border: aliceblue;
+    border-radius: 50%;
+}
