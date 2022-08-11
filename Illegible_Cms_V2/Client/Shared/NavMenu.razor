@@ -1,0 +1,89 @@
+﻿<MudDrawer @bind-Open="SideBarOpen" Elevation="1" Class="IIsometricPattern">
+    <MudDrawerHeader Style="background-color:black;border-radius: 10px;">
+        <MudAvatar Size="Size.Large" Image="website.png" />
+        <MudText Typo="Typo.h6" Color="Color.Error" Style="margin-top:10px; margin-left:15px;">
+            <div class="IFArchitectsDaughter-Regular">
+                Illegible CMS
+            </div>
+        </MudText>
+    </MudDrawerHeader>
+    <MudNavMenu Class="IBGCBlack IBGOpacity90">
+        <MudNavLink Href="/" Match="NavLinkMatch.All" Class="ITshadowBlack">
+            <div class="row">
+                <div class="col-2">
+                    <MudIcon Icon="fas fa-igloo" />
+                </div>
+                <div class="col-9">
+                    <MudText Typo="Typo.h6">
+                        <div class="IFArchitectsDaughter-Regular">
+                            Home
+                        </div>
+                    </MudText>
+                </div>
+            </div>
+        </MudNavLink>
+        <MudNavLink Href="/IllegibleAdminDashboard" Class="ITshadowBlack">
+            <div class="row">
+                <div class="col-2">
+                    <MudIcon Icon="fas fa-toolbox" />
+                </div>
+                <div class="col-9">
+                    <MudText Typo="Typo.h6">
+                        <div class="IFArchitectsDaughter-Regular">
+                            Dashboard
+                        </div>
+                    </MudText>
+                </div>
+            </div>
+        </MudNavLink>
+        <MudNavLink Href="/IllegibleBlog" Class="ITshadowBlack">
+            <div class="row">
+                <div class="col-2">
+                    <MudIcon Icon="fas fa-blog" />
+                </div>
+                <div class="col-9">
+                    <MudText Typo="Typo.h6">
+                        <div class="IFArchitectsDaughter-Regular">
+                            Illegible Blog
+                        </div>
+                    </MudText>
+                </div>
+            </div>
+        </MudNavLink>
+        <MudNavLink Href="/products" Class="ITshadowBlack">
+            <div class="row">
+                <div class="col-2">
+                    <MudIcon Icon="fas fa-store" />
+                </div>
+                <div class="col-9">
+                    <MudText Typo="Typo.h6">
+                        <div class="IFArchitectsDaughter-Regular">
+                            Products
+                        </div>
+                    </MudText>
+                </div>
+            </div>
+        </MudNavLink>
+        <MudNavLink Href="application/chat" Class="ITshadowBlack">
+            <div class="row">
+                <div class="col-2">
+                    <MudIcon Icon="far fa-comments" />
+                </div>
+                <div class="col-9">
+                    <MudText Typo="Typo.h6">
+                        <div class="IFArchitectsDaughter-Regular">
+                            Illegible Chat
+                        </div>
+                    </MudText>
+                </div>
+            </div>
+        </MudNavLink>
+        <MudNavGroup Title="User Helpers" Class="ITshadowBlack IFArchitectsDaughter-Regular" Icon="far fa-address-card" Expanded="true">
+            <MudNavLink Href="/logout" Class="ITshadowBlack" Icon="fas fa-sign-out-alt">Sign Out</MudNavLink>
+            <MudNavLink Href="/login" Class="ITshadowBlack" Icon="fas fa-sign-in-alt">Sign In</MudNavLink>
+            <MudNavLink Href="/registration" Class="ITshadowBlack" Icon="fas fa-user-plus">Sign Up</MudNavLink>
+            <MudNavLink Href="/personal/account" Class="ITshadowBlack" Icon="fas fa-user-cog">Account Dashboard</MudNavLink>
+            <MudNavLink Href="#" Class="ITshadowBlack" Icon="fas fa-clipboard-list">To Do</MudNavLink>
+        </MudNavGroup>
+    </MudNavMenu>
+</MudDrawer>
