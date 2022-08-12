@@ -16,4 +16,10 @@
     <ProjectReference Include="..\Shared\Illegible_Cms_V2.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientObjects\Filters\Identity\" />
+    <Folder Include="ClientObjects\Requests\Identity\" />
+    <Folder Include="ClientObjects\Requests\Server\BlogPostRequests\" />
+  </ItemGroup>
+
 </Project>
