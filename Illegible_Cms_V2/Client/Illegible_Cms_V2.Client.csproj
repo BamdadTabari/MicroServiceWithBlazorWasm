@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Shared\Illegible_Cms_V2.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="ClientObjects\Filters\Identity\" />
+  </ItemGroup>
+
 </Project>
