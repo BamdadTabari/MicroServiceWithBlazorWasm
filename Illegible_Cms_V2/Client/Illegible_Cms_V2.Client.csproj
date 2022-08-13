@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="ClientObjects\Filters\Identity\" />
-    <Folder Include="ClientObjects\Requests\Identity\" />
   </ItemGroup>
 
 </Project>
